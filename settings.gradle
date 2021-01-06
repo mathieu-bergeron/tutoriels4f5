@@ -1,1 +1,10 @@
 rootProject.name = 'tutoriels4f5'
+
+
+sourceControl {
+    //gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
+    gitRepository("../ntro4f5") {
+        producesModule("ca.ntro4f5:lib")
+    }
+}
+

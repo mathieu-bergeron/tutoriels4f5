@@ -28,8 +28,10 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.13'
-    api 'org.apache.commons:commons-math3:3.6.1'
+    //api 'org.apache.commons:commons-math3:3.6.1'
     implementation 'com.google.guava:guava:29.0-jre'
+
+    implementation 'ca.ntro4f5:lib:0.4' 
 }
 
 tasks.clean {
@@ -38,3 +40,11 @@ tasks.clean {
         new File("${project.projectDir}/bin").deleteDir()
     }
 }
+
+task tutoriel01 (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'tutoriels4f5.tutoriel01.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8')
+}
+
