@@ -1,3 +1,15 @@
 plugins {
     id 'eclipse'
 }
+
+eclipse {
+    classpath {
+        file {
+            whenMerged {
+                classpath ->
+                    entries.removeAll {it.path.contains 'src'}
+            }
+        }
+    }
+}
+
