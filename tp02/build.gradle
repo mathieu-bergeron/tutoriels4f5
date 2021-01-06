@@ -1,0 +1,56 @@
+import org.gradle.plugins.ide.eclipse.model.AccessRule
+
+plugins {
+    id 'java'
+    id 'eclipse'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+eclipse {
+    classpath {
+        file {
+            whenMerged {
+                classpath ->
+                    def jre = entries.find { it.path.contains 'org.eclipse.jdt.launching.JRE_CONTAINER' }
+                    jre.accessRules.add(new AccessRule('0', 'javafx/**'))
+
+                    /*
+                    def ntro = entries.find { it.path.contains 'ntro' }
+                    entries.remove ntro
+                    entries += new org.gradle.plugins.ide.eclipse.model.Library(fileReference(file(ntro.publication.path)))
+                    */
+            }
+        }
+    }
+}
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13'
+
+    //implementation 'ca.ntro4f5:ntro:0.4' 
+    implementation project(':ntro')
+}
+
+tasks.clean {
+    doFirst {
+        new File("${project.projectDir}/build").deleteDir()
+        new File("${project.projectDir}/bin").deleteDir()
+    }
+}
+
+task tp02 (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'tutoriels4f5.tp02.client.Main'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8')
+}
+

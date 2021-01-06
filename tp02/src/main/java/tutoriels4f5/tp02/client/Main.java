@@ -1,6 +1,6 @@
-package tutoriels4f5.tutoriel01;
+package tutoriels4f5.tp02.client;
 
-import ntro4f5.debogage.J;
+import ntro.debogage.J;
 
 public class Main {
 	
@@ -8,7 +8,5 @@ public class Main {
 		J.appel(Main.class);
 		
 		J.ici();
-		
 	}
-
 }
