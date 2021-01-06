@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args){
 		J.appel(Main.class);
 		
-		J.valeurs("ICI!");
+		J.ici();
 		
 	}
 
