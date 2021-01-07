@@ -75,6 +75,13 @@ task tp02Parametres (type:JavaExec) {
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
+task tp02Sauvegardes (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'tp02.client.pages.sauvegardes.PageSauvegardes'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8')
+}
+
 task serveur (type:JavaExec) {
     dependsOn 'classes'
     main = 'tp02.serveur.Main'

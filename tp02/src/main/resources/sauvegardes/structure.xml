@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import tp02.client.pages.sauvegardes.vues.composants.ConteneurSauvegardes?>
+
+<HBox xmlns:fx="http://javafx.com/fxml"
+    id="conteneurPrincipal"
+    fx:controller="tp02.client.pages.sauvegardes.vues.VueSauvegardesFX"
+    VBox.vgrow="ALWAYS">
+
+    <Pane styleClass="petitEspace" HBox.hgrow="ALWAYS" />
+
+    <VBox id="conteneurInterne" HBox.hgrow="ALWAYS">
+
+        <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+
+		<Text HBox.hgrow="ALWAYS" id="texteRechercheEnCours" fx:id="texteRechercheEnCours" text="%rechercheEnCours" />
+
+        <Pane styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+
+
+        <ConteneurSauvegardes id="conteneurSauvegardes" 
+                              VBox.vgrow="ALWAYS"
+                              fx:id="conteneurSauvegardes"/>
+
+        <Pane styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+
+    </VBox>
+
+    <Pane styleClass="petitEspace" HBox.hgrow="ALWAYS"/>
+
+
+</HBox>
