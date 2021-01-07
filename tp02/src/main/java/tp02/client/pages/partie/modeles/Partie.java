@@ -10,18 +10,25 @@ public class      Partie<PLS extends PartieLectureSeule>
        extends    Modele<PLS>
        implements PartieLectureSeule {
 
-	protected int largeur =  Constantes.LARGEUR_GRILLE_PAR_DEFAUT;
-	protected int hauteur = Constantes.HAUTEUR_GRILLE_PAR_DEFAUT;
+	protected int largeur;
+	protected int hauteur;
 	
-	protected Couleur couleurCourante = Couleur.ROUGE;
+	protected Couleur couleurCourante;
 
 	protected Grille grille;
 	
 	public Partie() {
 		J.appel(this);
-		
+	}
+	
+	public void initialiser() {
+		largeur =  Constantes.LARGEUR_GRILLE_PAR_DEFAUT;
+		hauteur = Constantes.HAUTEUR_GRILLE_PAR_DEFAUT;
+		couleurCourante = Couleur.ROUGE;
+
 		grille = new Grille();
 		grille.initialiser(largeur);
+
 	}
 	
     public void jouerIci(int indiceColonne){

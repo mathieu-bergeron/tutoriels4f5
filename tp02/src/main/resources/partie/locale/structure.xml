@@ -8,7 +8,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
       styleClass="conteneurPrincipal" 
-      fx:controller="tp02.client.pages.partie.vues.VuePartieLocaleFX"
+      fx:controller="tp02.client.pages.partie.vues.VuePartieLocale"
       VBox.vgrow="ALWAYS">
     <VBox styleClass="conteneurTableJeu" VBox.vgrow="ALWAYS">
         <ConteneurEntetes fx:id="conteneurEntetes" 

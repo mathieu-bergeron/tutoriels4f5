@@ -126,6 +126,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		VuePartieLocale vuePartieLocale = vue.creerVuePartieLocale();
 		
 		PartieLocale partie = new PartieLocale();
+		partie.initialiser();
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 		
@@ -139,6 +140,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		VuePartieReseau vuePartieReseau = vue.creerVuePartieReseau();
 		
 		PartieReseau partie = new PartieReseau();
+		partie.initialiser();
 		
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		

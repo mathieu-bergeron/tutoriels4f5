@@ -10,7 +10,7 @@
 
 <HBox xmlns:fx="http://javafx.com/fxml"
     id="conteneurPrincipal"
-    fx:controller="tp02.client.pages.sauvegardes.vues.VueSauvegardesFX"
+    fx:controller="tp02.client.pages.sauvegardes.vues.VueSauvegardes"
     VBox.vgrow="ALWAYS">
 
     <Pane styleClass="petitEspace" HBox.hgrow="ALWAYS" />

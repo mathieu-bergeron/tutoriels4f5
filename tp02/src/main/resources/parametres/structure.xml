@@ -8,7 +8,7 @@
 <?import tp02.client.pages.parametres.vues.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" 
-    fx:controller="tp02.client.pages.parametres.vues.VueParametresFX">
+    fx:controller="tp02.client.pages.parametres.vues.VueParametres">
 
 	<VBox styleClass="conteneurVertical" VBox.vgrow="ALWAYS">
 		<VBox styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
