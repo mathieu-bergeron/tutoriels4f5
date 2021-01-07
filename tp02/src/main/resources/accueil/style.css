@@ -51,13 +51,9 @@
 .bouton:hover {
   -fx-background-color: #95c5db;
 }
-.texteQuiCommence {
-  -fx-padding: 2em;
-  -fx-margin-right: 2em;
-  -fx-font-family: Times;
-  -fx-font-color: #305ae1;
-}
-.marque {
-  -fx-min-width: 5em;
-  -fx-min-height: 5em;
+.fenetrePrincipale {
+  -fx-border-style: solid;
+  -fx-border-width: 2px;
+  -fx-border-color: #305ae1;
+  -fx-background-color: #bcced6;
 }
