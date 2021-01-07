@@ -6,11 +6,11 @@ import tp02.client.pages.sauvegardes.modeles.UneSauvegardeLectureSeule;
 import tp02.client.pages.sauvegardes.vues.VueSauvegardes;
 import ntro.client.mvc.Afficheur;
 
-public abstract class AfficheurSauvegardes<V extends VueSauvegardes> 
-       extends Afficheur<SauvegardesLectureSeule, V> {
+public class   AfficheurSauvegardes
+       extends Afficheur<SauvegardesLectureSeule, VueSauvegardes> {
 
 	@Override
-	public void initialiserAffichage(SauvegardesLectureSeule modeleLectureSeule, V vue) {
+	public void initialiserAffichage(SauvegardesLectureSeule modeleLectureSeule, VueSauvegardes vue) {
 		J.appel(this);
 		
 
@@ -18,7 +18,7 @@ public abstract class AfficheurSauvegardes<V extends VueSauvegardes>
 	}
 
 	@Override
-	public void rafraichirAffichage(SauvegardesLectureSeule modeleLectureSeule, V vue) {
+	public void rafraichirAffichage(SauvegardesLectureSeule modeleLectureSeule, VueSauvegardes vue) {
 		J.appel(this);
 		
 		vue.viderLesSauvegardes();
@@ -26,7 +26,7 @@ public abstract class AfficheurSauvegardes<V extends VueSauvegardes>
 		afficherLesSauvegardes(modeleLectureSeule, vue);
 	}
 
-	private void afficherLesSauvegardes(SauvegardesLectureSeule modeleLectureSeule, V vue) {
+	private void afficherLesSauvegardes(SauvegardesLectureSeule modeleLectureSeule, VueSauvegardes vue) {
 		J.appel(this);
 		
 		for(UneSauvegardeLectureSeule uneSauvegarde : modeleLectureSeule.getLesSauvegardes()) {

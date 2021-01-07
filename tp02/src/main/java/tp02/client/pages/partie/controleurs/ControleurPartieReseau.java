@@ -12,13 +12,12 @@ import tp02.messages.transmettre_coup.TransmettreCoup;
 import tp02.messages.transmettre_coup.TransmettreCoupPourEnvoi;
 import tp02.messages.transmettre_coup.TransmettreCoupRecu;
 
-public abstract class ControleurPartieReseau<V extends VuePartieReseau, 
-                                             A extends AfficheurPartieReseau<V>>
+public abstract class ControleurPartieReseau
 
                 extends ControleurPartie<PartieReseauLectureSeule, 
                         PartieReseau, 
-                        V, 
-                        A> {
+                        VuePartieReseau, 
+                        AfficheurPartieReseau> {
 	
 	private TransmettreCoupPourEnvoi transmettreCoup;
 	

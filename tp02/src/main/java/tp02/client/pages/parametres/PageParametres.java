@@ -9,10 +9,9 @@ import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.Initialisateur;
 import tp02.client.pages.parametres.afficheurs.AfficheurParametres;
-import tp02.client.pages.parametres.afficheurs.AfficheurParametresFX;
-import tp02.client.pages.parametres.controleurs.ControleurParametresFX;
+import tp02.client.pages.parametres.controleurs.ControleurParametres;
 import tp02.client.pages.parametres.modeles.Parametres;
-import tp02.client.pages.parametres.vues.VueParametresFX;
+import tp02.client.pages.parametres.vues.VueParametres;
 
 import static tp02.client.Constantes.*;
 
@@ -34,19 +33,19 @@ public class PageParametres extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		ChargeurDeVue<VueParametresFX> chargeur = new ChargeurDeVue<VueParametresFX>(CHEMIN_PARAMETRES_FXML,
+		ChargeurDeVue<VueParametres> chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
 						CHEMIN_CHAINES,
 						CHEMIN_PARAMETRES_CSS);
 
-		VueParametresFX vue = chargeur.getVue();
+		VueParametres vue = chargeur.getVue();
 		
 		Parametres parametres = new Parametres();
 		
-		AfficheurParametres<VueParametresFX> afficheurParametres = new AfficheurParametresFX();
+		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		
 		DoitEtre.nonNul(vue);
 
-		FabriqueControleur.creerControleur(ControleurParametresFX.class, parametres, vue, afficheurParametres);
+		FabriqueControleur.creerControleur(ControleurParametres.class, parametres, vue, afficheurParametres);
 
 		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS, HAUTEUR_PIXELS);
 

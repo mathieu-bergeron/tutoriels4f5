@@ -5,10 +5,8 @@ import ntro.debogage.J;
 import tp02.client.pages.parametres.modeles.ParametresLectureSeule;
 import tp02.client.pages.parametres.vues.VueParametres;
 
-public abstract class AfficheurParametres<V extends VueParametres> 
-
-                            extends Afficheur<ParametresLectureSeule, 
-                                              V> {
+public class   AfficheurParametres 
+       extends Afficheur<ParametresLectureSeule, VueParametres> {
 
 	@Override
 	public void initialiserAffichage(ParametresLectureSeule modeleLectureSeule, VueParametres vue) {

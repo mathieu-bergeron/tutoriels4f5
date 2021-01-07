@@ -10,13 +10,11 @@ import tp02.client.pages.parametres.modeles.Parametres;
 import tp02.client.pages.parametres.modeles.ParametresLectureSeule;
 import tp02.client.pages.parametres.vues.VueParametres;
 
-public abstract class ControleurParametres<V extends VueParametres,
-					       				     A extends AfficheurParametres<V>> 
-
-					extends ControleurModeleVue<ParametresLectureSeule, 
-											    Parametres, 
-											    V, 
-											    A> {
+public class   ControleurParametres 
+       extends ControleurModeleVue<ParametresLectureSeule, 
+                                   Parametres,
+                                   VueParametres,
+                                   AfficheurParametres> {
 	
 
 	@Override
@@ -39,4 +37,16 @@ public abstract class ControleurParametres<V extends VueParametres,
 		J.appel(this);
 
 	} 
+
+	@Override
+	protected void obtenirMessagesPourEnvoi() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void installerReceptionMessages() {
+		// TODO Auto-generated method stub
+		
+	}
 }
