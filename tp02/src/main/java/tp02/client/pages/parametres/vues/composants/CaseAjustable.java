@@ -1,4 +1,4 @@
-package tp02.client.pages.parametres.vues;
+package tp02.client.pages.parametres.vues.composants;
 
 
 import java.util.ArrayList;
@@ -14,6 +14,7 @@ import ntro.javafx.vues.composants.CanvasAjustable;
 import tp02.client.commandes.jouer_ici.JouerIci;
 import tp02.client.commandes.jouer_ici.JouerIciPourEnvoi;
 import tp02.client.pages.parametres.modeles.Marque;
+import tp02.client.pages.parametres.vues.Bordure;
 
 public class CaseAjustable extends CanvasAjustable {
     

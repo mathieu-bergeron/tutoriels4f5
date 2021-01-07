@@ -1,4 +1,4 @@
-package tp02.client.pages.vues.composants;
+package tp02.client.pages.partie.vues.composants;
 
 import ntro.debogage.J;
 import tp02.client.Couleur;

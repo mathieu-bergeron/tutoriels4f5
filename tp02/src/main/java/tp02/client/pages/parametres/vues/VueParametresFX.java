@@ -11,6 +11,7 @@ import tp02.client.commandes.choisir_qui_commence.ChoisirQuiCommencePourEnvoi;
 import tp02.client.commandes.fermer_parametres.FermerParametres;
 import tp02.client.commandes.fermer_parametres.FermerParametresPourEnvoi;
 import tp02.client.pages.parametres.modeles.Marque;
+import tp02.client.pages.parametres.vues.composants.CaseAjustable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

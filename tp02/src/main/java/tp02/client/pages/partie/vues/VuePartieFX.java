@@ -5,8 +5,8 @@ import java.util.ResourceBundle;
 
 import ntro.debogage.J;
 import tp02.client.Couleur;
-import tp02.client.pages.vues.composants.ConteneurEntetes;
-import tp02.client.pages.vues.composants.ConteneurGrille;
+import tp02.client.pages.partie.vues.composants.ConteneurEntetes;
+import tp02.client.pages.partie.vues.composants.ConteneurGrille;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;

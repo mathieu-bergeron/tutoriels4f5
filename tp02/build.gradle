@@ -61,6 +61,20 @@ task tp02 (type:JavaExec) {
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
+task tp02Accueil (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'tp02.client.pages.accueil.PageAccueil'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8')
+}
+
+task tp02Parametres (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'tp02.client.pages.parametres.PageParametres'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8')
+}
+
 task serveur (type:JavaExec) {
     dependsOn 'classes'
     main = 'tp02.serveur.Main'

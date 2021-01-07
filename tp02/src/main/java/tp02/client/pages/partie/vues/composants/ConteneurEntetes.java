@@ -1,4 +1,4 @@
-package tp02.client.pages.vues.composants;
+package tp02.client.pages.partie.vues.composants;
 
 import java.util.ArrayList;
 import java.util.List;
