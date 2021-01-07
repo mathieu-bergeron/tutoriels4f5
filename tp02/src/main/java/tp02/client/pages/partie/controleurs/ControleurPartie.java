@@ -51,6 +51,6 @@ public abstract class  ControleurPartie<PLS extends PartieLectureSeule,
 	protected void reagirCommandeJouerIci(JouerIciRecue jouerIciRecue) {
 		J.appel(this);
 
-			modele.jouerIci(jouerIciRecue.getIndiceColonne());
+			getModele().jouerIci(jouerIciRecue.getIndiceColonne());
 	}
 }

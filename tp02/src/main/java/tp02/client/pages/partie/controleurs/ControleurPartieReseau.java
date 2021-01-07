@@ -41,7 +41,7 @@ public abstract class ControleurPartieReseau
 			public void recevoirMessageMVC(TransmettreCoupRecu messageRecu) {
 				J.appel(this);
 				
-				modele.jouerIci(messageRecu.getIndiceColonne());
+				getModele().jouerIci(messageRecu.getIndiceColonne());
 			}
 		});
 	}

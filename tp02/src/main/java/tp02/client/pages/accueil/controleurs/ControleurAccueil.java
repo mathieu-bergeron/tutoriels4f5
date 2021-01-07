@@ -123,10 +123,9 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private void nouvellePartieLocale() {
 		J.appel(this);
 		
-		VuePartieLocale vuePartieLocale = vue.creerVuePartieLocale();
+		VuePartieLocale vuePartieLocale = getVue().creerVuePartieLocale();
 		
 		PartieLocale partie = new PartieLocale();
-		partie.initialiser();
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 		
@@ -137,10 +136,9 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private void nouvellePartieReseau() {
 		J.appel(this);
 		
-		VuePartieReseau vuePartieReseau = vue.creerVuePartieReseau();
+		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
 		PartieReseau partie = new PartieReseau();
-		partie.initialiser();
 		
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		

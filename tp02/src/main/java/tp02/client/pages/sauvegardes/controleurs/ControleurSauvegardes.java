@@ -44,7 +44,7 @@ public class   ControleurSauvegardes
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
-				vue.cacherRechercheEnCours();
+				getVue().cacherRechercheEnCours();
 			}
 		});
 	}
@@ -94,8 +94,8 @@ public class   ControleurSauvegardes
 			public void run() {
 				J.appel(this);
 
-				modele.ajouterSauvegarde(Systeme.cheminDansHome(fichier));
-				afficheur.rafraichirAffichage(modele, vue);
+				getModele().ajouterSauvegarde(Systeme.cheminDansHome(fichier));
+				getAfficheur().rafraichirAffichage(getModele(), getVue());
 			}});
 	}
 	
