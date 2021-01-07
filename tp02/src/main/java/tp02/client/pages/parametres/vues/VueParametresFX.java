@@ -23,7 +23,7 @@ public class VueParametresFX implements VueParametres, Initializable {
 	
 	private FermerParametresPourEnvoi fermerParametres;
 	private ChoisirQuiCommencePourEnvoi choisirQuiCommence;
-	
+
 	@FXML 
 	private CaseAjustable caseX, caseO;
 	
@@ -50,7 +50,7 @@ public class VueParametresFX implements VueParametres, Initializable {
 	@Override
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
-
+		
 		fermerParametres = FabriqueCommande.obtenirCommandePourEnvoi(FermerParametres.class);
 		choisirQuiCommence = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirQuiCommence.class);
 	}
@@ -83,11 +83,10 @@ public class VueParametresFX implements VueParametres, Initializable {
 			@Override
 			public void handle(ActionEvent event) {
 				J.appel(this);
-				
+
 				fermerParametres.envoyerCommande();
 			}
 		});
-		
 	}
 
 	@Override

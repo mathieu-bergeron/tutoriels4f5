@@ -7,7 +7,10 @@ import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
 import javafx.scene.Scene;
+import javafx.stage.Stage;
 import tp02.client.Main;
+import tp02.client.commandes.fermer_parametres.FermerParametres;
+import tp02.client.commandes.fermer_parametres.FermerParametresRecue;
 import tp02.client.commandes.nouvelle_partie.NouvellePartieLocale;
 import tp02.client.commandes.nouvelle_partie.NouvellePartieLocaleRecue;
 import tp02.client.commandes.nouvelle_partie_reseau.NouvellePartieReseau;
@@ -30,6 +33,9 @@ import static tp02.client.Constantes.*;
 @SuppressWarnings("rawtypes")
 public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 
+	private Scene sceneParametres;
+	private Stage dialogueParametres;
+
 	@Override
 	protected void demarrer() {
 		J.appel(this);
@@ -42,6 +48,13 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 
 			nouvellePartieLocale();
 		}
+		
+		ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PARAMETRES_FXML,
+						CHEMIN_CHAINES,
+						CHEMIN_PARAMETRES_CSS);
+		
+		sceneParametres = chargeur.nouvelleScene(400, 300);
+		
 	}
 
 
@@ -73,6 +86,15 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 				J.appel(this);
 				
 				ouvrirParametres();
+			}
+		});
+
+		installerRecepteurCommande(FermerParametres.class, new RecepteurCommandeMVC<FermerParametresRecue>() {
+			@Override
+			public void executerCommandeMVC(FermerParametresRecue commande) {
+				J.appel(this);
+				
+				fermerParametres();
 			}
 		});
 
@@ -114,15 +136,16 @@ public class ControleurAccueilFX extends ControleurAccueil<VueAccueilFX> {
 	
 	private void ouvrirParametres() {
 		J.appel(this);
-
-		ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PARAMETRES_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARAMETRES_CSS);
 		
-		Scene scene = chargeur.nouvelleScene(400, 300);
-		
-		DialogueModal.ouvrirDialogueModal(scene);
+		dialogueParametres = DialogueModal.ouvrirDialogueModal(sceneParametres);
 	}
 
-
+	private void fermerParametres() {
+		J.appel(this);
+		
+		if(dialogueParametres != null) {
+			
+			dialogueParametres.close();
+		}
+	}
 }
