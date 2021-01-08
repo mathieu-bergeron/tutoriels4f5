@@ -45,6 +45,13 @@ public abstract class  ControleurPartie<PLS extends PartieLectureSeule,
 				
 				reagirCommandeJouerIci(commande);
 			}
+			
+			@Override
+			public boolean siCommandePossible(JouerIciRecue commande) {
+				J.appel(this);
+				
+				return getModele().siPossibleJouerIci(commande.getIndiceColonne());
+			}
 		});
 	} 
 	

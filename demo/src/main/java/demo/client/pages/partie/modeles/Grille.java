@@ -1,9 +1,8 @@
 package demo.client.pages.partie.modeles;
 
+import java.net.IDN;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import ntro.debogage.J;
 import demo.client.Couleur;
@@ -17,15 +16,16 @@ public class Grille implements GrilleLectureSeule {
 
 		colonnes = new ArrayList<>();
 		for(int indiceColonne = 0; indiceColonne < largeur; indiceColonne++) {
-			colonnes.add(new Colonne());
+			Colonne nouvelleColonne = new Colonne();
+			nouvelleColonne.setIdColonne(indiceColonne);
+			colonnes.add(nouvelleColonne);
 		}
 	}
 
-	public void ajouterJeton(int idColonne, Couleur couleur) {
+	public Jeton ajouterJeton(int idColonne, Couleur couleur) {
 		J.appel(this);
 		
-		colonnes.get(idColonne).ajouterJeton(couleur);
-		
+		return colonnes.get(idColonne).ajouterJeton(couleur);
 	}
 
 	@Override
@@ -42,6 +42,25 @@ public class Grille implements GrilleLectureSeule {
 		
 		return colonnesLectureSeule;
 		
+	}
+
+	public boolean siPossibleJouerIci(int indiceColonne, int hauteur) {
+		J.appel(this);
+
+		boolean siPossible = false;
+		
+		if(siIndiceColonneValide(indiceColonne)){
+
+			siPossible = colonnes.get(indiceColonne).siPossibleJouerIci(hauteur);
+		}
+
+		return siPossible;
+	}
+
+	private boolean siIndiceColonneValide(int indiceColonne) {
+		J.appel(this);
+
+		return indiceColonne >= 0 && indiceColonne < colonnes.size();
 	}
 
 

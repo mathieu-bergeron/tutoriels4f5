@@ -5,5 +5,7 @@ import demo.client.Couleur;
 public interface JetonLectureSeule {
 	
 	Couleur getCouleur();
+	int getIndiceRangee();
+	int getIndiceColonne();
 
 }

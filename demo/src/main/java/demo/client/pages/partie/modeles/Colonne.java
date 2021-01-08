@@ -10,15 +10,20 @@ import demo.client.Couleur;
 public class Colonne implements ColonneLectureSeule {
 	
 	private List<Jeton> jetons = new ArrayList<>();
+	private int idColonne;
 
-	public void ajouterJeton(Couleur couleur) {
+	public Jeton ajouterJeton(Couleur couleur) {
 		J.appel(this);
 		
 		Jeton jeton = new Jeton();
-		
-		jeton.initialiser(couleur);
+
+		jeton.setCouleur(couleur);
+		jeton.setIndiceColonne(idColonne);
+		jeton.setIndiceRangee(jetons.size());
 		
 		jetons.add(jeton);
+		
+		return jeton;
 	}
 
 	@Override
@@ -34,4 +39,19 @@ public class Colonne implements ColonneLectureSeule {
 		
 		return jetonsLectureSeule;
 	}
+
+	public int getIdColonne() {
+		return idColonne;
+	}
+
+	public void setIdColonne(int idColonne) {
+		this.idColonne = idColonne;
+	}
+
+	public boolean siPossibleJouerIci(int hauteur) {
+		J.appel(this);
+
+		return jetons.size() < hauteur;
+	}
+	
 }

@@ -9,4 +9,6 @@ public interface PartieLectureSeule
 	 int getLargeur();
 	 int getHauteur();
 
+	 JetonLectureSeule getDernierJetonAjoute();
+
 }

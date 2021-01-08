@@ -48,4 +48,17 @@ public class Entete extends HBox {
 		
 		jouerIciPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(JouerIci.class);
 	}
+
+    public void verifierCommandePossible(){
+        J.appel(this);
+
+        jouerIciPourEnvoi.setIndiceColonne(indiceColonne);
+        setActif(jouerIciPourEnvoi.siCommandePossible());
+    }
+
+    public void setActif(boolean enteteActive) {
+        J.appel(this);
+        
+        this.bouton.setDisable(!enteteActive);
+    }
 }

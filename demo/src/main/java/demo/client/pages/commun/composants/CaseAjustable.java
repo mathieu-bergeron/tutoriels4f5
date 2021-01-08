@@ -2,11 +2,15 @@ package demo.client.pages.commun.composants;
 
 
 import ntro.debogage.J;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.NamedArg;
 import ntro.javafx.vues.composants.CanvasAjustable;
 import demo.client.Couleur;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
+import javafx.util.Duration;
 
 public class CaseAjustable extends CanvasAjustable {
     
@@ -15,6 +19,9 @@ public class CaseAjustable extends CanvasAjustable {
     private Color couleurRouge;
     private Color couleurJaune;
 
+    private Timeline animationSortieJeton;
+    private Timeline animationEntreeJeton;
+
     public CaseAjustable(@NamedArg("couleurRouge") Color couleurRouge, 
     		             @NamedArg("couleurJaune") Color couleurJaune) {
         super();
@@ -22,6 +29,9 @@ public class CaseAjustable extends CanvasAjustable {
         
         this.couleurRouge = couleurRouge;
         this.couleurJaune = couleurJaune;
+
+        creerAnimationSortieJeton();
+        creerAnimationEntreeJeton();
         
 
         initialiserPinceau();
@@ -154,5 +164,49 @@ public class CaseAjustable extends CanvasAjustable {
         laCase.caseHautGaucheY = (hauteurDessin - laCase.tailleCase) / 2;
         
         return laCase;
+    }
+
+    public void animerEntreeJeton() {
+        J.appel(this);
+        
+        animationEntreeJeton.playFromStart();
+    }
+
+    public void animerSortieJeton() {
+        J.appel(this);
+        
+        animationSortieJeton.playFromStart();
+    }
+
+    private void creerAnimationEntreeJeton() {
+        J.appel(this);
+        
+        animationEntreeJeton = new Timeline();
+
+        animationEntreeJeton.getKeyFrames().add(
+                new KeyFrame(Duration.ZERO,
+                             new KeyValue(this.translateYProperty(), -100),
+                             new KeyValue(this.opacityProperty(), 0)));
+
+        animationEntreeJeton.getKeyFrames().add(
+                new KeyFrame(new Duration(100),
+                             new KeyValue(this.translateYProperty(), 0),
+                             new KeyValue(this.opacityProperty(), 1))); 
+    }
+
+    private void creerAnimationSortieJeton() {
+        J.appel(this);
+        
+        animationSortieJeton = new Timeline();
+        
+        animationSortieJeton.getKeyFrames().add(
+                new KeyFrame(Duration.ZERO,
+                             new KeyValue(this.translateYProperty(), 0),
+                             new KeyValue(this.opacityProperty(), 1)));
+
+        animationSortieJeton.getKeyFrames().add(
+                new KeyFrame(new Duration(100),
+                             new KeyValue(this.translateYProperty(), 200),
+                             new KeyValue(this.opacityProperty(), 0))); 
     }
 }
