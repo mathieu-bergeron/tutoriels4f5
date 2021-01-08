@@ -35,7 +35,6 @@ import demo.client.pages.partie.vues.VuePartieLocale;
 import demo.client.pages.partie.vues.VuePartieReseau;
 import static demo.client.Constantes.*;
 
-@SuppressWarnings("rawtypes")
 public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 	private Scene sceneParametres;
@@ -56,7 +55,16 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	@Override
 	protected void demarrer() {
 		J.appel(this);
+
+		instancierMVCParamatres();
 		
+		nouvellePartie();
+
+	}
+
+	private void nouvellePartie() {
+		J.appel(this);
+
 		if(Main.siConnecteAuServeur()) {
 			
 			nouvellePartieReseau();
@@ -65,20 +73,20 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 			nouvellePartieLocale();
 		}
-		
-		instancierMVCParamatres();
-
 	}
 
 	private void instancierMVCParamatres() {
+		J.appel(this);
 
-		ChargeurDeVue<VueParametres> chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARAMETRES_CSS);
+		ChargeurDeVue<VueParametres> chargeur;
+		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
+				                            		CHEMIN_CHAINES,
+										            CHEMIN_PARAMETRES_CSS);
 		
-		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, HAUTEUR_PARAMETRES_PIXELS);
+		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
+				                                 HAUTEUR_PARAMETRES_PIXELS);
 		
-		Parametres parametres = new Parametres();
+		parametres = new Parametres();
 		
 		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		
@@ -148,6 +156,8 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		PartieLocale partie = new PartieLocale();
 		partie.initialiser();
+		
+		partie.setCouleurCourante(parametres.getQuiCommence());
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 		

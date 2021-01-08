@@ -1,7 +1,8 @@
-package demo.client.pages.partie.vues.composants;
+package demo.client.pages.commun.composants;
 
 
 import ntro.debogage.J;
+import javafx.beans.NamedArg;
 import ntro.javafx.vues.composants.CanvasAjustable;
 import demo.client.Couleur;
 import javafx.scene.paint.Color;
@@ -14,7 +15,8 @@ public class CaseAjustable extends CanvasAjustable {
     private Color couleurRouge;
     private Color couleurJaune;
 
-    public CaseAjustable(Color couleurRouge, Color couleurJaune) {
+    public CaseAjustable(@NamedArg("couleurRouge") Color couleurRouge, 
+    		             @NamedArg("couleurJaune") Color couleurJaune) {
         super();
         J.appel(this);
         

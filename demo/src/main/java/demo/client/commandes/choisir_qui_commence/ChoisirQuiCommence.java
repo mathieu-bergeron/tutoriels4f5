@@ -1,26 +1,26 @@
 package demo.client.commandes.choisir_qui_commence;
 
+import demo.client.Couleur;
 import ntro.client.commandes.Commande;
 import ntro.debogage.J;
-import demo.client.pages.parametres.modeles.Marque;
 
 public class ChoisirQuiCommence extends Commande<ChoisirQuiCommencePourEnvoi, ChoisirQuiCommenceRecue> 
 						   implements ChoisirQuiCommencePourEnvoi, ChoisirQuiCommenceRecue {
 	
-	private Marque marque;
+	private Couleur couleur;
 
 	@Override
-	public Marque getMarque() {
+	public Couleur getCouleur() {
 		J.appel(this);
 		
-		return marque;
+		return couleur;
 	}
 
 	@Override
-	public void setMarque(Marque marque) {
+	public void setCouleur(Couleur marque) {
 		J.appel(this);
 		
-		this.marque = marque;
+		this.couleur = marque;
 	}
 
 }

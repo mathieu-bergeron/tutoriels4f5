@@ -26,7 +26,7 @@ public class   ControleurParametres
 			public void executerCommandeMVC(ChoisirQuiCommenceRecue commande) {
 				J.appel(this);
 				
-				getModele().choisirQuiCommence(commande.getMarque());
+				getModele().choisirQuiCommence(commande.getCouleur());
 				
 			}
 		});

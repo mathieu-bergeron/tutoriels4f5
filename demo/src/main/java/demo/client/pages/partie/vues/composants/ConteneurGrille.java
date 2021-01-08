@@ -12,7 +12,8 @@ public class ConteneurGrille extends VBox {
     private Color couleurRouge;
     private Color couleurJaune;
     
-    public ConteneurGrille(@NamedArg("couleurRouge") String couleurRouge, @NamedArg("couleurJaune") String couleurJaune) {
+    public ConteneurGrille(@NamedArg("couleurRouge") String couleurRouge, 
+    		               @NamedArg("couleurJaune") String couleurJaune) {
         super();
         J.appel(this);
 

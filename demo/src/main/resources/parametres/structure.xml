@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import demo.client.pages.parametres.vues.composants.CaseAjustable?>
+<?import demo.client.pages.commun.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" 
     fx:controller="demo.client.pages.parametres.vues.VueParametres">
@@ -19,17 +19,27 @@
 		<HBox styleClass="conteneurQuiCommence" VBox.vgrow="ALWAYS">
 
 				<VBox styleClass="conteneurMarque" alignment="center" HBox.hgrow="ALWAYS">
-					<CaseAjustable styleClass="marque" fx:id="caseX" VBox.vgrow="ALWAYS"/>
+					<CaseAjustable 
+					    styleClass="marque" 
+					    fx:id="caseRouge" 
+        	            couleurRouge="#fd5435"
+        	            couleurJaune="#fccd0e"
+					    VBox.vgrow="ALWAYS"/>
 					<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
-					<CheckBox fx:id="checkX"/>
+					<CheckBox fx:id="checkRouge"/>
 				</VBox>
 
 				<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
 
 				<VBox styleClass="conteneurMarque" alignment="center" HBox.hgrow="ALWAYS">
-					<CaseAjustable styleClass="marque" fx:id="caseO" VBox.vgrow="ALWAYS"/>
+					<CaseAjustable 
+					    styleClass="marque" 
+					    fx:id="caseJaune" 
+        	            couleurRouge="#fd5435"
+        	            couleurJaune="#fccd0e"
+					    VBox.vgrow="ALWAYS"/>
 					<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS" />
-					<CheckBox fx:id="checkO"/>
+					<CheckBox fx:id="checkJaune"/>
 				</VBox>
 
 		</HBox>
