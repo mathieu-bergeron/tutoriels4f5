@@ -1,6 +1,6 @@
 rootProject.name = 'tutoriels4f5'
 
-include 'tp02'
+include 'demo'
 
 include ':ntro'
 project(':ntro').projectDir = file('../ntro4f5/ntro')
