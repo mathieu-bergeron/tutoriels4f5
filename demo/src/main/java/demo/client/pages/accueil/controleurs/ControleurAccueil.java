@@ -21,6 +21,10 @@ import demo.client.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import demo.client.commandes.quitter.Quitter;
 import demo.client.commandes.quitter.QuitterRecue;
 import demo.client.pages.accueil.vues.VueAccueil;
+import demo.client.pages.parametres.afficheurs.AfficheurParametres;
+import demo.client.pages.parametres.controleurs.ControleurParametres;
+import demo.client.pages.parametres.modeles.Parametres;
+import demo.client.pages.parametres.vues.VueParametres;
 import demo.client.pages.partie.afficheurs.AfficheurPartieLocale;
 import demo.client.pages.partie.afficheurs.AfficheurPartieReseau;
 import demo.client.pages.partie.controleurs.ControleurPartieLocale;
@@ -36,6 +40,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 	private Scene sceneParametres;
 	private Stage dialogueParametres;
+	private Parametres parametres;
 	
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
@@ -61,12 +66,28 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 			nouvellePartieLocale();
 		}
 		
-		ChargeurDeVue chargeur = new ChargeurDeVue(CHEMIN_PARAMETRES_FXML,
+		instancierMVCParamatres();
+
+	}
+
+	private void instancierMVCParamatres() {
+
+		ChargeurDeVue<VueParametres> chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
 						CHEMIN_CHAINES,
 						CHEMIN_PARAMETRES_CSS);
 		
-		sceneParametres = chargeur.nouvelleScene(400, 300);
+		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, HAUTEUR_PARAMETRES_PIXELS);
 		
+		Parametres parametres = new Parametres();
+		
+		AfficheurParametres afficheurParametres = new AfficheurParametres();
+		
+		VueParametres vueParametres = chargeur.getVue();
+		
+		FabriqueControleur.creerControleur(ControleurParametres.class, 
+				                           parametres, 
+				                           vueParametres, 
+				                           afficheurParametres);
 	}
 
 
@@ -126,6 +147,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		VuePartieLocale vuePartieLocale = getVue().creerVuePartieLocale();
 		
 		PartieLocale partie = new PartieLocale();
+		partie.initialiser();
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 		
@@ -139,6 +161,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
 		PartieReseau partie = new PartieReseau();
+		partie.initialiser();
 		
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		
@@ -150,6 +173,15 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		J.appel(this);
 		
 		dialogueParametres = DialogueModal.ouvrirDialogueModal(sceneParametres);
+		
+		dialogueParametres.setMinWidth(LARGEUR_PARAMETRES_MIN_PIXELS);
+		dialogueParametres.setMinHeight(HAUTEUR_PARAMETRES_MIN_PIXELS);
+
+		dialogueParametres.setWidth(LARGEUR_PARAMETRES_PIXELS);
+		dialogueParametres.setHeight(HAUTEUR_PARAMETRES_PIXELS);
+
+		dialogueParametres.setMaxWidth(LARGEUR_PARAMETRES_MAX_PIXELS);
+		dialogueParametres.setMaxHeight(HAUTEUR_PARAMETRES_MAX_PIXELS);
 	}
 
 	private void fermerParametres() {

@@ -56,11 +56,14 @@ public class Main extends Application {
 
 		fenetrePrincipale.setScene(scene);
 		
-		fenetrePrincipale.setMinWidth(LARGEUR_PIXELS);
-		fenetrePrincipale.setMinHeight(HAUTEUR_PIXELS);
+		fenetrePrincipale.setMinWidth(LARGEUR_MIN_PIXELS);
+		fenetrePrincipale.setMinHeight(HAUTEUR_MIN_PIXELS);
 
-		fenetrePrincipale.setMaxWidth(LARGEUR_PIXELS);
-		fenetrePrincipale.setMaxHeight(HAUTEUR_PIXELS);
+		fenetrePrincipale.setWidth(LARGEUR_PIXELS);
+		fenetrePrincipale.setHeight(HAUTEUR_PIXELS);
+
+		fenetrePrincipale.setMaxWidth(LARGEUR_MAX_PIXELS);
+		fenetrePrincipale.setMaxHeight(HAUTEUR_MAX_PIXELS);
 
 		fenetrePrincipale.show();
 	}

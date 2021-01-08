@@ -54,37 +54,37 @@ tasks.clean {
     }
 }
 
-task tp02 (type:JavaExec) {
+task demo (type:JavaExec) {
     dependsOn 'classes'
-    main = 'tp02.client.Main'
+    main = 'demo.client.Main'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
-task tp02Accueil (type:JavaExec) {
+task demoAccueil (type:JavaExec) {
     dependsOn 'classes'
-    main = 'tp02.client.pages.accueil.PageAccueil'
+    main = 'demo.client.pages.accueil.PageAccueil'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
-task tp02Parametres (type:JavaExec) {
+task demoParametres (type:JavaExec) {
     dependsOn 'classes'
-    main = 'tp02.client.pages.parametres.PageParametres'
+    main = 'demo.client.pages.parametres.PageParametres'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
-task tp02Sauvegardes (type:JavaExec) {
+task demoSauvegardes (type:JavaExec) {
     dependsOn 'classes'
-    main = 'tp02.client.pages.sauvegardes.PageSauvegardes'
+    main = 'demo.client.pages.sauvegardes.PageSauvegardes'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
 task serveur (type:JavaExec) {
     dependsOn 'classes'
-    main = 'tp02.serveur.Main'
+    main = 'demo.serveur.Main'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }

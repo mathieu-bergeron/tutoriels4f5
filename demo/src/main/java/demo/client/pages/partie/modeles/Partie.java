@@ -28,7 +28,6 @@ public class      Partie<PLS extends PartieLectureSeule>
 
 		grille = new Grille();
 		grille.initialiser(largeur);
-
 	}
 	
     public void jouerIci(int indiceColonne){
