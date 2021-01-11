@@ -20,11 +20,6 @@ public class      Partie<PLS extends PartieLectureSeule>
 	private transient Jeton dernierJetonAjoute;
 	
 	@Override
-	public String getId() {
-		return "TODO";
-	}
-
-	@Override
 	public void apresCreation() {
 		largeur =  Constantes.LARGEUR_GRILLE_PAR_DEFAUT;
 		hauteur = Constantes.HAUTEUR_GRILLE_PAR_DEFAUT;

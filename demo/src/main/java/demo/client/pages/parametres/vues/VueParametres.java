@@ -52,6 +52,7 @@ public class VueParametres implements Vue, Initializable {
 		caseRouge.afficherJeton(Couleur.ROUGE);
 		caseJaune.afficherJeton(Couleur.JAUNE);
 		
+		// TODO
 		choixTaille.getItems().setAll("Petite","Moyenne","Grande");
 		choixTaille.getSelectionModel().clearAndSelect(0);
 	}

@@ -40,7 +40,7 @@ public class PageParametres extends Application {
 
 		VueParametres vue = chargeur.getVue();
 		
-		Parametres parametres = EntrepotDeModeles.creerModele(Parametres.class);
+		Parametres parametres = EntrepotDeModeles.creerModele(Parametres.class, ID_MODELE_PAR_DEFAUT);
 		
 		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		

@@ -1,6 +1,8 @@
 package demo.client;
 
 public class Constantes {
+	
+	public static final String ID_MODELE_PAR_DEFAUT = "defaut";
 
 	public static final int HAUTEUR_GRILLE_PAR_DEFAUT = 5;
 	public static final int LARGEUR_GRILLE_PAR_DEFAUT = 6;

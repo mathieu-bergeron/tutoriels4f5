@@ -91,7 +91,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
 				                                 HAUTEUR_PARAMETRES_PIXELS);
 		
-		parametres = EntrepotDeModeles.creerModele(Parametres.class);
+		parametres = EntrepotDeModeles.creerModele(Parametres.class, ID_MODELE_PAR_DEFAUT);
 		
 		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		
@@ -171,13 +171,13 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		try {
 
-			partieLocale = EntrepotDeModeles.obtenirModele(PartieLocale.class, "TODO");
+			partieLocale = EntrepotDeModeles.obtenirModele(PartieLocale.class, ID_MODELE_PAR_DEFAUT);
 
 		} catch (IOException e) {
 			
 			Erreur.nonFatale("Impossible de charger la partie locale",e);
 			
-			partieLocale = EntrepotDeModeles.creerModele(PartieLocale.class);
+			partieLocale = EntrepotDeModeles.creerModele(PartieLocale.class, ID_MODELE_PAR_DEFAUT);
 		}
 
 		partieLocale.setCouleurCourante(parametres.getQuiCommence());
@@ -193,7 +193,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
-		PartieReseau partie = EntrepotDeModeles.creerModele(PartieReseau.class);
+		PartieReseau partie = EntrepotDeModeles.creerModele(PartieReseau.class, ID_MODELE_PAR_DEFAUT);
 		
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		

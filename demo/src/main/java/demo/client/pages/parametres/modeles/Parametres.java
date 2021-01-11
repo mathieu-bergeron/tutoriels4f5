@@ -11,13 +11,6 @@ public class Parametres extends Modele<ParametresLectureSeule> implements Parame
 	private Couleur quiCommence;
 
 	@Override
-	public String getId() {
-		J.appel(this);
-
-		return "TODO";
-	}
-
-	@Override
 	public void apresCreation() {
 		J.appel(this);
 
