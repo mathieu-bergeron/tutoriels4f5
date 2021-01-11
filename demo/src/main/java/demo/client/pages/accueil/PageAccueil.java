@@ -31,8 +31,8 @@ public class PageAccueil extends Application {
 		J.appel(this);
 		
 		ChargeurDeVue<VueAccueil> chargeur = new ChargeurDeVue<VueAccueil>(CHEMIN_PRINCIPAL_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PRINCIPAL_CSS);
+						CHEMIN_PRINCIPAL_CSS,
+						CHEMIN_CHAINES);
 
 		VueAccueil vue = chargeur.getVue();
 		

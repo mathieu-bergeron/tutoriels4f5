@@ -109,8 +109,8 @@ public class VueAccueil implements Vue, Initializable {
 		J.appel(this);
 
 		ChargeurDeVue<VuePartieLocale> chargeur = new ChargeurDeVue<VuePartieLocale>(CHEMIN_PARTIE_LOCALE_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARTIE_LOCALE_CSS);
+						CHEMIN_PARTIE_LOCALE_CSS,
+						CHEMIN_CHAINES);
 		
 		VuePartieLocale vuePartieLocale = chargeur.getVue();
 		
@@ -126,8 +126,8 @@ public class VueAccueil implements Vue, Initializable {
 		J.appel(this);
 
 		ChargeurDeVue<VuePartieReseau> chargeur = new ChargeurDeVue<VuePartieReseau>(CHEMIN_PARTIE_RESEAU_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARTIE_RESEAU_CSS);
+						CHEMIN_PARTIE_RESEAU_CSS,
+						CHEMIN_CHAINES);
 		
 		VuePartieReseau vuePartieReseau = chargeur.getVue();
 		

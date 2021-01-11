@@ -35,8 +35,8 @@ public class PageParametres extends Application {
 		J.appel(this);
 		
 		ChargeurDeVue<VueParametres> chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_PARAMETRES_CSS);
+						CHEMIN_PARAMETRES_CSS,
+						CHEMIN_CHAINES);
 
 		VueParametres vue = chargeur.getVue();
 		

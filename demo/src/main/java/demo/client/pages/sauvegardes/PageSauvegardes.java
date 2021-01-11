@@ -34,8 +34,8 @@ public class PageSauvegardes extends Application {
 		J.appel(this);
 		
 		ChargeurDeVue<VueSauvegardes> chargeur = new ChargeurDeVue<VueSauvegardes>(CHEMIN_SAUVEGARDES_FXML,
-						CHEMIN_CHAINES,
-						CHEMIN_SAUVEGARDES_CSS);
+						CHEMIN_SAUVEGARDES_CSS,
+						CHEMIN_CHAINES);
 
 		VueSauvegardes vue = chargeur.getVue();
 		

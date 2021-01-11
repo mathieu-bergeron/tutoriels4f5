@@ -105,8 +105,8 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 		ChargeurDeVue<VueParametres> chargeur;
 		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
-				                            		CHEMIN_CHAINES,
-										            CHEMIN_PARAMETRES_CSS);
+										            CHEMIN_PARAMETRES_CSS,
+				                            		CHEMIN_CHAINES);
 		
 		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
 				                                 HAUTEUR_PARAMETRES_PIXELS);
