@@ -51,6 +51,7 @@ tasks.clean {
     doFirst {
         new File("${project.projectDir}/build").deleteDir()
         new File("${project.projectDir}/bin").deleteDir()
+        new File("${project.projectDir}/entrepot").deleteDir()
     }
 }
 
