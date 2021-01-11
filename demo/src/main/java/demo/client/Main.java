@@ -50,6 +50,7 @@ public class Main extends Application {
 		
 		
 		
+		/*
 		connecterAuServeur();
 		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
@@ -78,6 +79,7 @@ public class Main extends Application {
 		fenetrePrincipale.setMaxHeight(HAUTEUR_MAX_PIXELS);
 
 		fenetrePrincipale.show();
+		*/
 	}
 	
 	private void connecterAuServeur() {
