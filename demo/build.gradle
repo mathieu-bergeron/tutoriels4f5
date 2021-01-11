@@ -83,7 +83,7 @@ task demoSauvegardes (type:JavaExec) {
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
-task serveur (type:JavaExec) {
+task demoServeur (type:JavaExec) {
     dependsOn 'classes'
     main = 'demo.serveur.Main'
     classpath = sourceSets.main.runtimeClasspath

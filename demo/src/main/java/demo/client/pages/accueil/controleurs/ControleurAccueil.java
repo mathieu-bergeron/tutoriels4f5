@@ -8,6 +8,8 @@ import ntro.client.mvc.controleurs.FabriqueControleur;
 import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
+import ntro.messages.FabriqueMessage;
+import ntro.messages.RecepteurMessage;
 import ntro.modeles.EntrepotDeModeles;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -35,6 +37,10 @@ import demo.client.pages.partie.modeles.PartieLocale;
 import demo.client.pages.partie.modeles.PartieReseau;
 import demo.client.pages.partie.vues.VuePartieLocale;
 import demo.client.pages.partie.vues.VuePartieReseau;
+import demo.messages.nouvelle_partie_reseau.MsgNouvellePartie;
+import demo.messages.nouvelle_partie_reseau.MsgNouvellePartiePourEnvoi;
+import demo.messages.nouvelle_partie_reseau.MsgNouvellePartieRecu;
+
 import static demo.client.Constantes.*;
 
 import java.io.IOException;
@@ -45,15 +51,29 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private Stage dialogueParametres;
 	private Parametres parametres;
 	private PartieLocale partieLocale;
+
+	private MsgNouvellePartiePourEnvoi messageNouvellePartieReseau;
 	
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
 		J.appel(this);
+		
+		messageNouvellePartieReseau = FabriqueMessage.obtenirMessagePourEnvoi(MsgNouvellePartie.class);
 	}
 
 	@Override
 	protected void installerReceptionMessages() {
 		J.appel(this);
+		
+		FabriqueMessage.installerRecepteur(MsgNouvellePartie.class, new RecepteurMessage<MsgNouvellePartieRecu>() {
+
+			@Override
+			public void recevoirMessage(MsgNouvellePartieRecu messageRecu) {
+				J.appel(this);
+				
+				creerNouvellePartieReseau();
+			}
+		});
 	}
 	
 
@@ -72,7 +92,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 		if(Main.siConnecteAuServeur()) {
 			
-			nouvellePartieReseau();
+			initierNouvellePartieReseau();
 
 		}else {
 
@@ -122,7 +142,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 			public void executerCommandeMVC(NouvellePartieReseauRecue commande) {
 				J.appel(this);
 				
-				nouvellePartieReseau();
+				initierNouvellePartieReseau();
 			}
 		});
 
@@ -188,9 +208,22 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 	}
 
-	private void nouvellePartieReseau() {
+	private void initierNouvellePartieReseau() {
 		J.appel(this);
 		
+		if(Main.siConnecteAuServeur()) {
+			
+			messageNouvellePartieReseau.envoyerMessage();
+
+			creerNouvellePartieReseau();
+			
+		}else {
+			
+			getVue().alerterErreurConnexion();
+		}
+	}
+
+	private void creerNouvellePartieReseau() {
 		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
 		PartieReseau partie = EntrepotDeModeles.creerModele(PartieReseau.class, ID_MODELE_PAR_DEFAUT);
@@ -198,7 +231,6 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		
 		FabriqueControleur.creerControleur(ControleurPartieReseau.class, partie, vuePartieReseau, afficheur);
-		
 	}
 	
 	private void ouvrirParametres() {

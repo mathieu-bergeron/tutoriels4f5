@@ -8,18 +8,18 @@ import demo.client.pages.partie.afficheurs.AfficheurPartieReseau;
 import demo.client.pages.partie.modeles.PartieReseau;
 import demo.client.pages.partie.modeles.PartieReseauLectureSeule;
 import demo.client.pages.partie.vues.VuePartieReseau;
-import demo.messages.transmettre_coup.TransmettreCoup;
-import demo.messages.transmettre_coup.TransmettreCoupPourEnvoi;
-import demo.messages.transmettre_coup.TransmettreCoupRecu;
+import demo.messages.transmettre_coup.MsgTransmettreCoup;
+import demo.messages.transmettre_coup.MsgTransmettreCoupPourEnvoi;
+import demo.messages.transmettre_coup.MsgTransmettreCoupRecu;
 
-public abstract class ControleurPartieReseau
+public class ControleurPartieReseau
 
                 extends ControleurPartie<PartieReseauLectureSeule, 
                         PartieReseau, 
                         VuePartieReseau, 
                         AfficheurPartieReseau> {
 	
-	private TransmettreCoupPourEnvoi transmettreCoup;
+	private MsgTransmettreCoupPourEnvoi transmettreCoup;
 	
 
 	@Override
@@ -27,7 +27,7 @@ public abstract class ControleurPartieReseau
 		super.obtenirMessagesPourEnvoi();
 		J.appel(this);
 		
-		transmettreCoup = FabriqueMessage.obtenirMessagePourEnvoi(TransmettreCoup.class);
+		transmettreCoup = FabriqueMessage.obtenirMessagePourEnvoi(MsgTransmettreCoup.class);
 	}
 
 	@Override
@@ -35,10 +35,10 @@ public abstract class ControleurPartieReseau
 		super.installerReceptionMessages();
 		J.appel(this);
 		
-		installerRecepteurMessage(TransmettreCoup.class, new RecepteurMessageMVC<TransmettreCoupRecu>() {
+		installerRecepteurMessage(MsgTransmettreCoup.class, new RecepteurMessageMVC<MsgTransmettreCoupRecu>() {
 
 			@Override
-			public void recevoirMessageMVC(TransmettreCoupRecu messageRecu) {
+			public void recevoirMessageMVC(MsgTransmettreCoupRecu messageRecu) {
 				J.appel(this);
 				
 				getModele().jouerIci(messageRecu.getIndiceColonne());

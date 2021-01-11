@@ -10,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import ntro.client.commandes.FabriqueCommande;
 import ntro.client.mvc.Vue;
 import ntro.debogage.DoitEtre;
@@ -141,6 +143,12 @@ public class VueAccueil implements Vue, Initializable {
 	public void verifierCommandesPossibles() {
 		J.appel(this);
 
+	}
+
+	public void alerterErreurConnexion() {
+		J.appel(this);
+
+		new Alert(AlertType.ERROR, "Aucune connexion au serveur").show();
 	}
 
 

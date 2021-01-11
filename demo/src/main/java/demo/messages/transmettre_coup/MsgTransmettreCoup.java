@@ -3,11 +3,11 @@ package demo.messages.transmettre_coup;
 import ntro.debogage.J;
 import ntro.messages.Message;
 
-public class TransmettreCoup extends Message<TransmettreCoupPourEnvoi, 
-                                             TransmettreCoupRecu>
+public class MsgTransmettreCoup extends Message<MsgTransmettreCoupPourEnvoi, 
+                                             MsgTransmettreCoupRecu>
 
-					         implements TransmettreCoupPourEnvoi, 
-					                    TransmettreCoupRecu {
+					         implements MsgTransmettreCoupPourEnvoi, 
+					                    MsgTransmettreCoupRecu {
 	
 	private int indiceColonne;
 
