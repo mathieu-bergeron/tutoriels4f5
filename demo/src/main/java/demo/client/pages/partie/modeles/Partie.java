@@ -10,7 +10,7 @@ public class      Partie<PLS extends PartieLectureSeule>
        extends    Modele<PLS>
        implements PartieLectureSeule {
 
-	protected int largeur;
+	protected transient int largeur;
 	protected int hauteur;
 	
 	protected Couleur couleurCourante;
@@ -19,18 +19,29 @@ public class      Partie<PLS extends PartieLectureSeule>
 
 	private transient Jeton dernierJetonAjoute;
 	
-	public Partie() {
-		J.appel(this);
+	@Override
+	public String getId() {
+		return "TODO";
 	}
-	
-	public void initialiser() {
+
+	@Override
+	public void apresCreation() {
 		largeur =  Constantes.LARGEUR_GRILLE_PAR_DEFAUT;
 		hauteur = Constantes.HAUTEUR_GRILLE_PAR_DEFAUT;
 		couleurCourante = Couleur.ROUGE;
 
 		grille = new Grille();
-		grille.initialiser(largeur);
+		grille.apresCreation(largeur);
 	}
+
+	@Override
+	public void apresChargementJson() {
+		J.appel(this);
+		
+		largeur = grille.getColonnes().size();
+		grille.apresChargementJson();
+	}
+	
 	
     public void jouerIci(int indiceColonne){
         J.appel(this);

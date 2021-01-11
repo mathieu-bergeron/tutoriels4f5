@@ -1,6 +1,5 @@
 package demo.client.pages.partie.modeles;
 
-import java.net.IDN;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,7 @@ public class Grille implements GrilleLectureSeule {
 	
 	protected List<Colonne> colonnes;
 
-	public void initialiser(int largeur) {
+	public void apresCreation(int largeur) {
 		J.appel(this);
 
 		colonnes = new ArrayList<>();
@@ -19,6 +18,12 @@ public class Grille implements GrilleLectureSeule {
 			Colonne nouvelleColonne = new Colonne();
 			nouvelleColonne.setIdColonne(indiceColonne);
 			colonnes.add(nouvelleColonne);
+		}
+	}
+
+	public void apresChargementJson() {
+		for(int indiceColonne = 0; indiceColonne < colonnes.size(); indiceColonne++) {
+			colonnes.get(indiceColonne).setIdColonne(indiceColonne);
 		}
 	}
 
@@ -62,6 +67,7 @@ public class Grille implements GrilleLectureSeule {
 
 		return indiceColonne >= 0 && indiceColonne < colonnes.size();
 	}
+
 
 
 

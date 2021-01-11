@@ -1,0 +1,44 @@
+{
+  "hauteur": 5,
+  "couleurCourante": "JAUNE",
+  "grille": {
+    "colonnes": [
+      {
+        "jetons": [
+          {
+            "couleur": "JAUNE",
+            "indiceColonne": 0,
+            "indiceRangee": 0
+          }
+        ]
+      },
+      {
+        "jetons": []
+      },
+      {
+        "jetons": [
+          {
+            "couleur": "ROUGE",
+            "indiceColonne": 2,
+            "indiceRangee": 0
+          }
+        ]
+      },
+      {
+        "jetons": []
+      },
+      {
+        "jetons": []
+      },
+      {
+        "jetons": [
+          {
+            "couleur": "ROUGE",
+            "indiceColonne": 5,
+            "indiceRangee": 0
+          }
+        ]
+      }
+    ]
+  }
+}

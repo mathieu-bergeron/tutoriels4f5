@@ -1,5 +1,6 @@
 package demo.client.pages.accueil.controleurs;
 
+import ntro.debogage.Erreur;
 import ntro.debogage.J;
 import ntro.systeme.Systeme;
 import ntro.client.mvc.controleurs.ControleurVue;
@@ -7,6 +8,7 @@ import ntro.client.mvc.controleurs.FabriqueControleur;
 import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
+import ntro.modeles.Entrepot;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import demo.client.Main;
@@ -35,11 +37,14 @@ import demo.client.pages.partie.vues.VuePartieLocale;
 import demo.client.pages.partie.vues.VuePartieReseau;
 import static demo.client.Constantes.*;
 
+import java.io.IOException;
+
 public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 	private Scene sceneParametres;
 	private Stage dialogueParametres;
 	private Parametres parametres;
+	private PartieLocale partieLocale;
 	
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
@@ -86,7 +91,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
 				                                 HAUTEUR_PARAMETRES_PIXELS);
 		
-		parametres = new Parametres();
+		parametres = Entrepot.creerModele(Parametres.class);
 		
 		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		
@@ -143,6 +148,14 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 			@Override
 			public void executerCommandeMVC(QuitterRecue commande) {
 				J.appel(this);
+
+				if(partieLocale != null) {
+					try {
+						Entrepot.sauvegarderModele(partieLocale);
+					} catch (IOException e) {
+						Erreur.nonFatale("Impossible de sauvegarder la partie locale",e);
+					}
+				}
 				
 				Systeme.quitter();
 			}
@@ -152,16 +165,26 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private void nouvellePartieLocale() {
 		J.appel(this);
 		
+
+		
 		VuePartieLocale vuePartieLocale = getVue().creerVuePartieLocale();
 		
-		PartieLocale partie = new PartieLocale();
-		partie.initialiser();
-		
-		partie.setCouleurCourante(parametres.getQuiCommence());
+		try {
+
+			partieLocale = Entrepot.obtenirModele(PartieLocale.class, "TODO");
+
+		} catch (IOException e) {
+			
+			Erreur.nonFatale("Impossible de charger la partie locale",e);
+			
+			partieLocale = Entrepot.creerModele(PartieLocale.class);
+		}
+
+		partieLocale.setCouleurCourante(parametres.getQuiCommence());
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 		
-		FabriqueControleur.creerControleur(ControleurPartieLocale.class, partie, vuePartieLocale, afficheur);
+		FabriqueControleur.creerControleur(ControleurPartieLocale.class, partieLocale, vuePartieLocale, afficheur);
 		
 	}
 
@@ -170,8 +193,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
-		PartieReseau partie = new PartieReseau();
-		partie.initialiser();
+		PartieReseau partie = Entrepot.creerModele(PartieReseau.class);
 		
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		

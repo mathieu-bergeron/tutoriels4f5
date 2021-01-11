@@ -12,6 +12,23 @@ public class Sauvegardes
 	
 	
 	private List<UneSauvegarde> lesSauvegardes = new ArrayList<>();
+
+	@Override
+	public String getId() {
+		J.appel(this);
+
+		return "TODO";
+	}
+
+	@Override
+	public void apresCreation() {
+		J.appel(this);
+	}
+
+	@Override
+	public void apresChargementJson() {
+		J.appel(this);
+	}
 	
 	@Override
 	public List<UneSauvegardeLectureSeule> getLesSauvegardes() {

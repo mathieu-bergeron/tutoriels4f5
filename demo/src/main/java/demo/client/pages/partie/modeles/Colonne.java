@@ -10,7 +10,7 @@ import demo.client.Couleur;
 public class Colonne implements ColonneLectureSeule {
 	
 	private List<Jeton> jetons = new ArrayList<>();
-	private int idColonne;
+	private transient int idColonne;
 
 	public Jeton ajouterJeton(Couleur couleur) {
 		J.appel(this);

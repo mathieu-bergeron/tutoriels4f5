@@ -8,7 +8,26 @@ import ntro.modeles.Modele;
 
 public class Parametres extends Modele<ParametresLectureSeule> implements ParametresLectureSeule {
 	
-	private Couleur quiCommence = (new Random().nextBoolean()) ? Couleur.JAUNE : Couleur.ROUGE;
+	private Couleur quiCommence;
+
+	@Override
+	public String getId() {
+		J.appel(this);
+
+		return "TODO";
+	}
+
+	@Override
+	public void apresCreation() {
+		J.appel(this);
+
+		quiCommence = (new Random().nextBoolean()) ? Couleur.JAUNE : Couleur.ROUGE;
+	}
+
+	@Override
+	public void apresChargementJson() {
+		J.appel(this);
+	}
 
 	@Override
 	public Couleur getQuiCommence() {
@@ -22,5 +41,4 @@ public class Parametres extends Modele<ParametresLectureSeule> implements Parame
 		
 		this.quiCommence = joueurQuiCommence;
 	}
-
 }
