@@ -8,6 +8,7 @@ import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.Initialisateur;
+import ntro.modeles.EntrepotDeModeles;
 import demo.client.pages.parametres.afficheurs.AfficheurParametres;
 import demo.client.pages.parametres.controleurs.ControleurParametres;
 import demo.client.pages.parametres.modeles.Parametres;
@@ -39,7 +40,7 @@ public class PageParametres extends Application {
 
 		VueParametres vue = chargeur.getVue();
 		
-		Parametres parametres = new Parametres();
+		Parametres parametres = EntrepotDeModeles.creerModele(Parametres.class);
 		
 		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		

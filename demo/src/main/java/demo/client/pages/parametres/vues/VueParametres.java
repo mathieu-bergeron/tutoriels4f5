@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 
 public class VueParametres implements Vue, Initializable {
 	
@@ -34,6 +35,9 @@ public class VueParametres implements Vue, Initializable {
 	@FXML
 	private Button boutonOk;
 
+	@FXML
+	private ComboBox<String> choixTaille;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
@@ -43,9 +47,13 @@ public class VueParametres implements Vue, Initializable {
 		DoitEtre.nonNul(checkRouge);
 		DoitEtre.nonNul(checkJaune);
 		DoitEtre.nonNul(boutonOk);
+		DoitEtre.nonNul(choixTaille);
 		
 		caseRouge.afficherJeton(Couleur.ROUGE);
 		caseJaune.afficherJeton(Couleur.JAUNE);
+		
+		choixTaille.getItems().setAll("Petite","Moyenne","Grande");
+		choixTaille.getSelectionModel().clearAndSelect(0);
 	}
 
 	@Override

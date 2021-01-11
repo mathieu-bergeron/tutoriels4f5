@@ -8,7 +8,7 @@ import ntro.client.mvc.controleurs.FabriqueControleur;
 import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
-import ntro.modeles.Entrepot;
+import ntro.modeles.EntrepotDeModeles;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import demo.client.Main;
@@ -91,7 +91,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
 				                                 HAUTEUR_PARAMETRES_PIXELS);
 		
-		parametres = Entrepot.creerModele(Parametres.class);
+		parametres = EntrepotDeModeles.creerModele(Parametres.class);
 		
 		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		
@@ -151,7 +151,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 				if(partieLocale != null) {
 					try {
-						Entrepot.sauvegarderModele(partieLocale);
+						EntrepotDeModeles.sauvegarderModele(partieLocale);
 					} catch (IOException e) {
 						Erreur.nonFatale("Impossible de sauvegarder la partie locale",e);
 					}
@@ -171,13 +171,13 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		try {
 
-			partieLocale = Entrepot.obtenirModele(PartieLocale.class, "TODO");
+			partieLocale = EntrepotDeModeles.obtenirModele(PartieLocale.class, "TODO");
 
 		} catch (IOException e) {
 			
 			Erreur.nonFatale("Impossible de charger la partie locale",e);
 			
-			partieLocale = Entrepot.creerModele(PartieLocale.class);
+			partieLocale = EntrepotDeModeles.creerModele(PartieLocale.class);
 		}
 
 		partieLocale.setCouleurCourante(parametres.getQuiCommence());
@@ -193,7 +193,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
-		PartieReseau partie = Entrepot.creerModele(PartieReseau.class);
+		PartieReseau partie = EntrepotDeModeles.creerModele(PartieReseau.class);
 		
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		
