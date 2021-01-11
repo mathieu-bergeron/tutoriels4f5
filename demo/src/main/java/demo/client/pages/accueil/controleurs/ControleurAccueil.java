@@ -206,14 +206,14 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		dialogueParametres = DialogueModal.ouvrirDialogueModal(sceneParametres);
 		
-		dialogueParametres.setMinWidth(LARGEUR_PARAMETRES_MIN_PIXELS);
-		dialogueParametres.setMinHeight(HAUTEUR_PARAMETRES_MIN_PIXELS);
+		dialogueParametres.setMinWidth(LARGEUR_PARAMETRES_PIXELS_MIN * AJUSTEMENT_TAILLE_PIXELS);
+		dialogueParametres.setMinHeight(HAUTEUR_PARAMETRES_PIXELS_MIN * AJUSTEMENT_TAILLE_PIXELS);
 
-		dialogueParametres.setWidth(LARGEUR_PARAMETRES_PIXELS);
-		dialogueParametres.setHeight(HAUTEUR_PARAMETRES_PIXELS);
+		dialogueParametres.setWidth(LARGEUR_PARAMETRES_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
+		dialogueParametres.setHeight(HAUTEUR_PARAMETRES_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
 
-		dialogueParametres.setMaxWidth(LARGEUR_PARAMETRES_MAX_PIXELS);
-		dialogueParametres.setMaxHeight(HAUTEUR_PARAMETRES_MAX_PIXELS);
+		dialogueParametres.setMaxWidth(LARGEUR_PARAMETRES_PIXELS_MAX * AJUSTEMENT_TAILLE_PIXELS);
+		dialogueParametres.setMaxHeight(HAUTEUR_PARAMETRES_PIXELS_MAX * AJUSTEMENT_TAILLE_PIXELS);
 	}
 
 	private void fermerParametres() {

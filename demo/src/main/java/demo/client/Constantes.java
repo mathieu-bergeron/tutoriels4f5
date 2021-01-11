@@ -24,26 +24,28 @@ public class Constantes {
 	public static final String CHEMIN_SAUVEGARDES_FXML = "/sauvegardes/structure.xml";
 	public static final String CHEMIN_SAUVEGARDES_CSS = "/sauvegardes/style.css";
 
-	// FIXME: swith to EM (using DPI)
-	public static final int LARGEUR_MIN_PIXELS = 340;
-	public static final int HAUTEUR_MIN_PIXELS = 500;
+	public static final int TAILLE_POLICE = 15;
+	public static final int TAILLE_POLICE_MIN = 11;
+	public static final int TAILLE_POLICE_MAX = 18;
+
+	public static final int LARGEUR_PIXELS_MIN = 400;
+	public static final int HAUTEUR_PIXELS_MIN = 600;
 
 	public static final int LARGEUR_PIXELS = 600;
 	public static final int HAUTEUR_PIXELS= 800;
 
-	public static final int LARGEUR_MAX_PIXELS = 680;
-	public static final int HAUTEUR_MAX_PIXELS = 100;
+	public static final int LARGEUR_PARAMETRES_PIXELS_MIN = 375;
+	public static final int HAUTEUR_PARAMETRES_PIXELS_MIN = 500;
 
-	public static final int LARGEUR_PARAMETRES_MIN_PIXELS = 200;
-	public static final int HAUTEUR_PARAMETRES_MIN_PIXELS = 300;
+	public static final int LARGEUR_PARAMETRES_PIXELS = 375;
+	public static final int HAUTEUR_PARAMETRES_PIXELS = 500;
 
-	public static final int LARGEUR_PARAMETRES_PIXELS = 400;
-	public static final int HAUTEUR_PARAMETRES_PIXELS= 600;
-
-	public static final int LARGEUR_PARAMETRES_MAX_PIXELS = 600;
-	public static final int HAUTEUR_PARAMETRES_MAX_PIXELS = 800;
+	public static final int LARGEUR_PARAMETRES_PIXELS_MAX = 500;
+	public static final int HAUTEUR_PARAMETRES_PIXELS_MAX = 665;
 	
 	public static final int PORT = 8765;
 	public static final String ADRESSE_SERVEUR = String.format("ws://localhost:%s", PORT);
+	
+	public static double AJUSTEMENT_TAILLE_PIXELS = 1.0;
 
 }

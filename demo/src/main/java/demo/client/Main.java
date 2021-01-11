@@ -5,7 +5,6 @@ import java.net.URISyntaxException;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.text.Text;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import ntro.client.mvc.controleurs.FabriqueControleur;
@@ -39,18 +38,11 @@ public class Main extends Application {
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
+		
+		calculerAjustementPixels();
+		
+		J.valeurs(AJUSTEMENT_TAILLE_PIXELS);
 
-		final double rem = Math.rint(new Text("").getLayoutBounds().getHeight());
-		J.valeurs(rem);
-		
-		for(Screen screen : Screen.getScreens()) {
-			J.valeurs(screen.getDpi());
-			J.valeurs(screen.getBounds().getHeight());
-		}
-		
-		
-		
-		/*
 		connecterAuServeur();
 		
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
@@ -65,23 +57,51 @@ public class Main extends Application {
 
 		FabriqueControleur.creerControleur(ControleurAccueil.class, vue);
 
-		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS, HAUTEUR_PIXELS);
+		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS,
+				                             HAUTEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
+
+		ajusterTaillePolice(scene);
 
 		fenetrePrincipale.setScene(scene);
 		
-		fenetrePrincipale.setMinWidth(LARGEUR_MIN_PIXELS);
-		fenetrePrincipale.setMinHeight(HAUTEUR_MIN_PIXELS);
+		fenetrePrincipale.setMinWidth(LARGEUR_PIXELS_MIN * AJUSTEMENT_TAILLE_PIXELS);
+		fenetrePrincipale.setMinHeight(HAUTEUR_PIXELS_MIN * AJUSTEMENT_TAILLE_PIXELS);
 
-		fenetrePrincipale.setWidth(LARGEUR_PIXELS);
-		fenetrePrincipale.setHeight(HAUTEUR_PIXELS);
-
-		fenetrePrincipale.setMaxWidth(LARGEUR_MAX_PIXELS);
-		fenetrePrincipale.setMaxHeight(HAUTEUR_MAX_PIXELS);
+		fenetrePrincipale.setWidth(LARGEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
+		fenetrePrincipale.setHeight(HAUTEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
 
 		fenetrePrincipale.show();
-		*/
 	}
 	
+	private void calculerAjustementPixels() {
+
+		double largeurEcran = Screen.getPrimary().getVisualBounds().getWidth();
+		double hauteurEcran = Screen.getPrimary().getVisualBounds().getHeight();
+		double tailleEcran = Math.max(largeurEcran, hauteurEcran);
+		
+		AJUSTEMENT_TAILLE_PIXELS = tailleEcran / 1920.0;
+	}
+
+	private void ajusterTaillePolice(Scene scene) {
+		J.appel(this);
+		
+		int taillePolice = (int) Math.ceil(TAILLE_POLICE * AJUSTEMENT_TAILLE_PIXELS);
+		
+		if(taillePolice < TAILLE_POLICE_MIN) {
+
+			taillePolice = TAILLE_POLICE_MIN;
+
+		}else if(taillePolice > TAILLE_POLICE_MAX) {
+
+			taillePolice = TAILLE_POLICE_MAX;
+		}
+		
+		
+		String cssTaillePolice = String.format("-fx-font-size: %dpx;", taillePolice);
+		
+		scene.getRoot().setStyle(cssTaillePolice);
+	}
+
 	private void connecterAuServeur() {
 		J.appel(this);
 
