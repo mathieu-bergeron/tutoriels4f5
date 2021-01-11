@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.text.Text;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import ntro.client.mvc.controleurs.FabriqueControleur;
 import ntro.debogage.DoitEtre;
@@ -37,6 +39,16 @@ public class Main extends Application {
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
+
+		final double rem = Math.rint(new Text("").getLayoutBounds().getHeight());
+		J.valeurs(rem);
+		
+		for(Screen screen : Screen.getScreens()) {
+			J.valeurs(screen.getDpi());
+			J.valeurs(screen.getBounds().getHeight());
+		}
+		
+		
 		
 		connecterAuServeur();
 		
