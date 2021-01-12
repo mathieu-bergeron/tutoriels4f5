@@ -32,7 +32,6 @@ public class CaseAjustable extends CanvasAjustable {
 
         creerAnimationSortieJeton();
         creerAnimationEntreeJeton();
-        
 
         initialiserPinceau();
         dessinerCase();
@@ -59,6 +58,7 @@ public class CaseAjustable extends CanvasAjustable {
     protected void reagirLargeurInitiale(double largeurInitiale) {
         J.appel(this);
         
+        viderDessin();
         dessinerCase();
     }
 
@@ -66,6 +66,7 @@ public class CaseAjustable extends CanvasAjustable {
     protected void reagirHauteurInitiale(double hauteurInitiale) {
         J.appel(this);
 
+        viderDessin();
         dessinerCase();
     }
 
@@ -74,7 +75,6 @@ public class CaseAjustable extends CanvasAjustable {
         J.appel(this);
 
         viderDessin();
-
         dessinerCase();
     }
 
@@ -83,7 +83,6 @@ public class CaseAjustable extends CanvasAjustable {
         J.appel(this);
 
         viderDessin();
-
         dessinerCase();
     }
 

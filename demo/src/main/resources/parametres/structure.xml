@@ -27,33 +27,34 @@
 			<Text styleClass="texteQuiCommence" textAlignment="CENTER" text="%quiCommence"/>
 		</HBox>
 		<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
-		<HBox styleClass="conteneurQuiCommence" VBox.vgrow="ALWAYS">
 
-				<VBox styleClass="conteneurMarque" alignment="center" HBox.hgrow="ALWAYS">
+		<VBox styleClass="conteneurQuiCommence" VBox.vgrow="ALWAYS">
+
+				<HBox styleClass="conteneurMarque" alignment="center" HBox.hgrow="ALWAYS">
 					<CaseAjustable 
 					    styleClass="marque" 
 					    fx:id="caseRouge" 
         	            couleurRouge="#fd5435"
         	            couleurJaune="#fccd0e"
 					    VBox.vgrow="ALWAYS"/>
-					<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+					<HBox styleClass="petitEspace"/>
 					<CheckBox fx:id="checkRouge"/>
-				</VBox>
+				</HBox>
 
-				<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+				<VBox styleClass="petitEspace"/>
 
-				<VBox styleClass="conteneurMarque" alignment="center" HBox.hgrow="ALWAYS">
+				<HBox styleClass="conteneurMarque" alignment="center">
 					<CaseAjustable 
 					    styleClass="marque" 
 					    fx:id="caseJaune" 
         	            couleurRouge="#fd5435"
         	            couleurJaune="#fccd0e"
 					    VBox.vgrow="ALWAYS"/>
-					<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS" />
+					<VBox styleClass="petitEspace"/>
 					<CheckBox fx:id="checkJaune"/>
-				</VBox>
+				</HBox>
 
-		</HBox>
+		</VBox>
 	</VBox>
 
 	<HBox styleClass="grosEspace" VBox.vgrow="always"/>
