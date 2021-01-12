@@ -201,6 +201,8 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		}
 
 		partieLocale.setCouleurCourante(parametres.getQuiCommence());
+		partieLocale.setLargeur(parametres.getTailleGrille().getLargeur());
+		partieLocale.setHauteur(parametres.getTailleGrille().getHauteur());
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 		

@@ -23,6 +23,16 @@ public class Constantes {
 
 	public static final String CHEMIN_SAUVEGARDES_FXML = "/sauvegardes/structure.xml";
 	public static final String CHEMIN_SAUVEGARDES_CSS = "/sauvegardes/style.css";
+	
+	public static final int HAUTEUR_GRILLE_PETITE = 4;
+	public static final int HAUTEUR_GRILLE_MOYENNE = 6;
+	public static final int HAUTEUR_GRILLE_GRANDE = 10;
+	public static final int HAUTEUR_GRILLE_DEFAUT = HAUTEUR_GRILLE_MOYENNE;
+
+	public static final int LARGEUR_GRILLE_PETITE = 4;
+	public static final int LARGEUR_GRILLE_MOYENNE = 5;
+	public static final int LARGEUR_GRILLE_GRANDE = 8;
+	public static final int LARGEUR_GRILLE_DEFAUT = LARGEUR_GRILLE_MOYENNE;
 
 	public static final int TAILLE_POLICE = 15;
 	public static final int TAILLE_POLICE_MIN = 11;
