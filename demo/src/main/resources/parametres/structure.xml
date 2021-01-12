@@ -35,8 +35,7 @@
 					    styleClass="marque" 
 					    fx:id="caseRouge" 
         	            couleurRouge="#fd5435"
-        	            couleurJaune="#fccd0e"
-					    VBox.vgrow="ALWAYS"/>
+        	            couleurJaune="#fccd0e"/>
 					<HBox styleClass="petitEspace"/>
 					<CheckBox fx:id="checkRouge"/>
 				</HBox>
@@ -48,8 +47,7 @@
 					    styleClass="marque" 
 					    fx:id="caseJaune" 
         	            couleurRouge="#fd5435"
-        	            couleurJaune="#fccd0e"
-					    VBox.vgrow="ALWAYS"/>
+        	            couleurJaune="#fccd0e"/>
 					<VBox styleClass="petitEspace"/>
 					<CheckBox fx:id="checkJaune"/>
 				</HBox>
