@@ -58,7 +58,7 @@ public class VueParametres implements Vue, Initializable {
 		DoitEtre.nonNul(checkJaune);
 		DoitEtre.nonNul(boutonOk);
 		DoitEtre.nonNul(choixTaille);
-		
+
 		caseRouge.afficherJeton(Couleur.ROUGE);
 		caseJaune.afficherJeton(Couleur.JAUNE);
 		

@@ -12,8 +12,6 @@ public class   AfficheurParametres
 	public void initialiserAffichage(ParametresLectureSeule modeleLectureSeule, VueParametres vue) {
 		J.appel(this);
 		
-		vue.afficherQuiCommence(modeleLectureSeule.getQuiCommence());
-		vue.afficherTailleGrille(modeleLectureSeule.getTailleGrille());
 	}
 
 	@Override
@@ -21,6 +19,7 @@ public class   AfficheurParametres
 		J.appel(this);
 
 		vue.afficherQuiCommence(modeleLectureSeule.getQuiCommence());
+		vue.afficherTailleGrille(modeleLectureSeule.getTailleGrille());
 	}
 
 }
