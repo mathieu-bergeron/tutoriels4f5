@@ -1,8 +1,8 @@
 package demo.client.pages.partie.vues.composants;
 
 import ntro.debogage.J;
-import demo.client.Couleur;
 import demo.client.pages.commun.composants.CaseAjustable;
+import demo.client.pages.commun.enumerations.Couleur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;

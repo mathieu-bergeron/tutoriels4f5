@@ -2,12 +2,12 @@ package demo.client.pages.commun.composants;
 
 
 import ntro.debogage.J;
+import demo.client.pages.commun.enumerations.Couleur;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.NamedArg;
 import ntro.javafx.vues.composants.CanvasAjustable;
-import demo.client.Couleur;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcType;
 import javafx.util.Duration;

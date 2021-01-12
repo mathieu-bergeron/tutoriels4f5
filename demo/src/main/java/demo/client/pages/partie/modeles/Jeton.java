@@ -1,7 +1,7 @@
 package demo.client.pages.partie.modeles;
 
+import demo.client.pages.commun.enumerations.Couleur;
 import ntro.debogage.J;
-import demo.client.Couleur;
 
 public class Jeton implements JetonLectureSeule {
 	

@@ -4,7 +4,7 @@ import java.util.List;
 
 import ntro.client.mvc.Afficheur;
 import ntro.debogage.J;
-import demo.client.Couleur;
+import demo.client.pages.commun.enumerations.Couleur;
 import demo.client.pages.partie.modeles.ColonneLectureSeule;
 import demo.client.pages.partie.modeles.GrilleLectureSeule;
 import demo.client.pages.partie.modeles.JetonLectureSeule;

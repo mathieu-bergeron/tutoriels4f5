@@ -2,7 +2,7 @@ package demo.client.pages.parametres.modeles;
 
 import java.util.Random;
 
-import demo.client.Couleur;
+import demo.client.pages.commun.enumerations.Couleur;
 import ntro.debogage.J;
 import ntro.modeles.Modele;
 

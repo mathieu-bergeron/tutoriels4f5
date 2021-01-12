@@ -5,7 +5,7 @@ import java.util.ResourceBundle;
 
 import ntro.client.mvc.Vue;
 import ntro.debogage.J;
-import demo.client.Couleur;
+import demo.client.pages.commun.enumerations.Couleur;
 import demo.client.pages.partie.vues.composants.ConteneurEntetes;
 import demo.client.pages.partie.vues.composants.ConteneurGrille;
 import javafx.fxml.FXML;

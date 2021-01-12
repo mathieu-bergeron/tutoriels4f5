@@ -4,7 +4,7 @@ package demo.client.pages.partie.modeles;
 import ntro.debogage.J;
 import ntro.modeles.Modele;
 import demo.client.Constantes;
-import demo.client.Couleur;
+import demo.client.pages.commun.enumerations.Couleur;
 
 public class      Partie<PLS extends PartieLectureSeule> 
        extends    Modele<PLS>
