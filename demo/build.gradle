@@ -76,6 +76,13 @@ task demoParametres (type:JavaExec) {
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
+task demoParametresEn (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'demo.client.pages.parametres.PageParametres'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
+}
+
 task demoSauvegardes (type:JavaExec) {
     dependsOn 'classes'
     main = 'demo.client.pages.sauvegardes.PageSauvegardes'

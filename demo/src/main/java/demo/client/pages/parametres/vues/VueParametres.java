@@ -1,6 +1,8 @@
 package demo.client.pages.parametres.vues;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import ntro.client.commandes.FabriqueCommande;
@@ -9,10 +11,13 @@ import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import demo.client.commandes.choisir_qui_commence.ChoisirQuiCommence;
 import demo.client.commandes.choisir_qui_commence.ChoisirQuiCommencePourEnvoi;
+import demo.client.commandes.choisir_taille_grille.ChoisirTailleGrillePourEnvoi;
+import demo.client.commandes.choisir_taille_grille.ChoisirTailleGrille;
 import demo.client.commandes.fermer_parametres.FermerParametres;
 import demo.client.commandes.fermer_parametres.FermerParametresPourEnvoi;
 import demo.client.pages.commun.composants.CaseAjustable;
 import demo.client.pages.commun.enumerations.Couleur;
+import demo.client.pages.commun.enumerations.TailleGrille;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,6 +30,7 @@ public class VueParametres implements Vue, Initializable {
 	
 	private FermerParametresPourEnvoi fermerParametres;
 	private ChoisirQuiCommencePourEnvoi choisirQuiCommence;
+	private ChoisirTailleGrillePourEnvoi choisirTailleGrille;
 
 	@FXML 
 	private CaseAjustable caseRouge, caseJaune;
@@ -37,6 +43,10 @@ public class VueParametres implements Vue, Initializable {
 
 	@FXML
 	private ComboBox<String> choixTaille;
+	
+	// FIXME: utiliser un BiMap plutôt?
+	private Map<String, TailleGrille> tailleSelonNom = new HashMap<>();
+	private Map<TailleGrille, String> nomSelonTaille = new HashMap<>();
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -53,7 +63,16 @@ public class VueParametres implements Vue, Initializable {
 		caseJaune.afficherJeton(Couleur.JAUNE);
 		
 		// TODO
-		choixTaille.getItems().setAll("Petite","Moyenne","Grande");
+		for(TailleGrille tailleGrille : TailleGrille.values()) {
+			
+			String nomTaille = resources.getString(tailleGrille.name());
+			
+			choixTaille.getItems().add(nomTaille);
+			
+			tailleSelonNom.put(nomTaille, tailleGrille);
+			nomSelonTaille.put(tailleGrille, nomTaille);
+		}
+
 		choixTaille.getSelectionModel().clearAndSelect(0);
 	}
 
@@ -63,6 +82,7 @@ public class VueParametres implements Vue, Initializable {
 		
 		fermerParametres = FabriqueCommande.obtenirCommandePourEnvoi(FermerParametres.class);
 		choisirQuiCommence = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirQuiCommence.class);
+		choisirTailleGrille = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirTailleGrille.class);
 	}
 
 	@Override
@@ -97,6 +117,21 @@ public class VueParametres implements Vue, Initializable {
 				fermerParametres.envoyerCommande();
 			}
 		});
+
+		choixTaille.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				J.appel(this);
+				
+				String nomTailleChoisie = choixTaille.getSelectionModel().getSelectedItem();
+				
+				TailleGrille tailleChoisie = tailleSelonNom.get(nomTailleChoisie);
+				
+				choisirTailleGrille.setTailleGrille(tailleChoisie);
+				choisirQuiCommence.envoyerCommande();
+			}
+		});
+		
 	}
 
 	@Override
@@ -119,6 +154,18 @@ public class VueParametres implements Vue, Initializable {
 			checkJaune.setSelected(true);
 			break;
 		
+		}
+	}
+
+	public void afficherTailleGrille(TailleGrille tailleGrille) {
+		J.appel(this);
+		
+		String nomTaille = nomSelonTaille.get(tailleGrille);
+		
+		int indiceTaille = choixTaille.getItems().indexOf(nomTaille);
+		
+		if(indiceTaille != -1) {
+			choixTaille.getSelectionModel().clearAndSelect(indiceTaille);
 		}
 	}
 }

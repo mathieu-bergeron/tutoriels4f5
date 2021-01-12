@@ -5,6 +5,8 @@ import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
 import ntro.debogage.J;
 import demo.client.commandes.choisir_qui_commence.ChoisirQuiCommence;
 import demo.client.commandes.choisir_qui_commence.ChoisirQuiCommenceRecue;
+import demo.client.commandes.choisir_taille_grille.ChoisirTailleGrille;
+import demo.client.commandes.choisir_taille_grille.ChoisirTailleGrilleRecue;
 import demo.client.pages.parametres.afficheurs.AfficheurParametres;
 import demo.client.pages.parametres.modeles.Parametres;
 import demo.client.pages.parametres.modeles.ParametresLectureSeule;
@@ -27,6 +29,16 @@ public class   ControleurParametres
 				J.appel(this);
 				
 				getModele().choisirQuiCommence(commande.getCouleur());
+				
+			}
+		});
+		
+		installerRecepteurCommande(ChoisirTailleGrille.class, new RecepteurCommandeMVC<ChoisirTailleGrilleRecue>() {
+			@Override
+			public void executerCommandeMVC(ChoisirTailleGrilleRecue commande) {
+				J.appel(this);
+				
+				getModele().choisirTailleGrille(commande.getTailleGrille());
 				
 			}
 		});

@@ -13,6 +13,7 @@ public class   AfficheurParametres
 		J.appel(this);
 		
 		vue.afficherQuiCommence(modeleLectureSeule.getQuiCommence());
+		vue.afficherTailleGrille(modeleLectureSeule.getTailleGrille());
 	}
 
 	@Override
