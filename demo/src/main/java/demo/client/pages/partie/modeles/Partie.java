@@ -25,6 +25,12 @@ public class      Partie<PLS extends PartieLectureSeule>
 		hauteur = Constantes.HAUTEUR_GRILLE_PAR_DEFAUT;
 		couleurCourante = Couleur.ROUGE;
 
+		initialiserGrille();
+	}
+
+	private void initialiserGrille() {
+		J.appel(this);
+
 		grille = new Grille();
 		grille.apresCreation(largeur);
 	}
@@ -73,6 +79,8 @@ public class      Partie<PLS extends PartieLectureSeule>
 	public void setLargeur(int largeur) {
 		J.appel(this);
 		this.largeur = largeur;
+
+		initialiserGrille();
 	}
 
 	public int getHauteur() {
@@ -83,6 +91,8 @@ public class      Partie<PLS extends PartieLectureSeule>
 	public void setHauteur(int hauteur) {
 		J.appel(this);
 		this.hauteur = hauteur;
+		
+		initialiserGrille();
 	}
 
 	public Couleur getCouleurCourante() {
