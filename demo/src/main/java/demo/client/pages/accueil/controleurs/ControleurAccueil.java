@@ -71,7 +71,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 			public void recevoirMessage(MsgNouvellePartieRecu messageRecu) {
 				J.appel(this);
 				
-				creerNouvellePartieReseau();
+				creerNouvellePartieReseau(messageRecu.getParametres());
 			}
 		});
 	}
@@ -214,9 +214,10 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		
 		if(Main.siConnecteAuServeur()) {
 			
+			messageNouvellePartieReseau.setParametres(parametres);
 			messageNouvellePartieReseau.envoyerMessage();
 
-			creerNouvellePartieReseau();
+			creerNouvellePartieReseau(parametres);
 			
 		}else {
 			
@@ -224,10 +225,16 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		}
 	}
 
-	private void creerNouvellePartieReseau() {
+	private void creerNouvellePartieReseau(Parametres parametres) {
+		J.appel(this);
+
 		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
 		PartieReseau partie = EntrepotDeModeles.creerModele(PartieReseau.class, ID_MODELE_PAR_DEFAUT);
+		
+		partie.setCouleurCourante(parametres.getQuiCommence());
+		partie.setHauteur(parametres.getTailleGrille().getHauteur());
+		partie.setLargeur(parametres.getTailleGrille().getLargeur());
 		
 		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		

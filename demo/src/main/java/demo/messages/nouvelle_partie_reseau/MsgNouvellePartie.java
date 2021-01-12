@@ -1,5 +1,6 @@
 package demo.messages.nouvelle_partie_reseau;
 
+import demo.client.pages.parametres.modeles.Parametres;
 import ntro.debogage.J;
 import ntro.messages.Message;
 
@@ -9,20 +10,19 @@ public class MsgNouvellePartie extends Message<MsgNouvellePartiePourEnvoi,
 					         implements MsgNouvellePartiePourEnvoi, 
 					                    MsgNouvellePartieRecu {
 	
-	private int indiceColonne;
+	private Parametres parametres;
 
 	@Override
-	public int getIndiceColonne() {
+	public Parametres getParametres() {
 		J.appel(this);
 
-		return indiceColonne;
+		return parametres;
 	}
 
 	@Override
-	public void setIndiceColonne(int indiceColonne) {
+	public void setParametres(Parametres parametres) {
 		J.appel(this);
 		
-		this.indiceColonne = indiceColonne;
+		this.parametres = parametres;
 	}
-
 }
