@@ -34,14 +34,14 @@ public class Constantes {
 	public static final int LARGEUR_PIXELS = 600;
 	public static final int HAUTEUR_PIXELS= 800;
 
-	public static final int LARGEUR_PARAMETRES_PIXELS_MIN = 375;
-	public static final int HAUTEUR_PARAMETRES_PIXELS_MIN = 500;
+	public static final int LARGEUR_PARAMETRES_PIXELS_MIN = 300;
+	public static final int HAUTEUR_PARAMETRES_PIXELS_MIN = 350;
 
-	public static final int LARGEUR_PARAMETRES_PIXELS = 375;
-	public static final int HAUTEUR_PARAMETRES_PIXELS = 500;
+	public static final int LARGEUR_PARAMETRES_PIXELS = 350;
+	public static final int HAUTEUR_PARAMETRES_PIXELS = 400;
 
-	public static final int LARGEUR_PARAMETRES_PIXELS_MAX = 500;
-	public static final int HAUTEUR_PARAMETRES_PIXELS_MAX = 665;
+	public static final int LARGEUR_PARAMETRES_PIXELS_MAX = 400;
+	public static final int HAUTEUR_PARAMETRES_PIXELS_MAX = 500;
 	
 	public static final int PORT = 8765;
 	public static final String ADRESSE_SERVEUR = String.format("ws://localhost:%s", PORT);
