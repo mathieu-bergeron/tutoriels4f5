@@ -205,9 +205,8 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		partieLocale.setHauteur(parametres.getTailleGrille().getHauteur());
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
-		
+
 		FabriqueControleur.creerControleur(ControleurPartieLocale.class, partieLocale, vuePartieLocale, afficheur);
-		
 	}
 
 	private void initierNouvellePartieReseau() {
