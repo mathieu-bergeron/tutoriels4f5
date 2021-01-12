@@ -16,7 +16,8 @@ public class Parametres extends Modele<ParametresLectureSeule> implements Parame
 	public void apresCreation() {
 		J.appel(this);
 
-		quiCommence = Couleur.ROUGE;
+		//quiCommence = Couleur.ROUGE;
+		quiCommence = Couleur.JAUNE;
 		tailleGrille = TailleGrille.MOYENNE;
 	}
 

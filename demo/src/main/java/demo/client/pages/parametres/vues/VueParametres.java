@@ -128,7 +128,7 @@ public class VueParametres implements Vue, Initializable {
 				TailleGrille tailleChoisie = tailleSelonNom.get(nomTailleChoisie);
 				
 				choisirTailleGrille.setTailleGrille(tailleChoisie);
-				choisirQuiCommence.envoyerCommande();
+				choisirTailleGrille.envoyerCommande();
 			}
 		});
 		
@@ -142,6 +142,8 @@ public class VueParametres implements Vue, Initializable {
 	public void afficherQuiCommence(Couleur couleur) {
 		J.appel(this);
 		
+		DoitEtre.nonNul(couleur);
+
 		switch(couleur) {
 		
 		case ROUGE:

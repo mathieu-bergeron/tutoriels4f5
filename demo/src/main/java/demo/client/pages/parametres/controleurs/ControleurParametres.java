@@ -2,6 +2,7 @@ package demo.client.pages.parametres.controleurs;
 
 import ntro.client.mvc.controleurs.ControleurModeleVue;
 import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
+import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import demo.client.commandes.choisir_qui_commence.ChoisirQuiCommence;
 import demo.client.commandes.choisir_qui_commence.ChoisirQuiCommenceRecue;
@@ -17,7 +18,6 @@ public class   ControleurParametres
                                    Parametres,
                                    VueParametres,
                                    AfficheurParametres> {
-	
 
 	@Override
 	protected void installerReceptionCommandes() {
@@ -28,6 +28,8 @@ public class   ControleurParametres
 			public void executerCommandeMVC(ChoisirQuiCommenceRecue commande) {
 				J.appel(this);
 				
+				DoitEtre.nonNul(commande.getCouleur());
+				
 				getModele().choisirQuiCommence(commande.getCouleur());
 				
 			}
@@ -37,6 +39,8 @@ public class   ControleurParametres
 			@Override
 			public void executerCommandeMVC(ChoisirTailleGrilleRecue commande) {
 				J.appel(this);
+				
+				DoitEtre.nonNul(commande.getTailleGrille());
 				
 				getModele().choisirTailleGrille(commande.getTailleGrille());
 				
@@ -52,13 +56,11 @@ public class   ControleurParametres
 
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
-		// TODO Auto-generated method stub
-		
+		J.appel(this);
 	}
 
 	@Override
 	protected void installerReceptionMessages() {
-		// TODO Auto-generated method stub
-		
+		J.appel(this);
 	}
 }
