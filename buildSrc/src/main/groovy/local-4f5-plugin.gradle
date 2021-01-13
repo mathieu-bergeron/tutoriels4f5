@@ -48,6 +48,12 @@ repositories {
     jcenter()
 }
 
+dependencies {
+    //implementation 'ca.ntro4f5:ntro:0.4' 
+    implementation project(':ntro')
+}
+
+
 tasks.clean {
     doFirst {
         new File("${project.projectDir}/build").deleteDir()

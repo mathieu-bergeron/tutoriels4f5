@@ -21,9 +21,6 @@ plugins {
 }
 
 dependencies {
-    //implementation 'ca.ntro4f5:ntro:0.4' 
-    implementation project(':ntro')
-
     // Json serialization
     // https://github.com/google/gson
     implementation 'com.google.code.gson:gson:2.8.5'
@@ -31,7 +28,6 @@ dependencies {
     // Websocket
     // https://github.com/TooTallNate/Java-WebSocket
     implementation 'org.java-websocket:Java-WebSocket:1.4.0'
-
 }
 
 task demo (type:JavaExec) {
