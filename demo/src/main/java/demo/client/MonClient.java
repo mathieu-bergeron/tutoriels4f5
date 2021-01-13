@@ -22,9 +22,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import ntro.debogage.DoitEtre;
 import ntro.debogage.Erreur;
 import ntro.debogage.J;
@@ -32,6 +34,7 @@ import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
 import ntro.javafx.Initialisateur;
 import ntro.mvc.controleurs.FabriqueControleur;
+import ntro.systeme.Systeme;
 import demo.pages.accueil.ControleurAccueil;
 import demo.pages.accueil.VueAccueil;
 
@@ -66,8 +69,23 @@ public class MonClient extends Application {
 		fenetrePrincipale.setScene(scene);
 
 		ajusterTailles(fenetrePrincipale, scene);
+		
+		capterEvenementFermeture(fenetrePrincipale);
 
 		fenetrePrincipale.show();
+	}
+
+	private void capterEvenementFermeture(Stage fenetrePrincipale) {
+		J.appel(this);
+
+		fenetrePrincipale.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent event) {
+				J.appel(this);
+
+				Systeme.quitter();
+			}
+		});
 	}
 
 	private Scene instancierControleurAccueil() {

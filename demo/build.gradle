@@ -65,5 +65,6 @@ task demoServeur (type:JavaExec) {
     dependsOn 'classes'
     main = 'demo.serveur.MonServeur'
     classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
