@@ -33,20 +33,6 @@ task demoEn (type:JavaExec) {
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
 }
 
-task demoPartie (type:JavaExec) {
-    dependsOn 'classes'
-    main = 'demo.pages.partie.PagePartie'
-    classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
-}
-
-task demoPartieEn (type:JavaExec) {
-    dependsOn 'classes'
-    main = 'demo.pages.partie.PagePartie'
-    classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
-}
-
 task demoParametres (type:JavaExec) {
     dependsOn 'classes'
     main = 'demo.pages.parametres.PageParametres'
@@ -68,3 +54,20 @@ task demoServeur (type:JavaExec) {
     standardInput = System.in
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
+
+
+task demoPartieReseau (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'demo.pages.partie.PagePartieReseau'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task demoPartieReseauEn (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'demo.pages.partie.PagePartieReseau'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
+}
+
+

@@ -35,17 +35,17 @@ import demo.pages.partie.controleurs.ControleurPartieLocale;
 import demo.pages.partie.modeles.PartieLocale;
 import demo.pages.partie.vues.VuePartieLocale;
 
-public class PagePartie extends Application {
+public class PagePartieLocale extends Application {
 
 	static {
 
 		Initialisateur.initialiser();
 		
-		J.appel(PagePartie.class);
+		J.appel(PagePartieLocale.class);
 	}
 	
 	public static void main(String[] args) {
-		J.appel(PagePartie.class);
+		J.appel(PagePartieLocale.class);
 		launch(args);
 	}
 

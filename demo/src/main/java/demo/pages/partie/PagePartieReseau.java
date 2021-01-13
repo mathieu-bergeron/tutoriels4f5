@@ -16,7 +16,7 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-package demo.pages.parametres;
+package demo.pages.partie;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -38,20 +38,25 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import demo.client.MonClientWebSocket;
+import demo.pages.partie.afficheurs.AfficheurPartieReseau;
+import demo.pages.partie.controleurs.ControleurPartieReseau;
+import demo.pages.partie.modeles.PartieReseau;
+import demo.pages.partie.vues.VuePartieReseau;
 
-public class PageParametres extends Application {
+public class PagePartieReseau extends Application {
 
 	static {
 
 		Initialisateur.initialiser();
 		
-		J.appel(PageParametres.class);
+		J.appel(PagePartieReseau.class);
 	}
 	
 	public static void main(String[] args) {
-		J.appel(PageParametres.class);
+		J.appel(PagePartieReseau.class);
 		launch(args);
 	}
+
 
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
@@ -59,20 +64,20 @@ public class PageParametres extends Application {
 		
 		connecterAuServeur();
 		
-		ChargeurDeVue<VueParametres> chargeur;
-		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
-						                            CHEMIN_PARAMETRES_CSS,
-						                            CHEMIN_CHAINES);
+		ChargeurDeVue<VuePartieReseau> chargeur;
+		chargeur = new ChargeurDeVue<VuePartieReseau>(CHEMIN_PARTIE_RESEAU_FXML,
+						                              CHEMIN_PARTIE_RESEAU_CSS,
+						                              CHEMIN_CHAINES);
 
-		VueParametres vue = chargeur.getVue();
+		VuePartieReseau vue = chargeur.getVue();
 		
-		Parametres parametres = EntrepotDeModeles.creerModele(Parametres.class, ID_MODELE_PAR_DEFAUT);
+		PartieReseau partie = EntrepotDeModeles.creerModele(PartieReseau.class, ID_MODELE_PAR_DEFAUT);
 		
-		AfficheurParametres afficheurParametres = new AfficheurParametres();
+		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
 		
 		DoitEtre.nonNul(vue);
 
-		FabriqueControleur.creerControleur(ControleurParametres.class, parametres, vue, afficheurParametres);
+		FabriqueControleur.creerControleur(ControleurPartieReseau.class, partie, vue, afficheur);
 
 		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS, HAUTEUR_PIXELS);
 
