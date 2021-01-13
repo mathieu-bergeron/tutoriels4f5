@@ -17,41 +17,10 @@
 
 
 plugins {
-    id 'java'
-    id 'eclipse'
-}
-
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
-}
-
-eclipse {
-    classpath {
-        file {
-            whenMerged {
-                classpath ->
-                    def jre = entries.find { it.path.contains 'org.eclipse.jdt.launching.JRE_CONTAINER' }
-                    jre.accessRules.add(new org.gradle.plugins.ide.eclipse.model.AccessRule('0', 'javafx/**'))
-
-                    /*
-                    def ntro = entries.find { it.path.contains 'ntro' }
-                    entries.remove ntro
-                    entries += new org.gradle.plugins.ide.eclipse.model.Library(fileReference(file(ntro.publication.path)))
-                    */
-            }
-        }
-    }
-}
-
-
-repositories {
-    jcenter()
+    id 'local-4f5-plugin'
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13'
-
     //implementation 'ca.ntro4f5:ntro:0.4' 
     implementation project(':ntro')
 
@@ -63,14 +32,6 @@ dependencies {
     // https://github.com/TooTallNate/Java-WebSocket
     implementation 'org.java-websocket:Java-WebSocket:1.4.0'
 
-}
-
-tasks.clean {
-    doFirst {
-        new File("${project.projectDir}/build").deleteDir()
-        new File("${project.projectDir}/bin").deleteDir()
-        new File("${project.projectDir}/entrepot").deleteDir()
-    }
 }
 
 task demo (type:JavaExec) {
@@ -121,4 +82,3 @@ task demoServeur (type:JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
-

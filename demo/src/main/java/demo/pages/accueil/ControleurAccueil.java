@@ -319,5 +319,4 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 			}
 		}
 	}
-
 }
