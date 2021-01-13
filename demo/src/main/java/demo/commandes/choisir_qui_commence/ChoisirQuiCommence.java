@@ -1,6 +1,6 @@
 package demo.commandes.choisir_qui_commence;
 
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import ntro.client.commandes.Commande;
 import ntro.debogage.J;
 

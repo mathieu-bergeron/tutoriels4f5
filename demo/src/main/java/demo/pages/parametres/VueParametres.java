@@ -1,4 +1,4 @@
-package demo.pages.parametres.vues;
+package demo.pages.parametres;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -15,9 +15,9 @@ import demo.commandes.choisir_taille_grille.ChoisirTailleGrillePourEnvoi;
 import demo.commandes.choisir_taille_grille.ChoisirTailleGrille;
 import demo.commandes.fermer_parametres.FermerParametres;
 import demo.commandes.fermer_parametres.FermerParametresPourEnvoi;
-import demo.pages.commun.composants.CaseAjustable;
-import demo.pages.commun.enumerations.Couleur;
-import demo.pages.commun.enumerations.TailleGrille;
+import demo.enumerations.Couleur;
+import demo.enumerations.TailleGrille;
+import demo.pages.partie.composants.CaseAjustable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -44,7 +44,6 @@ public class VueParametres implements Vue, Initializable {
 	@FXML
 	private ComboBox<String> choixTaille;
 	
-	// FIXME: utiliser un BiMap plutôt?
 	private Map<String, TailleGrille> tailleSelonNom = new HashMap<>();
 	private Map<TailleGrille, String> nomSelonTaille = new HashMap<>();
 
@@ -62,7 +61,12 @@ public class VueParametres implements Vue, Initializable {
 		caseRouge.afficherJeton(Couleur.ROUGE);
 		caseJaune.afficherJeton(Couleur.JAUNE);
 		
-		// TODO
+		initialiserChoixTaille(resources);
+	}
+
+	private void initialiserChoixTaille(ResourceBundle resources) {
+		J.appel(this);
+
 		for(TailleGrille tailleGrille : TailleGrille.values()) {
 			
 			String nomTaille = resources.getString(tailleGrille.name());

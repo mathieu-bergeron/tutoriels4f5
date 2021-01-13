@@ -9,12 +9,8 @@ import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.Initialisateur;
 import ntro.modeles.EntrepotDeModeles;
-import demo.pages.parametres.afficheurs.AfficheurParametres;
-import demo.pages.parametres.controleurs.ControleurParametres;
-import demo.pages.parametres.modeles.Parametres;
-import demo.pages.parametres.vues.VueParametres;
 
-import static demo.client.Constantes.*;
+import static demo.Constantes.*;
 
 public class PageParametres extends Application {
 
@@ -34,9 +30,10 @@ public class PageParametres extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		ChargeurDeVue<VueParametres> chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
-						CHEMIN_PARAMETRES_CSS,
-						CHEMIN_CHAINES);
+		ChargeurDeVue<VueParametres> chargeur;
+		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
+						                            CHEMIN_PARAMETRES_CSS,
+						                            CHEMIN_CHAINES);
 
 		VueParametres vue = chargeur.getVue();
 		

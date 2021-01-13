@@ -1,9 +1,8 @@
-package demo.pages.parametres.modeles;
+package demo.pages.parametres;
 
-import java.util.Random;
-
-import demo.pages.commun.enumerations.Couleur;
-import demo.pages.commun.enumerations.TailleGrille;
+import demo.enumerations.Couleur;
+import demo.enumerations.TailleGrille;
+import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.modeles.Modele;
 
@@ -16,7 +15,6 @@ public class Parametres extends Modele<ParametresLectureSeule> implements Parame
 	public void apresCreation() {
 		J.appel(this);
 
-		//quiCommence = Couleur.ROUGE;
 		quiCommence = Couleur.JAUNE;
 		tailleGrille = TailleGrille.MOYENNE;
 	}
@@ -24,6 +22,9 @@ public class Parametres extends Modele<ParametresLectureSeule> implements Parame
 	@Override
 	public void apresChargementJson() {
 		J.appel(this);
+		
+		DoitEtre.nonNul(quiCommence);
+		DoitEtre.nonNul(tailleGrille);
 	}
 
 	@Override

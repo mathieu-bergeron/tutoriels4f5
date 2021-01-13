@@ -3,9 +3,9 @@ package demo.serveur;
 import ntro.debogage.J;
 import ntro.serveur.ServeurWebSocket;
 
-public class ServeurQuatreDeSuite extends ServeurWebSocket {
+public class MonServeurWebSocket extends ServeurWebSocket {
 
-	public ServeurQuatreDeSuite(int port) {
+	public MonServeurWebSocket(int port) {
 		super(port);
 		J.appel(this);
 	}

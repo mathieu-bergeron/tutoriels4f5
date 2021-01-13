@@ -14,42 +14,51 @@ import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
 import ntro.javafx.Initialisateur;
-import demo.pages.accueil.controleurs.ControleurAccueil;
-import demo.pages.accueil.vues.VueAccueil;
+import demo.pages.accueil.ControleurAccueil;
+import demo.pages.accueil.VueAccueil;
 
-import static demo.client.Constantes.*;
+import static demo.Constantes.*;
 
-public class Main extends Application {
+public class MonClient extends Application {
 	
 	static {
-
 		Initialisateur.initialiser();
-		
-		J.appel(Main.class);
+		J.appel(MonClient.class);
 	}
 	
-	private static ClientQuatreDeSuite client;
+	private static MonClientWebSocket clientWebSocket;
 	
 	public static void main(String[] args) {
-		J.appel(Main.class);
+		J.appel(MonClient.class);
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
-		
-		calculerAjustementPixels();
-		
-		J.valeurs(AJUSTEMENT_TAILLE_PIXELS);
+
+		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
 
 		connecterAuServeur();
 		
-		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
+		calculerAjustementPixels();
 		
-		ChargeurDeVue<VueAccueil> chargeur = new ChargeurDeVue<VueAccueil>(CHEMIN_PRINCIPAL_FXML,
-						CHEMIN_PRINCIPAL_CSS,
-						CHEMIN_CHAINES);
+		Scene scene = instancierControleurAccueil();
+
+		fenetrePrincipale.setScene(scene);
+
+		ajusterTailles(fenetrePrincipale, scene);
+
+		fenetrePrincipale.show();
+	}
+
+	private Scene instancierControleurAccueil() {
+		J.appel(this);
+
+		ChargeurDeVue<VueAccueil> chargeur;
+		chargeur = new ChargeurDeVue<VueAccueil>(CHEMIN_PRINCIPAL_FXML,
+						                         CHEMIN_PRINCIPAL_CSS,
+						                         CHEMIN_CHAINES);
 
 		VueAccueil vue = chargeur.getVue();
 		
@@ -59,21 +68,24 @@ public class Main extends Application {
 
 		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS,
 				                             HAUTEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
+		return scene;
+	}
+
+	private void ajusterTailles(Stage fenetrePrincipale, Scene scene) {
+		J.appel(this);
 
 		ajusterTaillePolice(scene);
-
-		fenetrePrincipale.setScene(scene);
 		
 		fenetrePrincipale.setMinWidth(LARGEUR_PIXELS_MIN * AJUSTEMENT_TAILLE_PIXELS);
 		fenetrePrincipale.setMinHeight(HAUTEUR_PIXELS_MIN * AJUSTEMENT_TAILLE_PIXELS);
 
 		fenetrePrincipale.setWidth(LARGEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
 		fenetrePrincipale.setHeight(HAUTEUR_PIXELS * AJUSTEMENT_TAILLE_PIXELS);
-
-		fenetrePrincipale.show();
 	}
+
 	
 	private void calculerAjustementPixels() {
+		J.appel(this);
 
 		double largeurEcran = Screen.getPrimary().getVisualBounds().getWidth();
 		double hauteurEcran = Screen.getPrimary().getVisualBounds().getHeight();
@@ -85,6 +97,16 @@ public class Main extends Application {
 	private void ajusterTaillePolice(Scene scene) {
 		J.appel(this);
 		
+		int taillePolice = calculerTaillePolice();
+		
+		String cssTaillePolice = String.format("-fx-font-size: %dpx;", taillePolice);
+		
+		scene.getRoot().setStyle(cssTaillePolice);
+	}
+
+	private int calculerTaillePolice() {
+		J.appel(this);
+
 		int taillePolice = (int) Math.ceil(TAILLE_POLICE * AJUSTEMENT_TAILLE_PIXELS);
 		
 		if(taillePolice < TAILLE_POLICE_MIN) {
@@ -95,11 +117,8 @@ public class Main extends Application {
 
 			taillePolice = TAILLE_POLICE_MAX;
 		}
-		
-		
-		String cssTaillePolice = String.format("-fx-font-size: %dpx;", taillePolice);
-		
-		scene.getRoot().setStyle(cssTaillePolice);
+
+		return taillePolice;
 	}
 
 	private void connecterAuServeur() {
@@ -122,13 +141,13 @@ public class Main extends Application {
 	private void connecterAuServeur(URI uriServeur) {
 		J.appel(this);
 
-		client = new ClientQuatreDeSuite(uriServeur);
+		clientWebSocket = new MonClientWebSocket(uriServeur);
 		
 		Erreur.avertissement("Tentative de connexion au serveur... ");
 		
 		try {
 
-			client.connectBlocking();
+			clientWebSocket.connectBlocking();
 
 		} catch (InterruptedException e) {
 			
@@ -137,10 +156,9 @@ public class Main extends Application {
 	}
 	
 	public static boolean siConnecteAuServeur() {
-		J.appel(Main.class);
+		J.appel(MonClient.class);
 		
-		return client != null && client.isOpen();
+		return clientWebSocket != null && clientWebSocket.isOpen();
 	}
-	
 
 }

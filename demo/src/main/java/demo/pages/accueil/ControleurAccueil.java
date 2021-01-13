@@ -1,4 +1,4 @@
-package demo.pages.accueil.controleurs;
+package demo.pages.accueil;
 
 import ntro.debogage.Erreur;
 import ntro.debogage.J;
@@ -13,7 +13,7 @@ import ntro.messages.RecepteurMessage;
 import ntro.modeles.EntrepotDeModeles;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import demo.client.Main;
+import demo.client.MonClient;
 import demo.commandes.fermer_parametres.FermerParametres;
 import demo.commandes.fermer_parametres.FermerParametresRecue;
 import demo.commandes.nouvelle_partie.NouvellePartieLocale;
@@ -24,11 +24,10 @@ import demo.commandes.ouvrir_parametres.OuvrirParametres;
 import demo.commandes.ouvrir_parametres.OuvrirParametresRecue;
 import demo.commandes.quitter.Quitter;
 import demo.commandes.quitter.QuitterRecue;
-import demo.pages.accueil.vues.VueAccueil;
-import demo.pages.parametres.afficheurs.AfficheurParametres;
-import demo.pages.parametres.controleurs.ControleurParametres;
-import demo.pages.parametres.modeles.Parametres;
-import demo.pages.parametres.vues.VueParametres;
+import demo.pages.parametres.AfficheurParametres;
+import demo.pages.parametres.ControleurParametres;
+import demo.pages.parametres.Parametres;
+import demo.pages.parametres.VueParametres;
 import demo.pages.partie.afficheurs.AfficheurPartieLocale;
 import demo.pages.partie.afficheurs.AfficheurPartieReseau;
 import demo.pages.partie.controleurs.ControleurPartieLocale;
@@ -41,7 +40,7 @@ import demo.messages.nouvelle_partie_reseau.MsgNouvellePartie;
 import demo.messages.nouvelle_partie_reseau.MsgNouvellePartiePourEnvoi;
 import demo.messages.nouvelle_partie_reseau.MsgNouvellePartieRecu;
 
-import static demo.client.Constantes.*;
+import static demo.Constantes.*;
 
 import java.io.IOException;
 
@@ -161,7 +160,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private void nouvellePartie() {
 		J.appel(this);
 
-		if(Main.siConnecteAuServeur()) {
+		if(MonClient.siConnecteAuServeur()) {
 			
 			initierNouvellePartieReseau();
 
@@ -203,7 +202,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private void initierNouvellePartieReseau() {
 		J.appel(this);
 		
-		if(Main.siConnecteAuServeur()) {
+		if(MonClient.siConnecteAuServeur()) {
 			
 			messageNouvellePartieReseau.setParametres(parametres);
 			messageNouvellePartieReseau.envoyerMessage();

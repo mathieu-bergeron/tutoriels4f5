@@ -3,7 +3,7 @@ package demo.pages.partie.modeles;
 import java.util.ArrayList;
 import java.util.List;
 
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import ntro.debogage.J;
 
 public class Grille implements GrilleLectureSeule {
@@ -67,10 +67,4 @@ public class Grille implements GrilleLectureSeule {
 
 		return indiceColonne >= 0 && indiceColonne < colonnes.size();
 	}
-
-
-
-
-	
-
 }

@@ -1,6 +1,6 @@
 package demo.commandes.choisir_taille_grille;
 
-import demo.pages.commun.enumerations.TailleGrille;
+import demo.enumerations.TailleGrille;
 import ntro.client.commandes.CommandePourEnvoi;
 
 public interface ChoisirTailleGrillePourEnvoi extends CommandePourEnvoi {

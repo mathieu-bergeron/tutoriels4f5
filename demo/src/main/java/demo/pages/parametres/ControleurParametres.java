@@ -1,4 +1,4 @@
-package demo.pages.parametres.controleurs;
+package demo.pages.parametres;
 
 import ntro.client.mvc.controleurs.ControleurModeleVue;
 import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
@@ -6,15 +6,13 @@ import ntro.client.mvc.controleurs.RecepteurMessageMVC;
 import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.messages.FabriqueMessage;
-import demo.client.Main;
+import demo.client.MonClient;
 import demo.commandes.choisir_qui_commence.ChoisirQuiCommence;
 import demo.commandes.choisir_qui_commence.ChoisirQuiCommenceRecue;
 import demo.commandes.choisir_taille_grille.ChoisirTailleGrille;
 import demo.commandes.choisir_taille_grille.ChoisirTailleGrilleRecue;
-import demo.pages.parametres.afficheurs.AfficheurParametres;
-import demo.pages.parametres.modeles.Parametres;
-import demo.pages.parametres.modeles.ParametresLectureSeule;
-import demo.pages.parametres.vues.VueParametres;
+import demo.enumerations.Couleur;
+import demo.enumerations.TailleGrille;
 import demo.messages.transmettre_qui_commence.MsgTransmettreQuiCommence;
 import demo.messages.transmettre_qui_commence.MsgTransmettreQuiCommencePourEnvoi;
 import demo.messages.transmettre_qui_commence.MsgTransmettreQuiCommenceRecu;
@@ -40,12 +38,14 @@ public class   ControleurParametres
 			public void executerCommandeMVC(ChoisirQuiCommenceRecue commande) {
 				J.appel(this);
 				
-				DoitEtre.nonNul(commande.getCouleur());
+				Couleur quiCommence = commande.getCouleur();
+
+				DoitEtre.nonNul(quiCommence);
+
+				getModele().choisirQuiCommence(quiCommence);
 				
-				getModele().choisirQuiCommence(commande.getCouleur());
-				
-				if(Main.siConnecteAuServeur()) {
-					msgTransmettreQuiCommence.setQuiCommence(commande.getCouleur());
+				if(MonClient.siConnecteAuServeur()) {
+					msgTransmettreQuiCommence.setQuiCommence(quiCommence);
 					msgTransmettreQuiCommence.envoyerMessage();
 				}
 			}
@@ -56,12 +56,14 @@ public class   ControleurParametres
 			public void executerCommandeMVC(ChoisirTailleGrilleRecue commande) {
 				J.appel(this);
 				
-				DoitEtre.nonNul(commande.getTailleGrille());
+				TailleGrille tailleGrille = commande.getTailleGrille();
 				
-				getModele().choisirTailleGrille(commande.getTailleGrille());
+				DoitEtre.nonNul(tailleGrille);
+				
+				getModele().choisirTailleGrille(tailleGrille);
 
-				if(Main.siConnecteAuServeur()) {
-					msgTransmettreTaille.setTailleGrille(commande.getTailleGrille());
+				if(MonClient.siConnecteAuServeur()) {
+					msgTransmettreTaille.setTailleGrille(tailleGrille);
 					msgTransmettreTaille.envoyerMessage();
 				}
 			}
@@ -71,7 +73,6 @@ public class   ControleurParametres
 	@Override
 	protected void demarrer() {
 		J.appel(this);
-
 	} 
 
 	@Override
@@ -92,7 +93,11 @@ public class   ControleurParametres
 			public void recevoirMessageMVC(MsgTransmettreQuiCommenceRecu messageRecu) {
 				J.appel(this);
 				
-				getModele().choisirQuiCommence(messageRecu.getQuiCommence());
+				Couleur quiCommence = messageRecu.getQuiCommence();
+				
+				DoitEtre.nonNul(quiCommence);
+				
+				getModele().choisirQuiCommence(quiCommence);
 			}
 		});
 		
@@ -101,7 +106,11 @@ public class   ControleurParametres
 			public void recevoirMessageMVC(MsgTransmettreTailleRecu messageRecu) {
 				J.appel(this);
 				
-				getModele().choisirTailleGrille(messageRecu.getTailleGrille());
+				TailleGrille tailleGrille = messageRecu.getTailleGrille();
+				
+				DoitEtre.nonNul(tailleGrille);
+				
+				getModele().choisirTailleGrille(tailleGrille);
 			}
 		});
 	}

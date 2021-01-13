@@ -4,7 +4,7 @@ import java.util.List;
 
 import ntro.client.mvc.Afficheur;
 import ntro.debogage.J;
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import demo.pages.partie.modeles.ColonneLectureSeule;
 import demo.pages.partie.modeles.GrilleLectureSeule;
 import demo.pages.partie.modeles.JetonLectureSeule;
@@ -37,13 +37,18 @@ public abstract class   AfficheurPartie<PLS extends PartieLectureSeule,
 		
 		rafraichirGrille(hauteurGrille, grille, vue);
 		
-        JetonLectureSeule dernierJeton = partieLectureSeule.getDernierJetonAjoute();
+        animerDernierJeton(partieLectureSeule, vue, hauteurGrille);
+	}
+
+	private void animerDernierJeton(PLS partieLectureSeule, V vue, int hauteurGrille) {
+		J.appel(this);
+
+		JetonLectureSeule dernierJeton = partieLectureSeule.getDernierJetonAjoute();
         
         if(dernierJeton != null) {
             int indiceRangeeGraphiqueDernierJeton = convertirEnCoordonneesGraphiques(hauteurGrille, dernierJeton.getIndiceRangee());
             vue.animerEntreeJeton(dernierJeton.getIndiceColonne(), indiceRangeeGraphiqueDernierJeton);
         }
-		
 	}
 
 	private void rafraichirGrille(int hauteurGrille, GrilleLectureSeule grille, V vue) {

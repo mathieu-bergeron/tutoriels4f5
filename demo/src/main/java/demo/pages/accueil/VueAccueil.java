@@ -1,4 +1,4 @@
-package demo.pages.accueil.vues;
+package demo.pages.accueil;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,20 +28,22 @@ import demo.commandes.quitter.QuitterPourEnvoi;
 import demo.pages.partie.vues.VuePartieLocale;
 import demo.pages.partie.vues.VuePartieReseau;
 
-import static demo.client.Constantes.*;
+import static demo.Constantes.*;
 
 public class VueAccueil implements Vue, Initializable {
 	
 	@FXML
-	MenuItem menuNouvellePartieLocale, menuNouvellePartieReseau, menuParametres, menuQuitter;
+	private MenuItem menuNouvellePartieLocale, menuNouvellePartieReseau, menuParametres, menuQuitter;
 	
 	@FXML
-	VBox conteneurPartie;
+	private VBox conteneurPartie;
 	
-	NouvellePartieLocalePourEnvoi nouvellePartieLocalePourEnvoi;
-	NouvellePartieReseauPourEnvoi nouvellePartieReseauPourEnvoi;
-	OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
-	QuitterPourEnvoi quitterPourEnvoi;
+	private NouvellePartieLocalePourEnvoi nouvellePartieLocalePourEnvoi;
+	private NouvellePartieReseauPourEnvoi nouvellePartieReseauPourEnvoi;
+	private OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
+	private QuitterPourEnvoi quitterPourEnvoi;
+	
+	private String messageAlerteConnexion;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -51,6 +53,8 @@ public class VueAccueil implements Vue, Initializable {
 		DoitEtre.nonNul(menuNouvellePartieReseau);
 		DoitEtre.nonNul(menuParametres);
 		DoitEtre.nonNul(menuQuitter);
+		
+		messageAlerteConnexion = resources.getString("messageAlerteConnexion");
 	}
 
 	@Override
@@ -104,14 +108,19 @@ public class VueAccueil implements Vue, Initializable {
 		});
 	}
 
+	@Override
+	public void verifierCommandesPossibles() {
+		J.appel(this);
+	}
 
 	public VuePartieLocale creerVuePartieLocale() {
 		J.appel(this);
 
-		ChargeurDeVue<VuePartieLocale> chargeur = new ChargeurDeVue<VuePartieLocale>(CHEMIN_PARTIE_LOCALE_FXML,
-						CHEMIN_PARTIE_LOCALE_CSS,
-						CHEMIN_CHAINES);
-		
+		ChargeurDeVue<VuePartieLocale> chargeur;
+		chargeur = new ChargeurDeVue<VuePartieLocale>(CHEMIN_PARTIE_LOCALE_FXML,
+						                              CHEMIN_PARTIE_LOCALE_CSS,
+						                              CHEMIN_CHAINES);
+
 		VuePartieLocale vuePartieLocale = chargeur.getVue();
 		
 		Parent parent = chargeur.getParent();
@@ -125,9 +134,10 @@ public class VueAccueil implements Vue, Initializable {
 	public VuePartieReseau creerVuePartieReseau() {
 		J.appel(this);
 
-		ChargeurDeVue<VuePartieReseau> chargeur = new ChargeurDeVue<VuePartieReseau>(CHEMIN_PARTIE_RESEAU_FXML,
-						CHEMIN_PARTIE_RESEAU_CSS,
-						CHEMIN_CHAINES);
+		ChargeurDeVue<VuePartieReseau> chargeur;
+		chargeur = new ChargeurDeVue<VuePartieReseau>(CHEMIN_PARTIE_RESEAU_FXML,
+				                              		  CHEMIN_PARTIE_RESEAU_CSS,
+						                              CHEMIN_CHAINES);
 		
 		VuePartieReseau vuePartieReseau = chargeur.getVue();
 		
@@ -139,17 +149,10 @@ public class VueAccueil implements Vue, Initializable {
 		return vuePartieReseau;
 	}
 
-	@Override
-	public void verifierCommandesPossibles() {
-		J.appel(this);
-
-	}
-
 	public void alerterErreurConnexion() {
 		J.appel(this);
 
-		new Alert(AlertType.ERROR, "Aucune connexion au serveur").show();
+		new Alert(AlertType.ERROR, messageAlerteConnexion).show();
 	}
-
 
 }

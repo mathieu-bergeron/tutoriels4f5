@@ -1,6 +1,6 @@
 package demo.pages.partie.modeles;
 
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import ntro.debogage.J;
 
 public class Jeton implements JetonLectureSeule {

@@ -1,14 +1,11 @@
-package demo.pages.partie.vues.composants;
+package demo.pages.partie.composants;
 
 import java.util.ArrayList;
 import java.util.List;
 import ntro.debogage.J;
-import ntro.client.commandes.FabriqueCommande;
 import javafx.beans.NamedArg;
 import javafx.scene.Node;
 import javafx.scene.layout.HBox;
-import demo.commandes.jouer_ici.JouerIci;
-import demo.commandes.jouer_ici.JouerIciPourEnvoi;
 
 public class ConteneurEntetes extends HBox {
     

@@ -1,4 +1,4 @@
-package demo.pages.commun.enumerations;
+package demo.enumerations;
 
 
 public enum Couleur {

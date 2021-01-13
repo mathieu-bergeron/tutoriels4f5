@@ -1,6 +1,6 @@
 package demo.messages.transmettre_qui_commence;
 
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import ntro.debogage.J;
 import ntro.messages.Message;
 

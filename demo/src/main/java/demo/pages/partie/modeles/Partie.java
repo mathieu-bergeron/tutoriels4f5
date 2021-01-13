@@ -3,8 +3,8 @@ package demo.pages.partie.modeles;
 
 import ntro.debogage.J;
 import ntro.modeles.Modele;
-import demo.client.Constantes;
-import demo.pages.commun.enumerations.Couleur;
+import demo.Constantes;
+import demo.enumerations.Couleur;
 
 public class      Partie<PLS extends PartieLectureSeule> 
        extends    Modele<PLS>
@@ -21,8 +21,10 @@ public class      Partie<PLS extends PartieLectureSeule>
 	
 	@Override
 	public void apresCreation() {
-		largeur =  Constantes.LARGEUR_GRILLE_PAR_DEFAUT;
-		hauteur = Constantes.HAUTEUR_GRILLE_PAR_DEFAUT;
+		J.appel(this);
+
+		largeur = Constantes.TAILLE_GRILLE_PAR_DEFAUT.getLargeur();
+		hauteur = Constantes.TAILLE_GRILLE_PAR_DEFAUT.getHauteur();
 		couleurCourante = Couleur.ROUGE;
 
 		initialiserGrille();

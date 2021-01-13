@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import java.util.List;
 
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import ntro.debogage.J;
 
 public class Colonne implements ColonneLectureSeule {

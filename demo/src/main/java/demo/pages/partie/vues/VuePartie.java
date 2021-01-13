@@ -4,19 +4,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import ntro.client.mvc.Vue;
+import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
-import demo.pages.commun.enumerations.Couleur;
-import demo.pages.partie.vues.composants.ConteneurEntetes;
-import demo.pages.partie.vues.composants.ConteneurGrille;
+import demo.enumerations.Couleur;
+import demo.pages.partie.composants.ConteneurEntetes;
+import demo.pages.partie.composants.ConteneurGrille;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.text.Text;
 
 public abstract class VuePartie implements Vue, Initializable {
 
-    @FXML
-    private Text nomJoueurUn, nomJoueurDeux;
-    
     @FXML
     private ConteneurEntetes conteneurEntetes;
 
@@ -26,15 +23,16 @@ public abstract class VuePartie implements Vue, Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
+		
+		DoitEtre.nonNul(conteneurEntetes);
+		DoitEtre.nonNul(conteneurGrille);
 	} 
 
     public void creerGrille(int largeur, int hauteur) {
         J.appel(this);
         
         conteneurEntetes.creerEntetes(largeur);
-        
         conteneurGrille.creerGrille(largeur, hauteur);
-
     }
 
 	@Override

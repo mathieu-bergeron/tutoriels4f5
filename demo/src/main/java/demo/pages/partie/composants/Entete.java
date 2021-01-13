@@ -1,4 +1,4 @@
-package demo.pages.partie.vues.composants;
+package demo.pages.partie.composants;
 
 import ntro.debogage.J;
 import ntro.client.commandes.FabriqueCommande;

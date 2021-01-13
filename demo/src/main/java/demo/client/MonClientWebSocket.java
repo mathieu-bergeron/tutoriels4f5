@@ -3,9 +3,9 @@ package demo.client;
 import java.net.URI;
 import ntro.javafx.ClientWebSocketFX;
 
-public class ClientQuatreDeSuite extends ClientWebSocketFX {
+public class MonClientWebSocket extends ClientWebSocketFX {
 
-	public ClientQuatreDeSuite(URI serverUri) {
+	public MonClientWebSocket(URI serverUri) {
 		super(serverUri);
 	}
 

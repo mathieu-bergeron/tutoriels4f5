@@ -1,7 +1,7 @@
-package demo.pages.parametres.modeles;
+package demo.pages.parametres;
 
-import demo.pages.commun.enumerations.Couleur;
-import demo.pages.commun.enumerations.TailleGrille;
+import demo.enumerations.Couleur;
+import demo.enumerations.TailleGrille;
 import ntro.modeles.ModeleLectureSeule;
 
 public interface ParametresLectureSeule extends ModeleLectureSeule {

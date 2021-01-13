@@ -1,8 +1,8 @@
-package demo.pages.commun.composants;
+package demo.pages.partie.composants;
 
 
 import ntro.debogage.J;
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;

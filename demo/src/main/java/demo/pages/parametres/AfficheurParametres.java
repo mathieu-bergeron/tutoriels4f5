@@ -1,9 +1,7 @@
-package demo.pages.parametres.afficheurs;
+package demo.pages.parametres;
 
 import ntro.client.mvc.Afficheur;
 import ntro.debogage.J;
-import demo.pages.parametres.modeles.ParametresLectureSeule;
-import demo.pages.parametres.vues.VueParametres;
 
 public class   AfficheurParametres 
        extends Afficheur<ParametresLectureSeule, VueParametres> {
@@ -11,7 +9,6 @@ public class   AfficheurParametres
 	@Override
 	public void initialiserAffichage(ParametresLectureSeule modeleLectureSeule, VueParametres vue) {
 		J.appel(this);
-		
 	}
 
 	@Override

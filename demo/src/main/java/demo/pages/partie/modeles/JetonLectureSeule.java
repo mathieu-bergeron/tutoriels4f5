@@ -1,6 +1,6 @@
 package demo.pages.partie.modeles;
 
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 
 public interface JetonLectureSeule {
 	

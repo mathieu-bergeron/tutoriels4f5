@@ -57,23 +57,37 @@ tasks.clean {
 
 task demo (type:JavaExec) {
     dependsOn 'classes'
-    main = 'demo.client.Main'
+    main = 'demo.client.MonClient'
     classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8')
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
 
-task demoAccueil (type:JavaExec) {
+task demoEn (type:JavaExec) {
     dependsOn 'classes'
-    main = 'demo.pages.accueil.PageAccueil'
+    main = 'demo.client.MonApplication'
     classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8')
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
+}
+
+task demoPartie (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'demo.pages.partie.PagePartie'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task demoPartieEn (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'demo.pages.partie.PagePartie'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
 }
 
 task demoParametres (type:JavaExec) {
     dependsOn 'classes'
     main = 'demo.pages.parametres.PageParametres'
     classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8')
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
 
 task demoParametresEn (type:JavaExec) {
@@ -83,17 +97,10 @@ task demoParametresEn (type:JavaExec) {
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
 }
 
-task demoSauvegardes (type:JavaExec) {
-    dependsOn 'classes'
-    main = 'demo.pages.sauvegardes.PageSauvegardes'
-    classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8')
-}
-
 task demoServeur (type:JavaExec) {
     dependsOn 'classes'
-    main = 'demo.serveur.Main'
+    main = 'demo.serveur.MonServeur'
     classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8')
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
 

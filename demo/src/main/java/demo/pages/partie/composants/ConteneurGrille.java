@@ -1,7 +1,7 @@
-package demo.pages.partie.vues.composants;
+package demo.pages.partie.composants;
 
 import ntro.debogage.J;
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import javafx.beans.NamedArg;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;

@@ -1,20 +1,20 @@
 package demo.serveur;
 
 import ntro.debogage.J;
-import static demo.client.Constantes.*;
+import static demo.Constantes.*;
 
-public class Main {
+public class MonServeur {
 	
 	public static void main(String[] args) {
-		J.appel(Main.class);
+		J.appel(MonServeur.class);
 		
 		demarrerServeur();
 	}
 	
 	private static void demarrerServeur() {
-		J.appel(Main.class);
+		J.appel(MonServeur.class);
 		
-		ServeurQuatreDeSuite serveur = new ServeurQuatreDeSuite(PORT);
+		MonServeurWebSocket serveur = new MonServeurWebSocket(PORT);
 		serveur.start();
 	}
 

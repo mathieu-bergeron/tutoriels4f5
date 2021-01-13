@@ -3,8 +3,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<?import demo.pages.partie.vues.composants.ConteneurEntetes?>
-<?import demo.pages.partie.vues.composants.ConteneurGrille?>
+<?import demo.pages.partie.composants.ConteneurEntetes?>
+<?import demo.pages.partie.composants.ConteneurGrille?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
       styleClass="conteneurPrincipal" 

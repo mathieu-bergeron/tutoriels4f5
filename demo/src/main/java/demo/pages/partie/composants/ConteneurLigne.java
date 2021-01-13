@@ -1,8 +1,7 @@
-package demo.pages.partie.vues.composants;
+package demo.pages.partie.composants;
 
 import ntro.debogage.J;
-import demo.pages.commun.composants.CaseAjustable;
-import demo.pages.commun.enumerations.Couleur;
+import demo.enumerations.Couleur;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -60,6 +59,4 @@ public class ConteneurLigne extends HBox {
             caseAjustable.animerEntreeJeton();
         }
     }
-	
-	
 }
