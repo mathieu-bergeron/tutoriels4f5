@@ -16,19 +16,31 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut10.messages.nouvelle_partie_reseau;
 
-include 'tut09'
-include 'tut10'
+import tut10.pages.parametres.Parametres;
+import ntro.debogage.J;
+import ntro.messages.Message;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class MsgNouvellePartie extends Message<MsgNouvellePartiePourEnvoi, 
+                                             MsgNouvellePartieRecu>
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+					         implements MsgNouvellePartiePourEnvoi, 
+					                    MsgNouvellePartieRecu {
+	
+	private Parametres parametres;
+
+	@Override
+	public Parametres getParametres() {
+		J.appel(this);
+
+		return parametres;
+	}
+
+	@Override
+	public void setParametres(Parametres parametres) {
+		J.appel(this);
+		
+		this.parametres = parametres;
+	}
 }
-*/
-

@@ -16,19 +16,30 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut09.commandes.jouer_ici;
 
-include 'tut09'
-include 'tut10'
+import ntro.commandes.Commande;
+import ntro.debogage.J;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class JouerIci extends Commande<JouerIciPourEnvoi, 
+                                       JouerIciRecue> 
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+                      implements JouerIciPourEnvoi, 
+                                 JouerIciRecue {
+	
+	private int indiceColonne;
+
+	@Override
+	public void setIndiceColonne(int indiceColonne) {
+		J.appel(this);
+		
+		this.indiceColonne = indiceColonne;
+	}
+
+	@Override
+	public int getIndiceColonne() {
+		J.appel(this);
+
+		return indiceColonne;
+	}
 }
-*/
-

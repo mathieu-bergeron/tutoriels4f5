@@ -16,19 +16,17 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut09.pages.partie.modeles;
 
-include 'tut09'
-include 'tut10'
+import ntro.mvc.modeles.ModeleLectureSeule;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public interface PartieLectureSeule 
+       extends   ModeleLectureSeule {
+	
+	 GrilleLectureSeule getGrille();
+	 int getLargeur();
+	 int getHauteur();
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+	 JetonLectureSeule getDernierJetonAjoute();
+
 }
-*/
-

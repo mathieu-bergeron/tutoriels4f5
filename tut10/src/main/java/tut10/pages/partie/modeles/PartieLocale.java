@@ -16,19 +16,10 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut10.pages.partie.modeles;
 
-include 'tut09'
-include 'tut10'
-
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
-
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+public class      PartieLocale 
+       extends    Partie<PartieLocaleLectureSeule> 
+       implements PartieLocaleLectureSeule { 
+	
 }
-*/
-

@@ -16,19 +16,16 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut09.serveur;
 
-include 'tut09'
-include 'tut10'
+import ntro.debogage.J;
+import ntro.web_socket.ServeurWebSocket;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class MonServeurWebSocket extends ServeurWebSocket {
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+	public MonServeurWebSocket(int port) {
+		super(port);
+		J.appel(this);
+	}
+
 }
-*/
-

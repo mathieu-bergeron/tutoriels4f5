@@ -16,19 +16,13 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut09.commandes.fermer_parametres;
 
-include 'tut09'
-include 'tut10'
+import ntro.commandes.Commande;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class FermerParametres extends Commande<FermerParametresPourEnvoi, 
+                                               FermerParametresRecue>
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+							  implements FermerParametresPourEnvoi,
+							             FermerParametresRecue {
 }
-*/
-

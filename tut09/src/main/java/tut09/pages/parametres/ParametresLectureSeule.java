@@ -16,19 +16,15 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut09.pages.parametres;
 
-include 'tut09'
-include 'tut10'
+import tut09.enumerations.Couleur;
+import tut09.enumerations.TailleGrille;
+import ntro.mvc.modeles.ModeleLectureSeule;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public interface ParametresLectureSeule extends ModeleLectureSeule {
+	
+	Couleur getQuiCommence();
+	TailleGrille getTailleGrille();
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
 }
-*/
-

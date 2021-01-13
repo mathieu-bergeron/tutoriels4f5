@@ -16,19 +16,25 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut09.pages.parametres;
 
-include 'tut09'
-include 'tut10'
+import ntro.debogage.J;
+import ntro.mvc.Afficheur;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class   AfficheurParametres 
+       extends Afficheur<ParametresLectureSeule, VueParametres> {
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+	@Override
+	public void initialiserAffichage(ParametresLectureSeule modeleLectureSeule, VueParametres vue) {
+		J.appel(this);
+	}
+
+	@Override
+	public void rafraichirAffichage(ParametresLectureSeule modeleLectureSeule, VueParametres vue) {
+		J.appel(this);
+
+		vue.afficherQuiCommence(modeleLectureSeule.getQuiCommence());
+		vue.afficherTailleGrille(modeleLectureSeule.getTailleGrille());
+	}
+
 }
-*/
-

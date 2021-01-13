@@ -16,19 +16,10 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut09.commandes.ouvrir_parametres;
 
-include 'tut09'
-include 'tut10'
+import ntro.commandes.CommandeRecue;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public interface OuvrirParametresRecue extends CommandeRecue {
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
 }
-*/
-
