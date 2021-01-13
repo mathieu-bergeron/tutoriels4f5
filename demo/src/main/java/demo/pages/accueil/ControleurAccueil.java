@@ -147,12 +147,12 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	protected void demarrer() {
 		J.appel(this);
 
-		instancierMVCParamatres();
+		instancierControleurParametres();
 		
-		nouvellePartie();
+		ouvrirPartie();
 	}
 
-	private void instancierMVCParamatres() {
+	private void instancierControleurParametres() {
 		J.appel(this);
 
 		ChargeurDeVue<VueParametres> chargeur;
@@ -175,7 +175,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 				                           afficheurParametres);
 	}
 
-	private void nouvellePartie() {
+	private void ouvrirPartie() {
 		J.appel(this);
 
 		if(MonClient.siConnecteAuServeur()) {
@@ -184,14 +184,12 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 		}else {
 
-			nouvellePartieLocale();
+			ouvrirPartieLocale();
 		}
 	}
-	
-	private void nouvellePartieLocale() {
+
+	private void ouvrirPartieLocale() {
 		J.appel(this);
-		
-		VuePartieLocale vuePartieLocale = getVue().creerVuePartieLocale();
 		
 		try {
 
@@ -202,11 +200,29 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 			creerNouvellePartieLocaleSelonParametres(parametres);
 		}
 		
-		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
+		instancierControleurPartieLocale();
+	}
+	
+	private void nouvellePartieLocale() {
+		J.appel(this);
 
-		FabriqueControleur.creerControleur(ControleurPartieLocale.class, partieLocale, vuePartieLocale, afficheur);
+		creerNouvellePartieLocaleSelonParametres(parametres);
+
+		instancierControleurPartieLocale();
 	}
 
+	private void instancierControleurPartieLocale() {
+		J.appel(this);
+
+		VuePartieLocale vuePartieLocale = getVue().creerVuePartieLocale();
+
+		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
+
+		FabriqueControleur.creerControleur(ControleurPartieLocale.class, 
+			                           	   partieLocale, 
+			                           	   vuePartieLocale, 
+			                           	   afficheur);
+	}
 
 	private void creerNouvellePartieLocaleSelonParametres(Parametres parametres) {
 		J.appel(this);
