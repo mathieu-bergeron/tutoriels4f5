@@ -1,6 +1,6 @@
 package demo.messages.nouvelle_partie_reseau;
 
-import demo.client.pages.parametres.modeles.Parametres;
+import demo.pages.parametres.modeles.Parametres;
 import ntro.messages.MessagePourEnvoi;
 
 public interface MsgNouvellePartiePourEnvoi extends MessagePourEnvoi {

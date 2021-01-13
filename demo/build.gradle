@@ -64,28 +64,28 @@ task demo (type:JavaExec) {
 
 task demoAccueil (type:JavaExec) {
     dependsOn 'classes'
-    main = 'demo.client.pages.accueil.PageAccueil'
+    main = 'demo.pages.accueil.PageAccueil'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
 task demoParametres (type:JavaExec) {
     dependsOn 'classes'
-    main = 'demo.client.pages.parametres.PageParametres'
+    main = 'demo.pages.parametres.PageParametres'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }
 
 task demoParametresEn (type:JavaExec) {
     dependsOn 'classes'
-    main = 'demo.client.pages.parametres.PageParametres'
+    main = 'demo.pages.parametres.PageParametres'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
 }
 
 task demoSauvegardes (type:JavaExec) {
     dependsOn 'classes'
-    main = 'demo.client.pages.sauvegardes.PageSauvegardes'
+    main = 'demo.pages.sauvegardes.PageSauvegardes'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8')
 }

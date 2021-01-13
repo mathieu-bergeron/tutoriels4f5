@@ -14,8 +14,8 @@ import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
 import ntro.javafx.Initialisateur;
-import demo.client.pages.accueil.controleurs.ControleurAccueil;
-import demo.client.pages.accueil.vues.VueAccueil;
+import demo.pages.accueil.controleurs.ControleurAccueil;
+import demo.pages.accueil.vues.VueAccueil;
 
 import static demo.client.Constantes.*;
 

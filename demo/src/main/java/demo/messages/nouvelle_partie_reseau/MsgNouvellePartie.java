@@ -1,6 +1,6 @@
 package demo.messages.nouvelle_partie_reseau;
 
-import demo.client.pages.parametres.modeles.Parametres;
+import demo.pages.parametres.modeles.Parametres;
 import ntro.debogage.J;
 import ntro.messages.Message;
 
