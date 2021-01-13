@@ -1,3 +1,21 @@
+// Copyright (C) (2020) (Mathieu Bergeron) (mathieu.bergeron@cmontmorency.qc.ca)
+//
+// This file is part of tutoriels4f5
+//
+// tutoriels4f5 is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// tutoriels4f5 is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
+
+
 package demo.pages.accueil;
 
 import java.net.URL;
@@ -12,11 +30,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import ntro.client.commandes.FabriqueCommande;
-import ntro.client.mvc.Vue;
+import ntro.commandes.FabriqueCommande;
 import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
+import ntro.mvc.Vue;
 import demo.commandes.nouvelle_partie.NouvellePartieLocale;
 import demo.commandes.nouvelle_partie.NouvellePartieLocalePourEnvoi;
 import demo.commandes.nouvelle_partie_reseau.NouvellePartieReseau;

@@ -1,16 +1,34 @@
+// Copyright (C) (2020) (Mathieu Bergeron) (mathieu.bergeron@cmontmorency.qc.ca)
+//
+// This file is part of tutoriels4f5
+//
+// tutoriels4f5 is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Affero General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// tutoriels4f5 is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Affero General Public License for more details.
+//
+// You should have received a copy of the GNU Affero General Public License
+// along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
+
+
 package demo.pages.accueil;
 
 import ntro.debogage.Erreur;
 import ntro.debogage.J;
 import ntro.systeme.Systeme;
-import ntro.client.mvc.controleurs.ControleurVue;
-import ntro.client.mvc.controleurs.FabriqueControleur;
-import ntro.client.mvc.controleurs.RecepteurCommandeMVC;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.DialogueModal;
 import ntro.messages.FabriqueMessage;
 import ntro.messages.RecepteurMessage;
-import ntro.modeles.EntrepotDeModeles;
+import ntro.mvc.controleurs.ControleurVue;
+import ntro.mvc.controleurs.FabriqueControleur;
+import ntro.mvc.controleurs.RecepteurCommandeMVC;
+import ntro.mvc.modeles.EntrepotDeModeles;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import demo.client.MonClient;
