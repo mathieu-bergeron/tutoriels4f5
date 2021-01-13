@@ -71,5 +71,15 @@ public class Colonne implements ColonneLectureSeule {
 
 		return jetons.size() < hauteur;
 	}
+
+	public void apresChargementJson() {
+		J.appel(this);
+		
+		for(int indiceRangee = 0; indiceRangee < jetons.size(); indiceRangee++) {
+			Jeton jeton = jetons.get(indiceRangee);
+			jeton.setIndiceColonne(idColonne);
+			jeton.setIndiceRangee(indiceRangee);
+		}
+	}
 	
 }

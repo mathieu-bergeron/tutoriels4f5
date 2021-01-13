@@ -127,7 +127,7 @@ public class MonClient extends Application {
 		double hauteurEcran = Screen.getPrimary().getVisualBounds().getHeight();
 		double tailleEcran = Math.max(largeurEcran, hauteurEcran);
 		
-		AJUSTEMENT_TAILLE_PIXELS = tailleEcran / 1920.0;
+		AJUSTEMENT_TAILLE_PIXELS = 1.2 * tailleEcran / 1920.0;
 	}
 
 	private void ajusterTaillePolice(Scene scene) {

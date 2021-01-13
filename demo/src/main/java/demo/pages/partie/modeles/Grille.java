@@ -41,7 +41,9 @@ public class Grille implements GrilleLectureSeule {
 
 	public void apresChargementJson() {
 		for(int indiceColonne = 0; indiceColonne < colonnes.size(); indiceColonne++) {
-			colonnes.get(indiceColonne).setIdColonne(indiceColonne);
+			Colonne colonne = colonnes.get(indiceColonne);
+			colonne.setIdColonne(indiceColonne);
+			colonne.apresChargementJson();
 		}
 	}
 

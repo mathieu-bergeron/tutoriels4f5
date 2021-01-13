@@ -24,8 +24,8 @@ import ntro.debogage.J;
 public class Jeton implements JetonLectureSeule {
 	
 	private Couleur couleur;
-	private int indiceColonne;
-	private int indiceRangee;
+	private transient int indiceColonne;
+	private transient int indiceRangee;
 
 	@Override
 	public Couleur getCouleur() {

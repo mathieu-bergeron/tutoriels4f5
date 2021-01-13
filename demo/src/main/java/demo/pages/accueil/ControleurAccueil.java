@@ -300,6 +300,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		J.appel(this);
 
 		sauvegarderPartieLocale();
+		
 
 		Systeme.quitter();
 	}
