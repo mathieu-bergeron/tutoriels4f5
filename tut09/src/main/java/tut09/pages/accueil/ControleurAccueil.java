@@ -50,9 +50,6 @@ import tut09.pages.partie.modeles.PartieLocale;
 import tut09.pages.partie.modeles.PartieReseau;
 import tut09.pages.partie.vues.VuePartieLocale;
 import tut09.pages.partie.vues.VuePartieReseau;
-import tut09.messages.nouvelle_partie_reseau.MsgNouvellePartie;
-import tut09.messages.nouvelle_partie_reseau.MsgNouvellePartiePourEnvoi;
-import tut09.messages.nouvelle_partie_reseau.MsgNouvellePartieRecu;
 
 import static tut09.Constantes.*;
 
@@ -64,8 +61,6 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private Stage dialogueParametres;
 	private Parametres parametres;
 	private PartieLocale partieLocale;
-
-	private MsgNouvellePartiePourEnvoi messageNouvellePartieReseau;
 
 	@Override
 	protected void installerReceptionCommandes() {
@@ -111,8 +106,6 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
 		J.appel(this);
-		
-		messageNouvellePartieReseau = FabriqueMessage.obtenirMessagePourEnvoi(MsgNouvellePartie.class);
 	}
 
 	@Override

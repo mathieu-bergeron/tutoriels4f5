@@ -37,7 +37,6 @@ import ntro.javafx.ChargeurDeVue;
 import ntro.mvc.Vue;
 import tut09.commandes.nouvelle_partie.NouvellePartieLocale;
 import tut09.commandes.nouvelle_partie.NouvellePartieLocalePourEnvoi;
-import tut09.commandes.nouvelle_partie_reseau.NouvellePartieReseauPourEnvoi;
 import tut09.commandes.ouvrir_parametres.OuvrirParametres;
 import tut09.commandes.ouvrir_parametres.OuvrirParametresPourEnvoi;
 import tut09.commandes.quitter.Quitter;
@@ -56,7 +55,6 @@ public class VueAccueil implements Vue, Initializable {
 	private VBox conteneurPartie;
 	
 	private NouvellePartieLocalePourEnvoi nouvellePartieLocalePourEnvoi;
-	private NouvellePartieReseauPourEnvoi nouvellePartieReseauPourEnvoi;
 	private OuvrirParametresPourEnvoi ouvrirParametresPourEnvoi;
 	private QuitterPourEnvoi quitterPourEnvoi;
 	
@@ -67,7 +65,6 @@ public class VueAccueil implements Vue, Initializable {
 		J.appel(this);
 		
 		DoitEtre.nonNul(menuNouvellePartieLocale);
-		DoitEtre.nonNul(menuNouvellePartieReseau);
 		DoitEtre.nonNul(menuParametres);
 		DoitEtre.nonNul(menuQuitter);
 		
@@ -93,15 +90,6 @@ public class VueAccueil implements Vue, Initializable {
 				J.appel(this);
 				
 				nouvellePartieLocalePourEnvoi.envoyerCommande();
-			}
-		});
-
-		menuNouvellePartieReseau.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				nouvellePartieReseauPourEnvoi.envoyerCommande();
 			}
 		});
 
