@@ -53,76 +53,6 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 	private PartieLocale partieLocale;
 
 	private MsgNouvellePartiePourEnvoi messageNouvellePartieReseau;
-	
-	@Override
-	protected void obtenirMessagesPourEnvoi() {
-		J.appel(this);
-		
-		messageNouvellePartieReseau = FabriqueMessage.obtenirMessagePourEnvoi(MsgNouvellePartie.class);
-	}
-
-	@Override
-	protected void installerReceptionMessages() {
-		J.appel(this);
-		
-		FabriqueMessage.installerRecepteur(MsgNouvellePartie.class, new RecepteurMessage<MsgNouvellePartieRecu>() {
-
-			@Override
-			public void recevoirMessage(MsgNouvellePartieRecu messageRecu) {
-				J.appel(this);
-				
-				creerNouvellePartieReseau(messageRecu.getParametres());
-			}
-		});
-	}
-	
-
-	@Override
-	protected void demarrer() {
-		J.appel(this);
-
-		instancierMVCParamatres();
-		
-		nouvellePartie();
-
-	}
-
-	private void nouvellePartie() {
-		J.appel(this);
-
-		if(Main.siConnecteAuServeur()) {
-			
-			initierNouvellePartieReseau();
-
-		}else {
-
-			nouvellePartieLocale();
-		}
-	}
-
-	private void instancierMVCParamatres() {
-		J.appel(this);
-
-		ChargeurDeVue<VueParametres> chargeur;
-		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
-										            CHEMIN_PARAMETRES_CSS,
-				                            		CHEMIN_CHAINES);
-		
-		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
-				                                 HAUTEUR_PARAMETRES_PIXELS);
-		
-		parametres = EntrepotDeModeles.creerModele(Parametres.class, ID_MODELE_PAR_DEFAUT);
-		
-		AfficheurParametres afficheurParametres = new AfficheurParametres();
-		
-		VueParametres vueParametres = chargeur.getVue();
-		
-		FabriqueControleur.creerControleur(ControleurParametres.class, 
-				                           parametres, 
-				                           vueParametres, 
-				                           afficheurParametres);
-	}
-
 
 	@Override
 	protected void installerReceptionCommandes() {
@@ -169,23 +99,80 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 			public void executerCommandeMVC(QuitterRecue commande) {
 				J.appel(this);
 
-				if(partieLocale != null) {
-					try {
-						EntrepotDeModeles.sauvegarderModele(partieLocale);
-					} catch (IOException e) {
-						Erreur.nonFatale("Impossible de sauvegarder la partie locale",e);
-					}
-				}
-				
-				Systeme.quitter();
+				quitter();
 			}
 		});
+	}
+
+	@Override
+	protected void obtenirMessagesPourEnvoi() {
+		J.appel(this);
+		
+		messageNouvellePartieReseau = FabriqueMessage.obtenirMessagePourEnvoi(MsgNouvellePartie.class);
+	}
+
+	@Override
+	protected void installerReceptionMessages() {
+		J.appel(this);
+		
+		FabriqueMessage.installerRecepteur(MsgNouvellePartie.class, new RecepteurMessage<MsgNouvellePartieRecu>() {
+
+			@Override
+			public void recevoirMessage(MsgNouvellePartieRecu messageRecu) {
+				J.appel(this);
+				
+				creerNouvellePartieReseau(messageRecu.getParametres());
+			}
+		});
+	}
+
+	@Override
+	protected void demarrer() {
+		J.appel(this);
+
+		instancierMVCParamatres();
+		
+		nouvellePartie();
+	}
+
+	private void instancierMVCParamatres() {
+		J.appel(this);
+
+		ChargeurDeVue<VueParametres> chargeur;
+		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
+										            CHEMIN_PARAMETRES_CSS,
+				                            		CHEMIN_CHAINES);
+		
+		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
+				                                 HAUTEUR_PARAMETRES_PIXELS);
+		
+		parametres = EntrepotDeModeles.creerModele(Parametres.class, ID_MODELE_PAR_DEFAUT);
+		
+		AfficheurParametres afficheurParametres = new AfficheurParametres();
+		
+		VueParametres vueParametres = chargeur.getVue();
+		
+		FabriqueControleur.creerControleur(ControleurParametres.class, 
+				                           parametres, 
+				                           vueParametres, 
+				                           afficheurParametres);
+	}
+
+	private void nouvellePartie() {
+		J.appel(this);
+
+		if(Main.siConnecteAuServeur()) {
+			
+			initierNouvellePartieReseau();
+
+		}else {
+
+			nouvellePartieLocale();
+		}
 	}
 	
 	private void nouvellePartieLocale() {
 		J.appel(this);
-		
-
 		
 		VuePartieLocale vuePartieLocale = getVue().creerVuePartieLocale();
 		
@@ -195,18 +182,22 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 		} catch (IOException e) {
 			
-			Erreur.nonFatale("Impossible de charger la partie locale",e);
-			
-			partieLocale = EntrepotDeModeles.creerModele(PartieLocale.class, ID_MODELE_PAR_DEFAUT);
+			creerNouvellePartieLocaleSelonParametres(parametres);
 		}
-
-		partieLocale.setCouleurCourante(parametres.getQuiCommence());
-		partieLocale.setLargeur(parametres.getTailleGrille().getLargeur());
-		partieLocale.setHauteur(parametres.getTailleGrille().getHauteur());
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 
 		FabriqueControleur.creerControleur(ControleurPartieLocale.class, partieLocale, vuePartieLocale, afficheur);
+	}
+
+
+	private void creerNouvellePartieLocaleSelonParametres(Parametres parametres) {
+		J.appel(this);
+
+		partieLocale = EntrepotDeModeles.creerModele(PartieLocale.class, ID_MODELE_PAR_DEFAUT);
+		partieLocale.setCouleurCourante(parametres.getQuiCommence());
+		partieLocale.setLargeur(parametres.getTailleGrille().getLargeur());
+		partieLocale.setHauteur(parametres.getTailleGrille().getHauteur());
 	}
 
 	private void initierNouvellePartieReseau() {
@@ -230,15 +221,23 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 
 		VuePartieReseau vuePartieReseau = getVue().creerVuePartieReseau();
 		
+		PartieReseau partie = creerPartieReseauSelonParametres(parametres);
+		
+		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
+		
+		FabriqueControleur.creerControleur(ControleurPartieReseau.class, partie, vuePartieReseau, afficheur);
+	}
+
+
+	private PartieReseau creerPartieReseauSelonParametres(Parametres parametres) {
+		J.appel(this);
+
 		PartieReseau partie = EntrepotDeModeles.creerModele(PartieReseau.class, ID_MODELE_PAR_DEFAUT);
 		
 		partie.setCouleurCourante(parametres.getQuiCommence());
 		partie.setHauteur(parametres.getTailleGrille().getHauteur());
 		partie.setLargeur(parametres.getTailleGrille().getLargeur());
-		
-		AfficheurPartieReseau afficheur = new AfficheurPartieReseau();
-		
-		FabriqueControleur.creerControleur(ControleurPartieReseau.class, partie, vuePartieReseau, afficheur);
+		return partie;
 	}
 	
 	private void ouvrirParametres() {
@@ -260,8 +259,32 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		J.appel(this);
 		
 		if(dialogueParametres != null) {
-			
 			dialogueParametres.close();
 		}
 	}
+
+	private void quitter() {
+		J.appel(this);
+
+		sauvegarderPartieLocale();
+
+		Systeme.quitter();
+	}
+
+
+	private void sauvegarderPartieLocale() {
+		J.appel(this);
+
+		if (partieLocale != null) {
+			try {
+
+				EntrepotDeModeles.sauvegarderModele(partieLocale);
+
+			} catch (IOException e) {
+
+				Erreur.nonFatale("Impossible de sauvegarder la partie locale", e);
+			}
+		}
+	}
+
 }
