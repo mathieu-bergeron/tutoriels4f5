@@ -27,7 +27,6 @@ public class Constantes {
 	public static final String CHEMIN_PRINCIPAL_FXML = "/accueil/structure.xml";
 	public static final String CHEMIN_PARAMETRES_FXML = "/parametres/structure.xml";
 	public static final String CHEMIN_PARTIE_LOCALE_FXML = "/partie/locale/structure.xml";
-	public static final String CHEMIN_PARTIE_RESEAU_FXML = "/partie/reseau/structure.xml";
 	
 	public static final int HAUTEUR_GRILLE_PETITE = 4;
 	public static final int HAUTEUR_GRILLE_MOYENNE = 6;
