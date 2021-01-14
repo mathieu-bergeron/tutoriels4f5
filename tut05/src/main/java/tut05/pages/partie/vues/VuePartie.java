@@ -77,7 +77,7 @@ public abstract class VuePartie implements Vue, Initializable {
         
         for(int indiceRangee = 0; indiceRangee < largeur; indiceRangee++) {
         	
-        	Button entete = new Button("↡");
+        	Button entete = new Button("|");
         	
         	entete.setMinWidth(Constantes.TAILLE_CASE);
         	entete.setMaxWidth(Constantes.TAILLE_CASE);
