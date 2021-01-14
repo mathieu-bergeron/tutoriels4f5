@@ -22,11 +22,11 @@ import tut04.enumerations.TailleGrille;
 
 public class Constantes {
 	
-	public static final String ID_MODELE_PAR_DEFAUT = "defaut";
-	
 	public static final String CHEMIN_PARAMETRES_FXML = "/parametres/structure.xml";
 	public static final String CHEMIN_PARTIE_LOCALE_FXML = "/partie/locale/structure.xml";
 	
+	public static final String[] IDS_MODELES_TESTS = {"test01","test02","test03"};
+
 	public static final int HAUTEUR_GRILLE_PETITE = 4;
 	public static final int HAUTEUR_GRILLE_MOYENNE = 6;
 	public static final int HAUTEUR_GRILLE_GRANDE = 10;

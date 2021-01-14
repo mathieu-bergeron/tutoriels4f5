@@ -24,7 +24,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import ntro.debogage.DoitEtre;
-import ntro.debogage.Erreur;
 import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
 import ntro.javafx.Initialisateur;
@@ -34,8 +33,7 @@ import ntro.systeme.Systeme;
 
 import static tut04.Constantes.*;
 
-import java.net.URI;
-import java.net.URISyntaxException;
+import java.util.Random;
 
 public class PageParametres extends Application {
 
@@ -45,6 +43,8 @@ public class PageParametres extends Application {
 		
 		J.appel(PageParametres.class);
 	}
+	
+	private Random alea = new Random();
 	
 	public static void main(String[] args) {
 		J.appel(PageParametres.class);
@@ -60,7 +60,8 @@ public class PageParametres extends Application {
 
 		VueParametres vue = chargeur.getVue();
 		
-		Parametres parametres = EntrepotDeModeles.creerModele(Parametres.class, ID_MODELE_PAR_DEFAUT);
+		String idModeleTest = IDS_MODELES_TESTS[alea.nextInt(IDS_MODELES_TESTS.length)];
+		Parametres parametres = EntrepotDeModeles.obtenirModele(Parametres.class, idModeleTest);
 		
 		AfficheurParametres afficheurParametres = new AfficheurParametres();
 		

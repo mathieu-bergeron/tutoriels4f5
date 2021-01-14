@@ -18,24 +18,8 @@
 
 package tut04.pages.parametres;
 
-import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
-import ntro.messages.FabriqueMessage;
 import ntro.mvc.controleurs.ControleurModeleVue;
-import ntro.mvc.controleurs.RecepteurCommandeMVC;
-import ntro.mvc.controleurs.RecepteurMessageMVC;
-import tut04.commandes.choisir_qui_commence.ChoisirQuiCommence;
-import tut04.commandes.choisir_qui_commence.ChoisirQuiCommenceRecue;
-import tut04.commandes.choisir_taille_grille.ChoisirTailleGrille;
-import tut04.commandes.choisir_taille_grille.ChoisirTailleGrilleRecue;
-import tut04.enumerations.Couleur;
-import tut04.enumerations.TailleGrille;
-import tut04.messages.transmettre_qui_commence.MsgTransmettreQuiCommence;
-import tut04.messages.transmettre_qui_commence.MsgTransmettreQuiCommencePourEnvoi;
-import tut04.messages.transmettre_qui_commence.MsgTransmettreQuiCommenceRecu;
-import tut04.messages.transmettre_taille.MsgTransmettreTaille;
-import tut04.messages.transmettre_taille.MsgTransmettreTaillePourEnvoi;
-import tut04.messages.transmettre_taille.MsgTransmettreTailleRecu;
 
 public class   ControleurParametres 
        extends ControleurModeleVue<ParametresLectureSeule, 
@@ -43,44 +27,9 @@ public class   ControleurParametres
                                    VueParametres,
                                    AfficheurParametres> {
 	
-	private MsgTransmettreQuiCommencePourEnvoi msgTransmettreQuiCommence;
-	private MsgTransmettreTaillePourEnvoi msgTransmettreTaille;
-
 	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
-		
-		installerRecepteurCommande(ChoisirQuiCommence.class, new RecepteurCommandeMVC<ChoisirQuiCommenceRecue>() {
-			@Override
-			public void executerCommandeMVC(ChoisirQuiCommenceRecue commande) {
-				J.appel(this);
-				
-				Couleur quiCommence = commande.getCouleur();
-
-				DoitEtre.nonNul(quiCommence);
-
-				getModele().choisirQuiCommence(quiCommence);
-				
-				msgTransmettreQuiCommence.setQuiCommence(quiCommence);
-				msgTransmettreQuiCommence.envoyerMessage();
-			}
-		});
-		
-		installerRecepteurCommande(ChoisirTailleGrille.class, new RecepteurCommandeMVC<ChoisirTailleGrilleRecue>() {
-			@Override
-			public void executerCommandeMVC(ChoisirTailleGrilleRecue commande) {
-				J.appel(this);
-				
-				TailleGrille tailleGrille = commande.getTailleGrille();
-				
-				DoitEtre.nonNul(tailleGrille);
-				
-				getModele().choisirTailleGrille(tailleGrille);
-
-				msgTransmettreTaille.setTailleGrille(tailleGrille);
-				msgTransmettreTaille.envoyerMessage();
-			}
-		});
 	}
 
 	@Override
@@ -91,40 +40,10 @@ public class   ControleurParametres
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
 		J.appel(this);
-		
-		msgTransmettreQuiCommence = FabriqueMessage.obtenirMessagePourEnvoi(MsgTransmettreQuiCommence.class);
-		msgTransmettreTaille = FabriqueMessage.obtenirMessagePourEnvoi(MsgTransmettreTaille.class);
 	}
 
 	@Override
 	protected void installerReceptionMessages() {
 		J.appel(this);
-		
-		installerRecepteurMessage(MsgTransmettreQuiCommence.class, new RecepteurMessageMVC<MsgTransmettreQuiCommenceRecu>() {
-
-			@Override
-			public void recevoirMessageMVC(MsgTransmettreQuiCommenceRecu messageRecu) {
-				J.appel(this);
-				
-				Couleur quiCommence = messageRecu.getQuiCommence();
-				
-				DoitEtre.nonNul(quiCommence);
-				
-				getModele().choisirQuiCommence(quiCommence);
-			}
-		});
-		
-		installerRecepteurMessage(MsgTransmettreTaille.class, new RecepteurMessageMVC<MsgTransmettreTailleRecu>() {
-			@Override
-			public void recevoirMessageMVC(MsgTransmettreTailleRecu messageRecu) {
-				J.appel(this);
-				
-				TailleGrille tailleGrille = messageRecu.getTailleGrille();
-				
-				DoitEtre.nonNul(tailleGrille);
-				
-				getModele().choisirTailleGrille(tailleGrille);
-			}
-		});
 	}
 }

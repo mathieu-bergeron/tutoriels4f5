@@ -21,16 +21,11 @@ package tut04.pages.partie.vues;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import ntro.commandes.FabriqueCommande;
 import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.mvc.Vue;
 import tut04.Constantes;
-import tut04.commandes.jouer_ici.JouerIci;
-import tut04.commandes.jouer_ici.JouerIciPourEnvoi;
 import tut04.enumerations.Couleur;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -52,8 +47,6 @@ public abstract class VuePartie implements Vue, Initializable {
     
     private Button[][] cases;
 
-	private JouerIciPourEnvoi jouerIciPourEnvoi;
-    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		J.appel(this);
@@ -124,28 +117,11 @@ public abstract class VuePartie implements Vue, Initializable {
 	@Override
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
-
-		jouerIciPourEnvoi = FabriqueCommande.obtenirCommandePourEnvoi(JouerIci.class);
 	}
 
 	@Override
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
-		
-		for(int i = 0; i < entetes.length; i++) {
-			
-			final int indiceColonne = i;
-			
-			entetes[i].setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent event) {
-					J.appel(this);
-					
-					jouerIciPourEnvoi.setIndiceColonne(indiceColonne);
-					jouerIciPourEnvoi.envoyerCommande();
-				}
-			});
-		}
 	}
 
 	@Override

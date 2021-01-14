@@ -23,18 +23,11 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import ntro.commandes.FabriqueCommande;
 import ntro.debogage.DoitEtre;
 import ntro.debogage.J;
 import ntro.mvc.Vue;
-import tut04.commandes.choisir_qui_commence.ChoisirQuiCommence;
-import tut04.commandes.choisir_qui_commence.ChoisirQuiCommencePourEnvoi;
-import tut04.commandes.choisir_taille_grille.ChoisirTailleGrillePourEnvoi;
-import tut04.commandes.choisir_taille_grille.ChoisirTailleGrille;
 import tut04.enumerations.Couleur;
 import tut04.enumerations.TailleGrille;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -45,9 +38,6 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 
 public class VueParametres implements Vue, Initializable {
-	
-	private ChoisirQuiCommencePourEnvoi choisirQuiCommence;
-	private ChoisirTailleGrillePourEnvoi choisirTailleGrille;
 
 	@FXML 
 	private Button caseRouge, caseJaune;
@@ -96,49 +86,11 @@ public class VueParametres implements Vue, Initializable {
 	@Override
 	public void obtenirCommandesPourEnvoi() {
 		J.appel(this);
-		
-		choisirQuiCommence = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirQuiCommence.class);
-		choisirTailleGrille = FabriqueCommande.obtenirCommandePourEnvoi(ChoisirTailleGrille.class);
 	}
 
 	@Override
 	public void installerCapteursEvenementsUsager() {
 		J.appel(this);
-		
-		checkRouge.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				choisirQuiCommence.setCouleur(Couleur.ROUGE);
-				choisirQuiCommence.envoyerCommande();
-			}
-		});
-		
-		checkJaune.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-
-				choisirQuiCommence.setCouleur(Couleur.JAUNE);
-				choisirQuiCommence.envoyerCommande();
-			}
-		});
-
-		choixTaille.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent event) {
-				J.appel(this);
-				
-				String nomTailleChoisie = choixTaille.getSelectionModel().getSelectedItem();
-				
-				TailleGrille tailleChoisie = tailleSelonNom.get(nomTailleChoisie);
-				
-				choisirTailleGrille.setTailleGrille(tailleChoisie);
-				choisirTailleGrille.envoyerCommande();
-			}
-		});
-		
 	}
 
 	@Override

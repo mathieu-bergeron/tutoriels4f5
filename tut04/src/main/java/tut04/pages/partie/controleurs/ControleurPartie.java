@@ -20,9 +20,6 @@ package tut04.pages.partie.controleurs;
 
 import ntro.debogage.J;
 import ntro.mvc.controleurs.ControleurModeleVue;
-import ntro.mvc.controleurs.RecepteurCommandeMVC;
-import tut04.commandes.jouer_ici.JouerIci;
-import tut04.commandes.jouer_ici.JouerIciRecue;
 import tut04.pages.partie.afficheurs.AfficheurPartie;
 import tut04.pages.partie.modeles.Partie;
 import tut04.pages.partie.modeles.PartieLectureSeule;
@@ -55,20 +52,5 @@ public abstract class  ControleurPartie<PLS extends PartieLectureSeule,
 	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
-		
-		installerRecepteurCommande(JouerIci.class, new RecepteurCommandeMVC<JouerIciRecue>() {
-			@Override
-			public void executerCommandeMVC(JouerIciRecue commande) {
-				J.appel(this);
-				
-				reagirCommandeJouerIci(commande);
-			}
-		});
 	} 
-	
-	protected void reagirCommandeJouerIci(JouerIciRecue jouerIciRecue) {
-		J.appel(this);
-
-			getModele().jouerIci(jouerIciRecue.getIndiceColonne());
-	}
 }

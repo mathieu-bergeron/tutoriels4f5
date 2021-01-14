@@ -30,6 +30,8 @@ import ntro.mvc.modeles.EntrepotDeModeles;
 
 import static tut04.Constantes.*;
 
+import java.util.Random;
+
 import tut04.pages.partie.afficheurs.AfficheurPartieLocale;
 import tut04.pages.partie.controleurs.ControleurPartieLocale;
 import tut04.pages.partie.modeles.PartieLocale;
@@ -43,6 +45,8 @@ public class PagePartieLocale extends Application {
 		
 		J.appel(PagePartieLocale.class);
 	}
+
+	private Random alea = new Random();
 	
 	public static void main(String[] args) {
 		J.appel(PagePartieLocale.class);
@@ -58,7 +62,8 @@ public class PagePartieLocale extends Application {
 
 		VuePartieLocale vue = chargeur.getVue();
 		
-		PartieLocale partie = EntrepotDeModeles.creerModele(PartieLocale.class, ID_MODELE_PAR_DEFAUT);
+		String idModeleTest = IDS_MODELES_TESTS[alea.nextInt(IDS_MODELES_TESTS.length)];
+		PartieLocale partie = EntrepotDeModeles.obtenirModele(PartieLocale.class, idModeleTest);
 		
 		AfficheurPartieLocale afficheur = new AfficheurPartieLocale();
 		
