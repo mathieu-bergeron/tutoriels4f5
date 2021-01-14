@@ -16,7 +16,7 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-package tut08.pages.accueil;
+package tut07.pages.accueil;
 
 import ntro.debogage.Erreur;
 import ntro.debogage.J;
@@ -30,28 +30,28 @@ import ntro.mvc.controleurs.RecepteurCommandeMVC;
 import ntro.mvc.modeles.EntrepotDeModeles;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import tut08.commandes.fermer_parametres.FermerParametres;
-import tut08.commandes.fermer_parametres.FermerParametresRecue;
-import tut08.commandes.nouvelle_partie.NouvellePartieLocale;
-import tut08.commandes.nouvelle_partie.NouvellePartieLocaleRecue;
-import tut08.commandes.ouvrir_parametres.OuvrirParametres;
-import tut08.commandes.ouvrir_parametres.OuvrirParametresRecue;
-import tut08.commandes.quitter.Quitter;
-import tut08.commandes.quitter.QuitterRecue;
-import tut08.pages.parametres.AfficheurParametres;
-import tut08.pages.parametres.ControleurParametres;
-import tut08.pages.parametres.Parametres;
-import tut08.pages.parametres.VueParametres;
-import tut08.pages.partie.afficheurs.AfficheurPartieLocale;
-import tut08.pages.partie.afficheurs.AfficheurPartieReseau;
-import tut08.pages.partie.controleurs.ControleurPartieLocale;
-import tut08.pages.partie.controleurs.ControleurPartieReseau;
-import tut08.pages.partie.modeles.PartieLocale;
-import tut08.pages.partie.modeles.PartieReseau;
-import tut08.pages.partie.vues.VuePartieLocale;
-import tut08.pages.partie.vues.VuePartieReseau;
+import tut07.commandes.fermer_parametres.FermerParametres;
+import tut07.commandes.fermer_parametres.FermerParametresRecue;
+import tut07.commandes.nouvelle_partie.NouvellePartieLocale;
+import tut07.commandes.nouvelle_partie.NouvellePartieLocaleRecue;
+import tut07.commandes.ouvrir_parametres.OuvrirParametres;
+import tut07.commandes.ouvrir_parametres.OuvrirParametresRecue;
+import tut07.commandes.quitter.Quitter;
+import tut07.commandes.quitter.QuitterRecue;
+import tut07.pages.parametres.AfficheurParametres;
+import tut07.pages.parametres.ControleurParametres;
+import tut07.pages.parametres.Parametres;
+import tut07.pages.parametres.VueParametres;
+import tut07.pages.partie.afficheurs.AfficheurPartieLocale;
+import tut07.pages.partie.afficheurs.AfficheurPartieReseau;
+import tut07.pages.partie.controleurs.ControleurPartieLocale;
+import tut07.pages.partie.controleurs.ControleurPartieReseau;
+import tut07.pages.partie.modeles.PartieLocale;
+import tut07.pages.partie.modeles.PartieReseau;
+import tut07.pages.partie.vues.VuePartieLocale;
+import tut07.pages.partie.vues.VuePartieReseau;
 
-import static tut08.Constantes.*;
+import static tut07.Constantes.*;
 
 import java.io.IOException;
 
@@ -126,9 +126,7 @@ public class ControleurAccueil extends ControleurVue<VueAccueil> {
 		J.appel(this);
 
 		ChargeurDeVue<VueParametres> chargeur;
-		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML,
-										            CHEMIN_PARAMETRES_CSS,
-				                            		CHEMIN_CHAINES);
+		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML);
 		
 		sceneParametres = chargeur.nouvelleScene(LARGEUR_PARAMETRES_PIXELS, 
 				                                 HAUTEUR_PARAMETRES_PIXELS);

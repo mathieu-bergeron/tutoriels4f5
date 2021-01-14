@@ -16,21 +16,31 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut07.messages.transmettre_qui_commence;
 
-include 'tut07'
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut07.enumerations.Couleur;
+import ntro.debogage.J;
+import ntro.messages.Message;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class MsgTransmettreQuiCommence extends Message<MsgTransmettreQuiCommencePourEnvoi, 
+                                             MsgTransmettreQuiCommenceRecu>
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+					         implements MsgTransmettreQuiCommencePourEnvoi, 
+					                    MsgTransmettreQuiCommenceRecu {
+	
+	private Couleur quiCommence;
+
+	@Override
+	public Couleur getQuiCommence() {
+		J.appel(this);
+		
+		return quiCommence;
+	}
+
+	@Override
+	public void setQuiCommence(Couleur quiCommence) {
+		J.appel(this);
+		
+		this.quiCommence = quiCommence;
+	}
 }
-*/
-

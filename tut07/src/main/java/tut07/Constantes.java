@@ -16,27 +16,18 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-package tut08;
+package tut07;
 
-import tut08.enumerations.TailleGrille;
+import tut07.enumerations.TailleGrille;
 
 public class Constantes {
 	
 	public static final String ID_MODELE_PAR_DEFAUT = "defaut";
 	
-	public static final String CHEMIN_CHAINES = "traductions.chaines";
-
 	public static final String CHEMIN_PRINCIPAL_FXML = "/accueil/structure.xml";
-	public static final String CHEMIN_PRINCIPAL_CSS = "/accueil/style.css";
-
 	public static final String CHEMIN_PARAMETRES_FXML = "/parametres/structure.xml";
-	public static final String CHEMIN_PARAMETRES_CSS = "/parametres/style.css";
-
 	public static final String CHEMIN_PARTIE_LOCALE_FXML = "/partie/locale/structure.xml";
-	public static final String CHEMIN_PARTIE_LOCALE_CSS = "/partie/locale/style.css";
-
 	public static final String CHEMIN_PARTIE_RESEAU_FXML = "/partie/reseau/structure.xml";
-	public static final String CHEMIN_PARTIE_RESEAU_CSS = "/partie/reseau/style.css";
 	
 	public static final int HAUTEUR_GRILLE_PETITE = 4;
 	public static final int HAUTEUR_GRILLE_MOYENNE = 6;

@@ -16,21 +16,13 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut07.messages.transmettre_qui_commence;
 
-include 'tut07'
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut07.enumerations.Couleur;
+import ntro.messages.MessageRecu;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public interface MsgTransmettreQuiCommenceRecu extends MessageRecu {
+	
+	Couleur getQuiCommence();
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
 }
-*/
-

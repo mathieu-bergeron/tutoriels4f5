@@ -16,49 +16,68 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-package tut08.client;
+package tut07.pages.parametres;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import ntro.debogage.DoitEtre;
+import ntro.debogage.Erreur;
 import ntro.debogage.J;
 import ntro.javafx.ChargeurDeVue;
-import ntro.javafx.DialogueModal;
 import ntro.javafx.Initialisateur;
 import ntro.mvc.controleurs.FabriqueControleur;
+import ntro.mvc.modeles.EntrepotDeModeles;
 import ntro.systeme.Systeme;
-import tut08.pages.accueil.ControleurAccueil;
-import tut08.pages.accueil.VueAccueil;
 
-import static tut08.Constantes.*;
+import static tut07.Constantes.*;
 
-public class MonClient extends Application {
-	
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import tut07.client.MonClientWebSocket;
+
+public class PageParametres extends Application {
+
 	static {
+
 		Initialisateur.initialiser();
-		J.appel(MonClient.class);
+		
+		J.appel(PageParametres.class);
 	}
 	
 	public static void main(String[] args) {
-		J.appel(MonClient.class);
+		J.appel(PageParametres.class);
 		launch(args);
 	}
 
 	@Override
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
+		
+		connecterAuServeur();
+		
+		ChargeurDeVue<VueParametres> chargeur;
+		chargeur = new ChargeurDeVue<VueParametres>(CHEMIN_PARAMETRES_FXML);
 
-		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
+		VueParametres vue = chargeur.getVue();
+		
+		Parametres parametres = EntrepotDeModeles.creerModele(Parametres.class, ID_MODELE_PAR_DEFAUT);
+		
+		AfficheurParametres afficheurParametres = new AfficheurParametres();
+		
+		DoitEtre.nonNul(vue);
 
-		Scene scene = instancierControleurAccueil();
+		FabriqueControleur.creerControleur(ControleurParametres.class, parametres, vue, afficheurParametres);
+
+		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS, HAUTEUR_PIXELS);
 
 		fenetrePrincipale.setScene(scene);
-
-		ajusterTailles(fenetrePrincipale, scene);
+		
+		fenetrePrincipale.setMinWidth(LARGEUR_PIXELS);
+		fenetrePrincipale.setMinHeight(HAUTEUR_PIXELS);
 		
 		capterEvenementFermeture(fenetrePrincipale);
 
@@ -78,31 +97,37 @@ public class MonClient extends Application {
 		});
 	}
 
-	private Scene instancierControleurAccueil() {
+	private void connecterAuServeur() {
 		J.appel(this);
 
-		ChargeurDeVue<VueAccueil> chargeur;
-		chargeur = new ChargeurDeVue<VueAccueil>(CHEMIN_PRINCIPAL_FXML,
-						                         CHEMIN_PRINCIPAL_CSS,
-						                         CHEMIN_CHAINES);
-
-		VueAccueil vue = chargeur.getVue();
+		URI uriServeur = null;
 		
-		DoitEtre.nonNul(vue);
+		try {
 
-		FabriqueControleur.creerControleur(ControleurAccueil.class, vue);
+			uriServeur = new URI(ADRESSE_SERVEUR);
 
-		Scene scene = chargeur.nouvelleScene(LARGEUR_PIXELS, HAUTEUR_PIXELS );
-		return scene;
+		} catch (URISyntaxException e) {
+			
+			Erreur.fatale("L'adresse du serveur est mal formée: " + ADRESSE_SERVEUR, e);
+		}
+
+		connecterAuServeur(uriServeur);
 	}
 
-	private void ajusterTailles(Stage fenetrePrincipale, Scene scene) {
+	private void connecterAuServeur(URI uriServeur) {
 		J.appel(this);
 
-		fenetrePrincipale.setMinWidth(LARGEUR_PIXELS_MIN);
-		fenetrePrincipale.setMinHeight(HAUTEUR_PIXELS_MIN);
+		MonClientWebSocket clientWebSocket = new MonClientWebSocket(uriServeur);
+		
+		Erreur.avertissement("Tentative de connexion au serveur... ");
+		
+		try {
 
-		fenetrePrincipale.setWidth(LARGEUR_PIXELS);
-		fenetrePrincipale.setHeight(HAUTEUR_PIXELS);
+			clientWebSocket.connectBlocking();
+
+		} catch (InterruptedException e) {
+			
+			Erreur.nonFatale("Tentative de connexion annulée", e);
+		}
 	}
 }

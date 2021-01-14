@@ -16,12 +16,11 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-package tut08.client;
+package tut07.client;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import ntro.debogage.DoitEtre;
@@ -31,10 +30,10 @@ import ntro.javafx.DialogueModal;
 import ntro.javafx.Initialisateur;
 import ntro.mvc.controleurs.FabriqueControleur;
 import ntro.systeme.Systeme;
-import tut08.pages.accueil.ControleurAccueil;
-import tut08.pages.accueil.VueAccueil;
+import tut07.pages.accueil.ControleurAccueil;
+import tut07.pages.accueil.VueAccueil;
 
-import static tut08.Constantes.*;
+import static tut07.Constantes.*;
 
 public class MonClient extends Application {
 	
@@ -53,7 +52,7 @@ public class MonClient extends Application {
 		J.appel(this);
 
 		DialogueModal.enregistreFenetrePrincipale(fenetrePrincipale);
-
+		
 		Scene scene = instancierControleurAccueil();
 
 		fenetrePrincipale.setScene(scene);
@@ -82,9 +81,7 @@ public class MonClient extends Application {
 		J.appel(this);
 
 		ChargeurDeVue<VueAccueil> chargeur;
-		chargeur = new ChargeurDeVue<VueAccueil>(CHEMIN_PRINCIPAL_FXML,
-						                         CHEMIN_PRINCIPAL_CSS,
-						                         CHEMIN_CHAINES);
+		chargeur = new ChargeurDeVue<VueAccueil>(CHEMIN_PRINCIPAL_FXML);
 
 		VueAccueil vue = chargeur.getVue();
 		
