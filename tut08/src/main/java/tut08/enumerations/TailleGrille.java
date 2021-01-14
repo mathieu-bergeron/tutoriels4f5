@@ -16,20 +16,33 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut08.enumerations;
 
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import static tut08.Constantes.*;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+import ntro.debogage.J;
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+public enum TailleGrille {
+	
+	PETITE(HAUTEUR_GRILLE_PETITE, LARGEUR_GRILLE_PETITE), 
+	MOYENNE(HAUTEUR_GRILLE_MOYENNE, LARGEUR_GRILLE_MOYENNE), 
+	GRANDE(HAUTEUR_GRILLE_GRANDE, LARGEUR_GRILLE_GRANDE);
+
+	private int hauteur;
+	private int largeur;
+	
+	private TailleGrille(int hauteur, int largeur) {
+		J.appel(this);
+
+		this.hauteur = hauteur;
+		this.largeur = largeur;
+	}
+	
+	public int getHauteur(){
+		return hauteur;
+	}
+
+	public int getLargeur(){
+		return largeur;
+	}
 }
-*/
-

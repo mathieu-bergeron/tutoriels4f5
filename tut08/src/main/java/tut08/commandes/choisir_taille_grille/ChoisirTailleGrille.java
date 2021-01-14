@@ -16,20 +16,30 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut08.commandes.choisir_taille_grille;
 
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut08.enumerations.TailleGrille;
+import ntro.commandes.Commande;
+import ntro.debogage.J;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class ChoisirTailleGrille extends Commande<ChoisirTailleGrillePourEnvoi, ChoisirTailleGrilleRecue> 
+						   implements ChoisirTailleGrillePourEnvoi, ChoisirTailleGrilleRecue {
+	
+	private TailleGrille tailleGrille;
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+	@Override
+	public TailleGrille getTailleGrille() {
+		J.appel(this);
+		
+		return tailleGrille;
+	}
+
+	@Override
+	public void setTailleGrille(TailleGrille taille) {
+		J.appel(this);
+		
+		this.tailleGrille = taille;
+	}
+	
+
 }
-*/
-

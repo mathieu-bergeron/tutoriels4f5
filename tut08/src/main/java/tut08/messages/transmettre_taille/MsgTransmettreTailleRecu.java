@@ -16,20 +16,13 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut08.messages.transmettre_taille;
 
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut08.enumerations.TailleGrille;
+import ntro.messages.MessageRecu;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public interface MsgTransmettreTailleRecu extends MessageRecu {
+	
+	TailleGrille getTailleGrille();
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
 }
-*/
-

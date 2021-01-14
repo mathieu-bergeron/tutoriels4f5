@@ -16,20 +16,13 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut08.commandes.choisir_qui_commence;
 
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut08.enumerations.Couleur;
+import ntro.commandes.CommandePourEnvoi;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public interface ChoisirQuiCommencePourEnvoi extends CommandePourEnvoi {
+	
+	void setCouleur(Couleur marque);
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
 }
-*/
-
