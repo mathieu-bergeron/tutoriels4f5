@@ -22,7 +22,7 @@
 
 <VBox xmlns:fx="http://javafx.com/fxml"
     fx:controller="tut08.pages.accueil.VueAccueil" styleClass="fenetrePrincipale">
-    <BorderPane VBox.vgrow="ALWAYS">
+    <BorderPane>
         <top>
             <MenuBar>
                 <menus>
@@ -39,7 +39,7 @@
         </top>
         <center>
         <HBox alignment="center">
-			<VBox fx:id="conteneurPartie" alignment="center" HBox.hgrow="ALWAYS"/>
+			<VBox fx:id="conteneurPartie" alignment="center"/>
 		</HBox>
         </center>
     </BorderPane>

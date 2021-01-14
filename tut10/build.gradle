@@ -47,6 +47,20 @@ task tut10ParametresEn (type:JavaExec) {
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
 }
 
+task tut10PartieLocale (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'tut10.pages.partie.PagePartieLocale'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+}
+
+task tut10PartieLocaleEn (type:JavaExec) {
+    dependsOn 'classes'
+    main = 'tut10.pages.partie.PagePartieLocale'
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=en')
+}
+
 task tut10Serveur (type:JavaExec) {
     dependsOn 'classes'
     main = 'tut10.serveur.MonServeur'

@@ -27,26 +27,26 @@
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" 
     fx:controller="tut08.pages.parametres.VueParametres">
 
-	<VBox styleClass="conteneurVertical" VBox.vgrow="ALWAYS">
+	<VBox styleClass="conteneurVertical">
 		<HBox alignment="center">
 			<Text styleClass="texteQuiCommence" textAlignment="CENTER" text="%quelleTaille"/>
 		</HBox>
-		<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+		<VBox styleClass="petitEspace"/>
 		<HBox alignment="center">
 	        <ComboBox fx:id="choixTaille"/>
 		</HBox>
 
-		<VBox styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
-		<VBox styleClass="grosEspace" VBox.vgrow="ALWAYS"/>
+		<VBox styleClass="grosEspace"/>
+		<VBox styleClass="grosEspace"/>
 
 		<HBox alignment="center">
 			<Text styleClass="texteQuiCommence" textAlignment="CENTER" text="%quiCommence"/>
 		</HBox>
-		<VBox styleClass="petitEspace" VBox.vgrow="ALWAYS"/>
+		<VBox styleClass="petitEspace"/>
 
-		<VBox styleClass="conteneurQuiCommence" VBox.vgrow="ALWAYS">
+		<VBox styleClass="conteneurQuiCommence">
 
-				<HBox styleClass="conteneurMarque" alignment="center" HBox.hgrow="ALWAYS">
+				<HBox styleClass="conteneurMarque" alignment="center">
 					<CaseAjustable 
 					    styleClass="marque" 
 					    fx:id="caseRouge" 
@@ -71,7 +71,7 @@
 		</VBox>
 	</VBox>
 
-	<HBox styleClass="grosEspace" VBox.vgrow="always"/>
+	<HBox styleClass="grosEspace"/>
 
 	<HBox styleClass="conteneurBouton" alignment="center">
 		<Button styleClass="bouton" text="%ok" fx:id="boutonOk"/>
