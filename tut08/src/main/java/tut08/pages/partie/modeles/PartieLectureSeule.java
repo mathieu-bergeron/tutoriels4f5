@@ -26,7 +26,4 @@ public interface PartieLectureSeule
 	 GrilleLectureSeule getGrille();
 	 int getLargeur();
 	 int getHauteur();
-
-	 JetonLectureSeule getDernierJetonAjoute();
-
 }

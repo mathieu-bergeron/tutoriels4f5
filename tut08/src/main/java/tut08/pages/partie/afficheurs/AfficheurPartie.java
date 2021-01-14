@@ -54,19 +54,6 @@ public abstract class   AfficheurPartie<PLS extends PartieLectureSeule,
 		int hauteurGrille = partieLectureSeule.getHauteur();
 		
 		rafraichirGrille(hauteurGrille, grille, vue);
-		
-        animerDernierJeton(partieLectureSeule, vue, hauteurGrille);
-	}
-
-	private void animerDernierJeton(PLS partieLectureSeule, V vue, int hauteurGrille) {
-		J.appel(this);
-
-		JetonLectureSeule dernierJeton = partieLectureSeule.getDernierJetonAjoute();
-        
-        if(dernierJeton != null) {
-            int indiceRangeeGraphiqueDernierJeton = convertirEnCoordonneesGraphiques(hauteurGrille, dernierJeton.getIndiceRangee());
-            vue.animerEntreeJeton(dernierJeton.getIndiceColonne(), indiceRangeeGraphiqueDernierJeton);
-        }
 	}
 
 	private void rafraichirGrille(int hauteurGrille, GrilleLectureSeule grille, V vue) {

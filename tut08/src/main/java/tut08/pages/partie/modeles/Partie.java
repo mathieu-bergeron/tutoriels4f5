@@ -34,8 +34,6 @@ public class      Partie<PLS extends PartieLectureSeule>
 	protected Couleur couleurCourante;
 
 	protected Grille grille;
-
-	private transient Jeton dernierJetonAjoute;
 	
 	@Override
 	public void apresCreation() {
@@ -73,7 +71,7 @@ public class      Partie<PLS extends PartieLectureSeule>
     public void effectuerCoup(int indiceColonne) {
         J.appel(this);
 
-        dernierJetonAjoute = grille.ajouterJeton(indiceColonne, couleurCourante);
+        grille.ajouterJeton(indiceColonne, couleurCourante);
         prochaineCouleur();
     }
 
@@ -133,13 +131,6 @@ public class      Partie<PLS extends PartieLectureSeule>
 	public void setGrille(Grille grille) {
 		J.appel(this);
 		this.grille = grille;
-	}
-
-	@Override
-	public JetonLectureSeule getDernierJetonAjoute() {
-		J.appel(this);
-
-		return dernierJetonAjoute;
 	}
 
 	public boolean siPossibleJouerIci(int indiceColonne) {
