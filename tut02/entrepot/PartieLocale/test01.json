@@ -1,0 +1,38 @@
+{
+  "hauteur": 6,
+  "couleurCourante": "JAUNE",
+  "grille": {
+    "colonnes": [
+      {
+        "jetons": [
+          {
+            "couleur": "ROUGE"
+          },
+          {
+            "couleur": "JAUNE"
+          }
+        ]
+      },
+      {
+        "jetons": []
+      },
+      {
+        "jetons": []
+      },
+      {
+        "jetons": [
+          {
+            "couleur": "ROUGE"
+          },
+          {
+            "couleur": "JAUNE"
+          }
+        ]
+      },
+      {
+        "jetons": []
+      }
+    ]
+  },
+  "id":"test01"
+}
