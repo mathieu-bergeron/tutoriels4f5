@@ -18,7 +18,10 @@
 
 package tut08.pages.partie.vues;
 
+import ntro.debogage.J;
+
 public class      VuePartieLocale 
-       extends    VuePartie { 
+       extends    VuePartie {
+
 
 }

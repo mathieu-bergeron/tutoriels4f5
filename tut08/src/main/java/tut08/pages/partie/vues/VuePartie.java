@@ -67,16 +67,15 @@ public abstract class VuePartie implements Vue, Initializable {
 		conteneurEntetes.installerCapteursJouerIci();
 	}
 
+	@Override
+	public void verifierCommandesPossibles() {
+		J.appel(this);
+	} 
+
 	public void afficherJeton(int indiceColonne, int indiceRangee, Couleur couleur) {
 		J.appel(this);
 		
 		conteneurGrille.afficherJeton(indiceColonne, indiceRangee, couleur);
 	}
 
-	@Override
-	public void verifierCommandesPossibles() {
-		J.appel(this);
-
-		conteneurEntetes.verifierCommandesPossibles();
-	}
 }
