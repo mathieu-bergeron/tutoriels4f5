@@ -38,8 +38,8 @@
             </MenuBar>
         </top>
         <center>
-        <HBox alignment="center">
-			<VBox fx:id="conteneurPartie" alignment="center"/>
+        <HBox>
+			<VBox fx:id="conteneurPartie"/>
 		</HBox>
         </center>
     </BorderPane>
