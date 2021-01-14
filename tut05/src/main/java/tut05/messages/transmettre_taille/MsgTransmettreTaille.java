@@ -16,23 +16,31 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut05.messages.transmettre_taille;
 
-include 'tut05'
-include 'tut06'
-include 'tut07'
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut05.enumerations.TailleGrille;
+import ntro.debogage.J;
+import ntro.messages.Message;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class MsgTransmettreTaille extends Message<MsgTransmettreTaillePourEnvoi, 
+                                             MsgTransmettreTailleRecu>
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+					         implements MsgTransmettreTaillePourEnvoi, 
+					                    MsgTransmettreTailleRecu {
+	
+	private TailleGrille tailleGrille;
+
+	@Override
+	public TailleGrille getTailleGrille() {
+		J.appel(this);
+
+		return tailleGrille;
+	}
+
+	@Override
+	public void setTailleGrille(TailleGrille tailleGrille) {
+		J.appel(this);
+		
+		this.tailleGrille = tailleGrille;
+	}
 }
-*/
-

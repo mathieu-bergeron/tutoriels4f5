@@ -16,9 +16,9 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-package tut06;
+package tut05;
 
-import tut06.enumerations.TailleGrille;
+import tut05.enumerations.TailleGrille;
 
 public class Constantes {
 	

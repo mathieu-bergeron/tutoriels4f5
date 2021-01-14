@@ -16,23 +16,17 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut05.pages.partie.controleurs;
 
-include 'tut05'
-include 'tut06'
-include 'tut07'
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut05.pages.partie.afficheurs.AfficheurPartieLocale;
+import tut05.pages.partie.modeles.PartieLocale;
+import tut05.pages.partie.modeles.PartieLocaleLectureSeule;
+import tut05.pages.partie.vues.VuePartieLocale;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
-
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+public class ControleurPartieLocale
+       extends ControleurPartie<PartieLocaleLectureSeule, 
+                                PartieLocale, 
+                                VuePartieLocale, 
+                                AfficheurPartieLocale> {
+	
 }
-*/
-
