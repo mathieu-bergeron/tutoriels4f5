@@ -19,6 +19,7 @@
 package tut07.pages.partie.vues;
 
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ResourceBundle;
 
 import ntro.commandes.FabriqueCommande;
@@ -77,7 +78,7 @@ public abstract class VuePartie implements Vue, Initializable {
         
         for(int indiceRangee = 0; indiceRangee < largeur; indiceRangee++) {
         	
-        	Button entete = new Button("↡");
+        	Button entete = new Button(new String("↡".getBytes(), StandardCharsets.UTF_8));
         	
         	entete.setMinWidth(Constantes.TAILLE_CASE);
         	entete.setMaxWidth(Constantes.TAILLE_CASE);
