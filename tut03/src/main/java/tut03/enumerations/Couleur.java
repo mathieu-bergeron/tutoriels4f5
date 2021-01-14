@@ -16,25 +16,13 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut03.enumerations;
 
-include 'tut03'
-include 'tut04'
-include 'tut05'
-include 'tut06'
-include 'tut07'
-include 'tut08'
-include 'tut09'
-include 'tut10'
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public enum Couleur {
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+    JAUNE,
+    ROUGE;
+
 }
-*/
 
