@@ -25,8 +25,8 @@
 <VBox xmlns:fx="http://javafx.com/fxml" 
       fx:controller="tut07.pages.partie.vues.VuePartieReseau">
     <VBox>
-        <ConteneurEntetes fx:id="conteneurEntetes"/>
-        <ConteneurGrille fx:id="conteneurGrille"/>
+        <HBox fx:id="conteneurEntetes"/>
+        <VBox fx:id="conteneurGrille"/>
     </VBox>
     <HBox>
             <Text fx:id="nomJoueurUn" text="Partie reseau"/>
