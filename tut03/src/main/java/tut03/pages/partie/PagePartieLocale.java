@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import ntro.debogage.J;
 import ntro.javafx.Initialisateur;
 import ntro.mvc.modeles.EntrepotDeModeles;
+import ntro.systeme.Systeme;
 import tut03.pages.partie.modeles.ColonneLectureSeule;
 import tut03.pages.partie.modeles.JetonLectureSeule;
 import tut03.pages.partie.modeles.PartieLocale;
@@ -68,5 +69,7 @@ public class PagePartieLocale extends Application {
 				J.valeurs(jeton.getIndiceColonne(), jeton.getIndiceRangee(), jeton.getCouleur().name());
 			}
 		}
+
+		Systeme.quitter();
 	}
 }

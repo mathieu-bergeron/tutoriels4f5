@@ -16,18 +16,13 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-package tut03.pages.parametres;
+package tut02.pages.parametres;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 import ntro.debogage.J;
 import ntro.javafx.Initialisateur;
-import ntro.mvc.modeles.EntrepotDeModeles;
 import ntro.systeme.Systeme;
-
-import static tut03.Constantes.*;
-
-import java.util.Random;
 
 public class PageParametres extends Application {
 
@@ -37,9 +32,7 @@ public class PageParametres extends Application {
 		
 		J.appel(PageParametres.class);
 	}
-	
-	private Random alea = new Random();
-	
+
 	public static void main(String[] args) {
 		J.appel(PageParametres.class);
 		launch(args);
@@ -49,11 +42,8 @@ public class PageParametres extends Application {
 	public void start(Stage fenetrePrincipale) throws Exception {
 		J.appel(this);
 		
-		String idModeleTest = IDS_MODELES_TESTS[alea.nextInt(IDS_MODELES_TESTS.length)];
-		Parametres parametres = EntrepotDeModeles.obtenirModele(Parametres.class, idModeleTest);
+		J.ici();
 		
-		J.valeurs(parametres.getId(), parametres.getQuiCommence().name(), parametres.getTailleGrille());
-
 		Systeme.quitter();
 	}
 }
