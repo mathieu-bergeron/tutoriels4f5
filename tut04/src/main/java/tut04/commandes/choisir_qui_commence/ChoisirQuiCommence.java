@@ -16,24 +16,29 @@
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
 
-rootProject.name = 'tutoriels4f5'
+package tut04.commandes.choisir_qui_commence;
 
-include 'tut04'
-include 'tut05'
-include 'tut06'
-include 'tut07'
-include 'tut08'
-include 'tut09'
-include 'tut10'
+import tut04.enumerations.Couleur;
+import ntro.commandes.Commande;
+import ntro.debogage.J;
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
+public class ChoisirQuiCommence extends Commande<ChoisirQuiCommencePourEnvoi, ChoisirQuiCommenceRecue> 
+						   implements ChoisirQuiCommencePourEnvoi, ChoisirQuiCommenceRecue {
+	
+	private Couleur couleur;
 
-/*
-sourceControl {
-    gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
-        producesModule("ca.ntro4f5:ntro")
-    }
+	@Override
+	public Couleur getCouleur() {
+		J.appel(this);
+		
+		return couleur;
+	}
+
+	@Override
+	public void setCouleur(Couleur marque) {
+		J.appel(this);
+		
+		this.couleur = marque;
+	}
+
 }
-*/
-

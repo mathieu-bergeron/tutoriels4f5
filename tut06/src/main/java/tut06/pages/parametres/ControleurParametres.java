@@ -30,12 +30,6 @@ import tut06.commandes.choisir_taille_grille.ChoisirTailleGrille;
 import tut06.commandes.choisir_taille_grille.ChoisirTailleGrilleRecue;
 import tut06.enumerations.Couleur;
 import tut06.enumerations.TailleGrille;
-import tut06.messages.transmettre_qui_commence.MsgTransmettreQuiCommence;
-import tut06.messages.transmettre_qui_commence.MsgTransmettreQuiCommencePourEnvoi;
-import tut06.messages.transmettre_qui_commence.MsgTransmettreQuiCommenceRecu;
-import tut06.messages.transmettre_taille.MsgTransmettreTaille;
-import tut06.messages.transmettre_taille.MsgTransmettreTaillePourEnvoi;
-import tut06.messages.transmettre_taille.MsgTransmettreTailleRecu;
 
 public class   ControleurParametres 
        extends ControleurModeleVue<ParametresLectureSeule, 
@@ -43,9 +37,6 @@ public class   ControleurParametres
                                    VueParametres,
                                    AfficheurParametres> {
 	
-	private MsgTransmettreQuiCommencePourEnvoi msgTransmettreQuiCommence;
-	private MsgTransmettreTaillePourEnvoi msgTransmettreTaille;
-
 	@Override
 	protected void installerReceptionCommandes() {
 		J.appel(this);
@@ -60,9 +51,6 @@ public class   ControleurParametres
 				DoitEtre.nonNul(quiCommence);
 
 				getModele().choisirQuiCommence(quiCommence);
-				
-				msgTransmettreQuiCommence.setQuiCommence(quiCommence);
-				msgTransmettreQuiCommence.envoyerMessage();
 			}
 		});
 		
@@ -76,9 +64,6 @@ public class   ControleurParametres
 				DoitEtre.nonNul(tailleGrille);
 				
 				getModele().choisirTailleGrille(tailleGrille);
-
-				msgTransmettreTaille.setTailleGrille(tailleGrille);
-				msgTransmettreTaille.envoyerMessage();
 			}
 		});
 	}
@@ -91,40 +76,10 @@ public class   ControleurParametres
 	@Override
 	protected void obtenirMessagesPourEnvoi() {
 		J.appel(this);
-		
-		msgTransmettreQuiCommence = FabriqueMessage.obtenirMessagePourEnvoi(MsgTransmettreQuiCommence.class);
-		msgTransmettreTaille = FabriqueMessage.obtenirMessagePourEnvoi(MsgTransmettreTaille.class);
 	}
 
 	@Override
 	protected void installerReceptionMessages() {
 		J.appel(this);
-		
-		installerRecepteurMessage(MsgTransmettreQuiCommence.class, new RecepteurMessageMVC<MsgTransmettreQuiCommenceRecu>() {
-
-			@Override
-			public void recevoirMessageMVC(MsgTransmettreQuiCommenceRecu messageRecu) {
-				J.appel(this);
-				
-				Couleur quiCommence = messageRecu.getQuiCommence();
-				
-				DoitEtre.nonNul(quiCommence);
-				
-				getModele().choisirQuiCommence(quiCommence);
-			}
-		});
-		
-		installerRecepteurMessage(MsgTransmettreTaille.class, new RecepteurMessageMVC<MsgTransmettreTailleRecu>() {
-			@Override
-			public void recevoirMessageMVC(MsgTransmettreTailleRecu messageRecu) {
-				J.appel(this);
-				
-				TailleGrille tailleGrille = messageRecu.getTailleGrille();
-				
-				DoitEtre.nonNul(tailleGrille);
-				
-				getModele().choisirTailleGrille(tailleGrille);
-			}
-		});
 	}
 }
