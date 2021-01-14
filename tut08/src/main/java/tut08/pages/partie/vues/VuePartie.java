@@ -79,10 +79,4 @@ public abstract class VuePartie implements Vue, Initializable {
 
 		conteneurEntetes.verifierCommandesPossibles();
 	}
-
-	public void animerEntreeJeton(int indiceColonne, int indiceRangee) {
-		J.appel(this);
-		
-		conteneurGrille.animerEntreeJeton(indiceColonne, indiceRangee);
-	}
 }

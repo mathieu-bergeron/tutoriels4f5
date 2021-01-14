@@ -86,14 +86,4 @@ public class ConteneurGrille extends VBox {
 
         return (ConteneurLigne) this.getChildren().get(indiceRangee);
     }
-
-    public void animerEntreeJeton(int indiceColonne, int indiceRangee) {
-        J.appel(this);
-
-        if(siIndiceRangeeValide(indiceRangee)) {
-            
-            ConteneurLigne ligne = getConteneurLigne(indiceRangee);
-            ligne.animerEntreeJeton(indiceColonne);
-        }
-    }
 }
