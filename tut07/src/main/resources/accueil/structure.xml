@@ -21,17 +21,17 @@
 <?import javafx.scene.text.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="tut07.pages.accueil.VueAccueil" styleClass="fenetrePrincipale">
+    fx:controller="tut07.pages.accueil.VueAccueil">
     <BorderPane>
         <top>
             <MenuBar>
                 <menus>
                 <Menu styleClass="menu" text="Partie locale">
                     <items>
-                    <MenuItem fx:id="menuNouvellePartieLocale" styleClass="menu_item" text="Nouvelle partie"/>
+                    <MenuItem fx:id="menuNouvellePartieLocale" text="Nouvelle partie"/>
                     <SeparatorMenuItem/>
-                    <MenuItem fx:id="menuParametres" styleClass="menu_item" text="Parametres"/>
-                    <MenuItem fx:id="menuQuitter" styleClass="menu_item" text="Quitter"/>
+                    <MenuItem fx:id="menuParametres" text="Parametres"/>
+                    <MenuItem fx:id="menuQuitter" text="Quitter"/>
                     </items>
                 </Menu>
             </menus>

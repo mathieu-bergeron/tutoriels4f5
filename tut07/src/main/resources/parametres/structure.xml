@@ -24,31 +24,30 @@
 <?import javafx.scene.control.ComboBox?>
 <?import tut07.pages.partie.composants.CaseAjustable?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" alignment="center" styleClass="conteneurPrincipal" 
+<VBox xmlns:fx="http://javafx.com/fxml" alignment="center"
     fx:controller="tut07.pages.parametres.VueParametres">
 
 	<VBox styleClass="conteneurVertical">
 		<HBox alignment="center">
-			<Text styleClass="texteQuiCommence" textAlignment="CENTER" text="Taille de la grille?"/>
+			<Text textAlignment="CENTER" text="Taille de la grille?"/>
 		</HBox>
 		<VBox styleClass="petitEspace"/>
 		<HBox alignment="center">
 	        <ComboBox fx:id="choixTaille"/>
 		</HBox>
 
-		<VBox styleClass="grosEspace"/>
-		<VBox styleClass="grosEspace"/>
+		<VBox/>
+		<VBox/>
 
 		<HBox alignment="center">
-			<Text styleClass="texteQuiCommence" textAlignment="CENTER" text="Qui commence?"/>
+			<Text textAlignment="CENTER" text="Qui commence?"/>
 		</HBox>
-		<VBox styleClass="petitEspace"/>
 
-		<VBox styleClass="conteneurQuiCommence">
+		<VBox/>
 
+		<VBox>
 				<HBox styleClass="conteneurMarque" alignment="center">
 					<CaseAjustable 
-					    styleClass="marque" 
 					    fx:id="caseRouge" 
         	            couleurRouge="#fd5435"
         	            couleurJaune="#fccd0e"/>
@@ -60,7 +59,6 @@
 
 				<HBox styleClass="conteneurMarque" alignment="center">
 					<CaseAjustable 
-					    styleClass="marque" 
 					    fx:id="caseJaune" 
         	            couleurRouge="#fd5435"
         	            couleurJaune="#fccd0e"/>
@@ -71,10 +69,10 @@
 		</VBox>
 	</VBox>
 
-	<HBox styleClass="grosEspace"/>
+	<HBox/>
 
-	<HBox styleClass="conteneurBouton" alignment="center">
-		<Button styleClass="bouton" text="C'est bon!" fx:id="boutonOk"/>
+	<HBox alignment="center">
+		<Button text="C'est bon!" fx:id="boutonOk"/>
 	</HBox>
 
 </VBox>

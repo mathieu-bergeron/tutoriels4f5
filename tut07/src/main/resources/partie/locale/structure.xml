@@ -25,20 +25,17 @@
 <?import tut07.pages.partie.composants.ConteneurGrille?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
-      styleClass="conteneurPrincipal" 
       fx:controller="tut07.pages.partie.vues.VuePartieLocale">
-    <VBox styleClass="conteneurTableJeu">
+    <VBox>
         <ConteneurEntetes fx:id="conteneurEntetes" 
-                          styleClass="conteneurBoutons" 
                           texteBouton="↡"/>
         <VBox styleClass="petitEspace"/>
         <ConteneurGrille fx:id="conteneurGrille" 
-        			 	 styleClass="conteneurGrille" 
         	             couleurRouge="#fd5435"
         	             couleurJaune="#fccd0e"/>
     </VBox>
-    <VBox styleClass="petitEspaceVertical"/>
-    <HBox styleClass="conteneurNomsJoueurs">
-            <Text fx:id="nomJoueurUn" styleClass="nomJoueur" text="Partie locale"/>
+    <VBox/>
+    <HBox>
+            <Text fx:id="nomJoueurUn" text="Partie locale"/>
     </HBox>
 </VBox>
