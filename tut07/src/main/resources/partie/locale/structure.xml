@@ -27,12 +27,9 @@
 <VBox xmlns:fx="http://javafx.com/fxml" 
       fx:controller="tut07.pages.partie.vues.VuePartieLocale">
     <VBox>
-        <ConteneurEntetes fx:id="conteneurEntetes" 
-                          texteBouton="↡"/>
-        <VBox styleClass="petitEspace"/>
-        <ConteneurGrille fx:id="conteneurGrille" 
-        	             couleurRouge="#fd5435"
-        	             couleurJaune="#fccd0e"/>
+        <HBox fx:id="conteneurEntetes"/>
+        <VBox/>
+        <VBox fx:id="conteneurGrille"/>
     </VBox>
     <VBox/>
     <HBox>

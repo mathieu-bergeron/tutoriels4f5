@@ -24,7 +24,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
 import tut07.commandes.jouer_ici.JouerIci;
 import tut07.commandes.jouer_ici.JouerIciPourEnvoi;
 
