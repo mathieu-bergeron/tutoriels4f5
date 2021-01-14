@@ -3,7 +3,7 @@
 build
 bin
 *.jar
-!gradle-wrapper.jar # exception
+!gradle-wrapper.jar
 
 # vim
 *.swp
@@ -22,4 +22,5 @@ bin
 *.iml
 
 # EntrepotDeModeles
-entrepot
+*.json
+!test*.json
