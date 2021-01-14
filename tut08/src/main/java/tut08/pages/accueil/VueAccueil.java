@@ -135,24 +135,6 @@ public class VueAccueil implements Vue, Initializable {
 		return vuePartieLocale;
 	}
 
-	public VuePartieReseau creerVuePartieReseau() {
-		J.appel(this);
-
-		ChargeurDeVue<VuePartieReseau> chargeur;
-		chargeur = new ChargeurDeVue<VuePartieReseau>(CHEMIN_PARTIE_RESEAU_FXML,
-				                              		  CHEMIN_PARTIE_RESEAU_CSS,
-						                              CHEMIN_CHAINES);
-		
-		VuePartieReseau vuePartieReseau = chargeur.getVue();
-		
-		Parent parent = chargeur.getParent();
-		
-		conteneurPartie.getChildren().clear();
-		conteneurPartie.getChildren().add(parent);
-		
-		return vuePartieReseau;
-	}
-
 	public void alerterErreurConnexion() {
 		J.appel(this);
 
