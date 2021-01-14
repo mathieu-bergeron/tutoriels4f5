@@ -19,16 +19,16 @@ plugins {
     id 'local-4f5-plugin'
 }
 
-task tut01PartieLocale (type:JavaExec) {
+task tut02PartieLocale (type:JavaExec) {
     dependsOn 'classes'
-    main = 'tut01.pages.partie.PagePartieLocale'
+    main = 'tut02.pages.partie.PagePartieLocale'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }
 
-task tut01Parametres (type:JavaExec) {
+task tut02Parametres (type:JavaExec) {
     dependsOn 'classes'
-    main = 'tut01.pages.parametres.PageParametres'
+    main = 'tut02.pages.parametres.PageParametres'
     classpath = sourceSets.main.runtimeClasspath
     jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
 }

@@ -15,20 +15,35 @@
 // You should have received a copy of the GNU Affero General Public License
 // along with aquiletour.  If not, see <https://www.gnu.org/licenses/>
 
-plugins {
-    id 'local-4f5-plugin'
-}
 
-task tut01PartieLocale (type:JavaExec) {
-    dependsOn 'classes'
-    main = 'tut01.pages.partie.PagePartieLocale'
-    classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
-}
+package tut01.pages.parametres;
 
-task tut01Parametres (type:JavaExec) {
-    dependsOn 'classes'
-    main = 'tut01.pages.parametres.PageParametres'
-    classpath = sourceSets.main.runtimeClasspath
-    jvmArgs('-Dfile.encoding=UTF-8', '-Duser.language=fr')
+import javafx.application.Application;
+import javafx.stage.Stage;
+import ntro.debogage.J;
+import ntro.javafx.Initialisateur;
+import ntro.systeme.Systeme;
+
+public class PageParametres extends Application {
+
+	static {
+
+		Initialisateur.initialiser();
+		
+		J.appel(PageParametres.class);
+	}
+
+	public static void main(String[] args) {
+		J.appel(PageParametres.class);
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage fenetrePrincipale) throws Exception {
+		J.appel(this);
+		
+		J.ici();
+		
+		Systeme.quitter();
+	}
 }

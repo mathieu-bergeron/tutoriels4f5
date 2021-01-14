@@ -18,6 +18,7 @@
 
 rootProject.name = 'tutoriels4f5'
 
+include 'tut01'
 include 'tut02'
 include 'tut03'
 include 'tut04'
