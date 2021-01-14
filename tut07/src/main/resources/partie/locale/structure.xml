@@ -21,17 +21,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<?import tut07.pages.partie.composants.ConteneurEntetes?>
-<?import tut07.pages.partie.composants.ConteneurGrille?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
       fx:controller="tut07.pages.partie.vues.VuePartieLocale">
     <VBox>
         <HBox fx:id="conteneurEntetes"/>
-        <VBox/>
         <VBox fx:id="conteneurGrille"/>
     </VBox>
-    <VBox/>
     <HBox>
             <Text fx:id="nomJoueurUn" text="Partie locale"/>
     </HBox>

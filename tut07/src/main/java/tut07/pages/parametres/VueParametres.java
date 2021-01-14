@@ -35,7 +35,6 @@ import tut07.commandes.fermer_parametres.FermerParametres;
 import tut07.commandes.fermer_parametres.FermerParametresPourEnvoi;
 import tut07.enumerations.Couleur;
 import tut07.enumerations.TailleGrille;
-import tut07.pages.partie.composants.CaseAjustable;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -43,6 +42,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.paint.Color;
 
 public class VueParametres implements Vue, Initializable {
 	
@@ -51,7 +53,7 @@ public class VueParametres implements Vue, Initializable {
 	private ChoisirTailleGrillePourEnvoi choisirTailleGrille;
 
 	@FXML 
-	private CaseAjustable caseRouge, caseJaune;
+	private Button caseRouge, caseJaune;
 	
 	@FXML
 	private CheckBox checkRouge, checkJaune;
@@ -76,8 +78,8 @@ public class VueParametres implements Vue, Initializable {
 		DoitEtre.nonNul(boutonOk);
 		DoitEtre.nonNul(choixTaille);
 
-		caseRouge.afficherJeton(Couleur.ROUGE);
-		caseJaune.afficherJeton(Couleur.JAUNE);
+		caseRouge.setBackground(new Background(new BackgroundFill(Color.RED, null, null)));
+		caseJaune.setBackground(new Background(new BackgroundFill(Color.YELLOW, null, null)));
 		
 		initialiserChoixTaille(resources);
 	}

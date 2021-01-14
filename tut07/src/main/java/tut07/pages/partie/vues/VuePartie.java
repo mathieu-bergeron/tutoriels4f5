@@ -29,8 +29,6 @@ import tut07.Constantes;
 import tut07.commandes.jouer_ici.JouerIci;
 import tut07.commandes.jouer_ici.JouerIciPourEnvoi;
 import tut07.enumerations.Couleur;
-import tut07.pages.partie.composants.ConteneurEntetes;
-import tut07.pages.partie.composants.ConteneurGrille;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;

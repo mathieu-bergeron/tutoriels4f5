@@ -21,20 +21,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
-<?import tut07.pages.partie.composants.ConteneurEntetes?>
-<?import tut07.pages.partie.composants.ConteneurGrille?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
       fx:controller="tut07.pages.partie.vues.VuePartieReseau">
     <VBox>
-        <ConteneurEntetes fx:id="conteneurEntetes" 
-                          texteBouton="↡"/>
-        <VBox/>
-        <ConteneurGrille fx:id="conteneurGrille" 
-        	             couleurRouge="#fd5435"
-        	             couleurJaune="#fccd0e"/>
+        <ConteneurEntetes fx:id="conteneurEntetes"/>
+        <ConteneurGrille fx:id="conteneurGrille"/>
     </VBox>
-    <VBox/>
     <HBox>
             <Text fx:id="nomJoueurUn" text="Partie reseau"/>
     </HBox>

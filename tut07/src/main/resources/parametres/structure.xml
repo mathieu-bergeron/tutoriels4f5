@@ -22,54 +22,35 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
-<?import tut07.pages.partie.composants.CaseAjustable?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center"
     fx:controller="tut07.pages.parametres.VueParametres">
 
-	<VBox styleClass="conteneurVertical">
+	<VBox>
 		<HBox alignment="center">
 			<Text textAlignment="CENTER" text="Taille de la grille?"/>
 		</HBox>
-		<VBox styleClass="petitEspace"/>
 		<HBox alignment="center">
 	        <ComboBox fx:id="choixTaille"/>
 		</HBox>
-
-		<VBox/>
-		<VBox/>
 
 		<HBox alignment="center">
 			<Text textAlignment="CENTER" text="Qui commence?"/>
 		</HBox>
 
-		<VBox/>
-
 		<VBox>
-				<HBox styleClass="conteneurMarque" alignment="center">
-					<CaseAjustable 
-					    fx:id="caseRouge" 
-        	            couleurRouge="#fd5435"
-        	            couleurJaune="#fccd0e"/>
-					<HBox styleClass="petitEspace"/>
+				<HBox alignment="center">
+					<Button fx:id="caseRouge"/>
 					<CheckBox fx:id="checkRouge"/>
 				</HBox>
 
-				<VBox styleClass="petitEspace"/>
-
-				<HBox styleClass="conteneurMarque" alignment="center">
-					<CaseAjustable 
-					    fx:id="caseJaune" 
-        	            couleurRouge="#fd5435"
-        	            couleurJaune="#fccd0e"/>
-					<VBox styleClass="petitEspace"/>
+				<HBox alignment="center">
+					<Button fx:id="caseJaune"/>
 					<CheckBox fx:id="checkJaune"/>
 				</HBox>
 
 		</VBox>
 	</VBox>
-
-	<HBox/>
 
 	<HBox alignment="center">
 		<Button text="C'est bon!" fx:id="boutonOk"/>
