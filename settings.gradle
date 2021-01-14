@@ -29,14 +29,10 @@ include 'tut08'
 include 'tut09'
 include 'tut10'
 
-include ':ntro'
-project(':ntro').projectDir = file('../ntro4f5/ntro')
 
-/*
+// Tirée la librairie Ntro de GitHub
 sourceControl {
     gitRepository("https://github.com/mathieu-bergeron/ntro4f5.git") {
         producesModule("ca.ntro4f5:ntro")
     }
 }
-*/
-
