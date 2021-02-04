@@ -96,6 +96,36 @@ Ajout des messages, p.ex. `messages/transmettre_coup`
 * Comme pour les commandes, on obtien un message via la `FabriqueMessage`
     * p.ex. `ControleurParametres.java` ligne 64
 
+## De `tut07` à `tut08`
+
+Ajout de CSS, p.ex. `resources/accueil/style.css`
+
+Ajout de composant (contrôle) personalisé, p.ex.
+
+* `partie/composants/CaseAjustable.java`
+* L'idée et de facilité un affichage dynamique (p.ex. la taille de la grille peut varier).
+
+
+## De `tut08` à `tut09`
+
+Affichage ajustable (quand la taille de la fenêtre change).
+
+La notion clé est le `HBox.hgrow` et `VBox.vgrow` (p.ex. dans `structure.xml`) qui indique que la boîte peut grandir pour occuper plus d'espace.
+
+Ajout des traductions dans `resources/traductions/chaine{_en}.properties`
+
+
+## De `tut09` à `tut10`
+
+Ajout de la partie réseau dans le menu.
+
+Ajout d'un message `nouvelle_partie_reseau`
+
+
+    
+
+
+
 
     
 
