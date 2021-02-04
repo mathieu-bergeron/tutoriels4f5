@@ -5,7 +5,7 @@
         $ meld tut02 tut03
 
     * NOTE: 
-        * version [MacOS](mel://github.com/yousseb/meld/releases/) de meld
+        * version [MacOS](https://github.com/yousseb/meld/releases/) de meld
         * il y sûrement d'autres outils pour Mac qui font pareil (?)
 
 
