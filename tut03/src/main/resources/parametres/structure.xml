@@ -24,7 +24,7 @@
 <?import javafx.scene.control.ComboBox?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" alignment="center"
-    fx:controller="tut03.pages.parametres.VueParametres">
+    fx:controller="tutoriel.pages.parametres.VueParametres">
 
 	<VBox>
 		<HBox alignment="center">

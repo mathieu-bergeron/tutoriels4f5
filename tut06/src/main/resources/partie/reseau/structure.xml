@@ -23,7 +23,7 @@
 <?import javafx.scene.text.Text?>
 
 <VBox xmlns:fx="http://javafx.com/fxml" 
-      fx:controller="tut06.pages.partie.vues.VuePartieReseau">
+      fx:controller="tutoriel.pages.partie.vues.VuePartieReseau">
     <VBox>
         <HBox fx:id="conteneurEntetes"/>
         <VBox fx:id="conteneurGrille"/>

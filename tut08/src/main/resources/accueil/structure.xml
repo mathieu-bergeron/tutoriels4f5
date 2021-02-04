@@ -21,7 +21,7 @@
 <?import javafx.scene.text.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-    fx:controller="tut08.pages.accueil.VueAccueil" styleClass="fenetrePrincipale">
+    fx:controller="tutoriel.pages.accueil.VueAccueil" styleClass="fenetrePrincipale">
     <BorderPane>
         <top>
             <MenuBar>
