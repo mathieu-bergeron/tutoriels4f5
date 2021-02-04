@@ -10,9 +10,32 @@
 
 ## De `tut01` à `tut02`
 
-1. Pas de changements
+Pas de changements
 
 ## De `tut02` à `tut03`
+
+Ajout des modèles:
+
+* paquet `enumerations`
+* pour la page paramètre:
+    * `Parametres.java`
+    * `ParametresLectureSeule.java`
+* pour la page partie:
+    * paquet `pages.partie.modeles`, p.ex.
+        * `Jeton.java`
+        * `JetonLectureSeule.java`
+
+Note:
+
+* chaque modèle a une version `LectureSeule` qui
+  permet seulement les accesseurs (*getters*)
+* la méthodologie force les étudiants à utiliser 
+  la version `LectureSeule` pour l'affichage
+    * pour clarifier que lors de l'affichage, ce
+    n'est pas le temps de modifier le modèle
+  
+
+
 
 
 
